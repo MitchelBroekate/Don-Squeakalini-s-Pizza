@@ -7,7 +7,6 @@ public class PizzariaController : MonoBehaviour
     #region Variables
     [Header("Config Movement Variables")]
     [SerializeField] float moveSpeed;
-    [SerializeField] float sprintSpeed;
 
     [Header("Config Camera Variables")]
     public float mouseDPI;
@@ -19,7 +18,6 @@ public class PizzariaController : MonoBehaviour
     float xRotation = 0f;
     Vector2 _moveDirection;
     Rigidbody _rb;
-    bool _isSprinting;
     bool _playerLock;
     #endregion 
     
@@ -33,8 +31,6 @@ public class PizzariaController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        sprintSpeed = 1f;
     }
 
     /// <summary>
@@ -58,7 +54,7 @@ public class PizzariaController : MonoBehaviour
     /// </summary>
     void Walk()
     {
-        Vector3 playerV = new Vector3(_moveDirection.x * moveSpeed * sprintSpeed, _rb.velocity.y, _moveDirection.y * moveSpeed * sprintSpeed);
+        Vector3 playerV = new Vector3(_moveDirection.x * moveSpeed, _rb.velocity.y, _moveDirection.y * moveSpeed);
         _rb.velocity = transform.TransformDirection(playerV);
     } 
 
