@@ -1,12 +1,22 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] LayerMask layerMask;
     [SerializeField] int rayDistance;
+
+    [SerializeField] GameObject textPopUp;
+    
     RaycastHit hit;
 
-    void Update()
+    void Start()
+    {
+        //deactivate txt incase active
+        textPopUp.SetActive(false);
+    }
+
+    void FixedUpdate()
     {
         Interaction();
     }
@@ -16,6 +26,7 @@ public class PlayerInteraction : MonoBehaviour
         if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, layerMask))
         {
             //activate txt
+            textPopUp.SetActive(true);
 
             if(Input.GetButtonDown("Fire1"))
             {
@@ -25,6 +36,7 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             //deactivate txt
+            textPopUp.SetActive(false);
         }
     }
 }
