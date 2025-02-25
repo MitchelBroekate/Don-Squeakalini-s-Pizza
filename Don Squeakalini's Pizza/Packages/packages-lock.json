@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.blendernodesgraph.core": {
-      "version": "file:C:/Users/luukb/Downloads/blender-nodes-subgraph-main/blender-nodes-subgraph-main",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.burst": {
       "version": "1.8.17",
       "depth": 1,
