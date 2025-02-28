@@ -68,7 +68,7 @@ public class CustomerWalkBehavior : MonoBehaviour
             rb.velocity = transform.forward * movementSpeed * Time.deltaTime;   
         }
 
-        if(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(checkpoints[currentCheckpoint].position.x, checkpoints[currentCheckpoint].position.z)) < 1)
+        if(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(checkpoints[currentCheckpoint].position.x, checkpoints[currentCheckpoint].position.z)) < 0.5f)
         {
             switch(currentCheckpoint)
             {
@@ -78,14 +78,16 @@ public class CustomerWalkBehavior : MonoBehaviour
                 case 1:
                     customerWait = true;
                     rb.velocity = Vector3.zero;
+                    rb.isKinematic = true;
+                    gameObject.layer = LayerMask.NameToLayer("Interactable");
 
-                    StartCoroutine(customerInteraction.ImageFade());
                     break;
                 case 2:
-                    //walk to waiting area
+                    currentCheckpoint++;
+                    customerWait = false;
                     break;
                 case 3:
-                    //walk away
+                    Destroy(gameObject);
                     break;
                 default:
                     Debug.LogWarning("Int out of switch bounds (CustomerBehavior/GoToCheckpoint)");

@@ -12,7 +12,7 @@ public class CustomerManager : MonoBehaviour
     public void CustomerSpawner()
     {
         int customerToSpawn = Random.Range(0, mousePrefabs.Length);
-        int randomSpawn = Random.Range(0,spawnpoints.childCount);
+        int randomSpawn = Random.Range(0, spawnpoints.childCount);
 
         while (customerToSpawn == _previousCustomer)
         {
@@ -26,8 +26,12 @@ public class CustomerManager : MonoBehaviour
 
     }
 
+    //Wave system
+    
 
     //amount of indgredient
 
     //Random indgredient selector 
+
+    
 }

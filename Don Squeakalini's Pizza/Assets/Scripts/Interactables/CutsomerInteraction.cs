@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class CustomerInteraction : MonoBehaviour
@@ -9,6 +10,8 @@ public class CustomerInteraction : MonoBehaviour
     List<GameObject> foodIcons = new();
 
     CanvasGroup canvasAlpha;
+
+    bool alphaIncrease = false;
 
     void Start()
     {
@@ -20,23 +23,34 @@ public class CustomerInteraction : MonoBehaviour
         }
     }
 
-    public IEnumerator ImageFade()
+    void Update()
+    {
+        if(alphaIncrease)
+        {
+            if(canvasAlpha.alpha < 1)
+            {
+                canvasAlpha.alpha += 0.3f * Time.deltaTime;
+            }
+        }
+    }
+
+    public void StartFade()
+    {
+        StartCoroutine(ImageFade());
+    }
+
+    IEnumerator ImageFade()
     {
         int imageCount = 0;
 
         foreach(GameObject foodImage in foodIcons)
         {
-            bool alphaIncrease = true;
+            alphaIncrease = true;
 
             SpriteRenderer currentSprite = foodIcons[imageCount].GetComponent<SpriteRenderer>();
             canvasAlpha = foodIcons[imageCount].GetComponent<CanvasGroup>();
 
             currentSprite.enabled = true;
-
-            while(alphaIncrease)
-            {
-                //canvasAlpha.alpha += 0.3 * Time.deltaTime;
-            }
 
             yield return new WaitForSeconds(0.9f);
 
@@ -45,6 +59,7 @@ public class CustomerInteraction : MonoBehaviour
             imageCount++;
         }
         
+        StopCoroutine(ImageFade());
 
     }
 
