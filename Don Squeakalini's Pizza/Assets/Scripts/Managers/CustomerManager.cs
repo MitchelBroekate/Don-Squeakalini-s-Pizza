@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
@@ -6,8 +8,19 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] GameObject[] mousePrefabs;
     [SerializeField] Transform spawnpoints;
     [SerializeField] Transform customerParent;
-    
+
+    ObjectiveManager objectiveManager;
     int _previousCustomer;
+
+    int ingredientAmount;
+
+    public List<IngredientSO> ingredientsToAdd;
+    
+
+    void Start()
+    {
+        objectiveManager = GetComponent<ObjectiveManager>();
+    }
 
     public void CustomerSpawner()
     {
@@ -19,19 +32,41 @@ public class CustomerManager : MonoBehaviour
             customerToSpawn = Random.Range(0, mousePrefabs.Length);
         }
 
-        _previousCustomer = customerToSpawn;
+        _previousCustomer = customerToSpawn;    
 
         GameObject customer = Instantiate(mousePrefabs[customerToSpawn], spawnpoints.GetChild(randomSpawn).transform.position, Quaternion.identity);
         customer.transform.parent = customerParent;
 
     }
 
-    //Wave system
-    
-
     //amount of indgredient
+    void IngredientPicker()
+    {
+        if(objectiveManager.introCompleet)
+        {
+            ingredientAmount = Random.Range(0, objectiveManager.ingredients.Count);
 
-    //Random indgredient selector 
+            for(int i = 0; i < ingredientAmount; i++)
+            {
+                IngredientSO scriptableObject = objectiveManager.ingredients[Random.Range(0, objectiveManager.ingredients.Count)];
+
+                while(ingredientsToAdd.Contains(scriptableObject))
+                {
+                    scriptableObject = objectiveManager.ingredients[Random.Range(0, objectiveManager.ingredients.Count)];
+                }
+
+                ingredientsToAdd.Add(scriptableObject);
+            }
+        }
+        else
+        {
+            ingredientAmount = 2;
+
+            ingredientsToAdd.Add(objectiveManager.ingredients[0]);
+            ingredientsToAdd.Add(objectiveManager.ingredients[1]);
+
+        }
+    }
 
     
 }

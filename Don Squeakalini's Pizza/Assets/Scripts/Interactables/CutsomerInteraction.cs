@@ -13,13 +13,23 @@ public class CustomerInteraction : MonoBehaviour
 
     bool alphaIncrease = false;
 
+    List<IngredientSO> ingredients = new();
+
+    CustomerManager customerManager;
+
     void Start()
     {
         canvas = transform.GetChild(0).transform;
+        customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
 
         for(int i = 0; i < canvas.childCount; i++)
         {
             foodIcons.Add(canvas.GetChild(i).gameObject);
+        }
+
+        for(int i = 0; i < customerManager.ingredientsToAdd.Count; i++)
+        {
+            ingredients.Add(customerManager.ingredientsToAdd[i]);
         }
     }
 
@@ -50,12 +60,17 @@ public class CustomerInteraction : MonoBehaviour
             SpriteRenderer currentSprite = foodIcons[imageCount].GetComponent<SpriteRenderer>();
             canvasAlpha = foodIcons[imageCount].GetComponent<CanvasGroup>();
 
+            if(ingredients[imageCount] != null)
+            {
+                currentSprite.sprite = ingredients[imageCount].ingredientSprite;
+            }
+
             currentSprite.enabled = true;
 
             yield return new WaitForSeconds(0.9f);
 
             alphaIncrease = false;
-
+   
             imageCount++;
         }
         

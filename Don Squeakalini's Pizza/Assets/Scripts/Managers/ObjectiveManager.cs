@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
@@ -6,13 +7,15 @@ public class ObjectiveManager : MonoBehaviour
 
     [SerializeField] CustomerManager customerManager;
     bool spawnFirstCustomerOnce = true;
-    bool introCompleet = false;
+    public bool introCompleet = false;
+
+    public List<IngredientSO> ingredients = new();
 
     void Update()
     {
         if (spawnFirstCustomerOnce)
         {
-            IntroObjectives();
+            IntroObjectives();  
         }
     }
 
@@ -25,13 +28,8 @@ public class ObjectiveManager : MonoBehaviour
 
         if(introCompleet)
         {
-            if(Input.GetKeyDown(KeyCode.K))
-            {
-                //Spawns the first customer
-                print("Pressed");
-                spawnFirstCustomerOnce = false;
-                customerManager.CustomerSpawner();
-            }
+            spawnFirstCustomerOnce = false;
+            customerManager.CustomerSpawner();
         }
 
     }
@@ -41,8 +39,7 @@ public class ObjectiveManager : MonoBehaviour
         if(introCompleet)
         {
             //Objectives for making the pizza
-
-
+            
             //Wait for customer to leave
             //Kill 'em
 

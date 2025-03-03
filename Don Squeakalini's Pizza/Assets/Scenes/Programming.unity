@@ -1043,6 +1043,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerManager: {fileID: 1399095744}
+  introCompleet: 0
+  ingredients:
+  - {fileID: 11400000, guid: 1df81ced8e39a1047a1a05a8f95cb931, type: 2}
+  - {fileID: 11400000, guid: d806c7c47124cfe4289ed351421c5638, type: 2}
+  - {fileID: 11400000, guid: 9b2f12e081952b6448a293135aaf1e39, type: 2}
+  - {fileID: 11400000, guid: a93d76581b1cb2d4cb6d1b68950cbf72, type: 2}
 --- !u!1 &1403187629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,12 +1686,12 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 1546183095}
+  - {fileID: 1399095745}
   - {fileID: 8101845573839471095}
   - {fileID: 1645661735}
   - {fileID: 811443281}
   - {fileID: 1093546444}
   - {fileID: 1952884656}
   - {fileID: 521730984}
-  - {fileID: 1399095745}
   - {fileID: 637386197}
   - {fileID: 954331623}
