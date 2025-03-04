@@ -484,10 +484,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6698554227896631556, guid: 241416c72d2074540b2d450f7ea4023f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: acbc8ae3d7a0f2d46b8c18f1fa4e2f1c, type: 2}
+    - target: {fileID: -6537880781381669898, guid: 241416c72d2074540b2d450f7ea4023f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -470444748201436507, guid: 241416c72d2074540b2d450f7ea4023f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7691a83267572764eab6dc5b671cf4cc, type: 2}
     - target: {fileID: 919132149155446097, guid: 241416c72d2074540b2d450f7ea4023f,
         type: 3}
       propertyPath: m_Name
       value: Muis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479869284358678849, guid: 241416c72d2074540b2d450f7ea4023f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
