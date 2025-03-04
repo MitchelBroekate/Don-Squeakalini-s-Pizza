@@ -3,24 +3,26 @@ using UnityEngine;
 
 public class CustomerWalkBehavior : MonoBehaviour
 {
-    Transform checkpointParent;
+    public int currentCheckpoint;
     [SerializeField] List<Transform> checkpoints = new();
-    [SerializeField] int currentCheckpoint;
-    bool customerWait = false;
+    Transform checkpointParent;
+    public bool customerWait = false;
     bool reachedGround = false;
-    Rigidbody rb;
+    public Rigidbody rb;
 
     Quaternion targetRotation;
     [SerializeField] float rotateSpeed;
     [SerializeField] float movementSpeed;
 
-    [SerializeField] CustomerInteraction customerInteraction;
+    CustomerWaitTime customerWaitTime;
+    CustomerManager customerManager;
 
     void Start()
     {
         AddCheckpoints();
         rb = GetComponent<Rigidbody>();
-        customerInteraction = GetComponent<CustomerInteraction>();
+        customerWaitTime = GetComponent<CustomerWaitTime>();
+        customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
     }
 
     void Update()
@@ -34,7 +36,6 @@ public class CustomerWalkBehavior : MonoBehaviour
         {
             rb.velocity = -transform.up * movementSpeed * Time.deltaTime; 
         }
-
     }
 
     void OnCollisionEnter(Collision collision)
@@ -62,12 +63,6 @@ public class CustomerWalkBehavior : MonoBehaviour
         targetRotation = Quaternion.LookRotation(new Vector3(checkpoints[currentCheckpoint].transform.position.x, transform.position.y, checkpoints[currentCheckpoint].transform.position.z) - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
-        //walk
-        if(reachedGround)
-        {
-            rb.velocity = transform.forward * movementSpeed * Time.deltaTime;   
-        }
-
         if(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(checkpoints[currentCheckpoint].position.x, checkpoints[currentCheckpoint].position.z)) < 0.5f)
         {
             switch(currentCheckpoint)
@@ -77,22 +72,31 @@ public class CustomerWalkBehavior : MonoBehaviour
                     break;
                 case 1:
                     customerWait = true;
+
+                    StartCoroutine(customerWaitTime.WaitTime());
+
                     rb.velocity = Vector3.zero;
                     rb.isKinematic = true;
+
                     gameObject.layer = LayerMask.NameToLayer("Interactable");
 
                     break;
                 case 2:
                     currentCheckpoint++;
-                    customerWait = false;
                     break;
                 case 3:
+                    customerManager.CustomerSpawner();
                     Destroy(gameObject);
                     break;
                 default:
                     Debug.LogWarning("Int out of switch bounds (CustomerBehavior/GoToCheckpoint)");
                     break;
             } 
+        }
+
+        if(reachedGround)
+        {
+            rb.velocity = transform.forward * movementSpeed * Time.deltaTime;   
         }
 
     }

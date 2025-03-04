@@ -8,13 +8,13 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] GameObject[] mousePrefabs;
     [SerializeField] Transform spawnpoints;
     [SerializeField] Transform customerParent;
-
-    ObjectiveManager objectiveManager;
     int _previousCustomer;
 
-    int ingredientAmount;
-
     public List<IngredientSO> ingredientsToAdd;
+
+    ObjectiveManager objectiveManager;
+
+    int ingredientAmount;
     
 
     void Start()
@@ -24,6 +24,8 @@ public class CustomerManager : MonoBehaviour
 
     public void CustomerSpawner()
     {
+        IngredientPicker();
+
         int customerToSpawn = Random.Range(0, mousePrefabs.Length);
         int randomSpawn = Random.Range(0, spawnpoints.childCount);
 
@@ -36,15 +38,16 @@ public class CustomerManager : MonoBehaviour
 
         GameObject customer = Instantiate(mousePrefabs[customerToSpawn], spawnpoints.GetChild(randomSpawn).transform.position, Quaternion.identity);
         customer.transform.parent = customerParent;
-
     }
 
     //amount of indgredient
-    void IngredientPicker()
+    public void IngredientPicker()
     {
         if(objectiveManager.introCompleet)
         {
-            ingredientAmount = Random.Range(0, objectiveManager.ingredients.Count);
+            print("adding pizza part 2");
+
+            ingredientAmount = Random.Range(1, objectiveManager.ingredients.Count);
 
             for(int i = 0; i < ingredientAmount; i++)
             {
@@ -61,6 +64,8 @@ public class CustomerManager : MonoBehaviour
         else
         {
             ingredientAmount = 2;
+
+            print("adding pizza");    
 
             ingredientsToAdd.Add(objectiveManager.ingredients[0]);
             ingredientsToAdd.Add(objectiveManager.ingredients[1]);
