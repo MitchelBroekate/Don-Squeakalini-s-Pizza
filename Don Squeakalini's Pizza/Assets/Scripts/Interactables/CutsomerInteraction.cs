@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class CustomerInteraction : MonoBehaviour
@@ -13,14 +12,24 @@ public class CustomerInteraction : MonoBehaviour
 
     bool alphaIncrease = false;
 
-    List<IngredientSO> ingredients = new();
+    [SerializeField] List<IngredientSO> ingredients = new();
 
     CustomerManager customerManager;
+    ObjectiveManager objectiveManager;
+    CustomerWalkBehavior customerWalkBehavior;
+
+    [SerializeField] int imageCount;
+
+    bool canFade = true;
+
+    bool pizzaRecieved = false;
 
     void Start()
     {
         canvas = transform.GetChild(0).transform;
         customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
+        objectiveManager = GameObject.Find("Script Managers").GetComponent<ObjectiveManager>();
+        customerWalkBehavior = GetComponent<CustomerWalkBehavior>();
 
         for(int i = 0; i < canvas.childCount; i++)
         {
@@ -46,21 +55,25 @@ public class CustomerInteraction : MonoBehaviour
 
     public void StartFade()
     {
-        StartCoroutine(ImageFade());
+        if(canFade)
+        {
+            StartCoroutine(ImageFade());
+            canFade = false;
+        }
     }
 
     IEnumerator ImageFade()
     {
-        int imageCount = 0;
+        imageCount = 0;
 
-        foreach(GameObject foodImage in foodIcons)
+        foreach(var objects in foodIcons)
         {
             alphaIncrease = true;
 
             SpriteRenderer currentSprite = foodIcons[imageCount].GetComponent<SpriteRenderer>();
             canvasAlpha = foodIcons[imageCount].GetComponent<CanvasGroup>();
 
-            if(ingredients[imageCount] != null)
+            if(imageCount < ingredients.Count)
             {
                 currentSprite.sprite = ingredients[imageCount].ingredientSprite;
             }
@@ -70,13 +83,34 @@ public class CustomerInteraction : MonoBehaviour
             yield return new WaitForSeconds(0.9f);
 
             alphaIncrease = false;
-   
+
             imageCount++;
         }
-        
-        StopCoroutine(ImageFade());
 
+        StopCoroutine(ImageFade());
     }
 
-    //icon fade-in
+    public void GivePizza()
+    {
+        if(objectiveManager.PizzaCompleet)
+        {
+            pizzaRecieved = true;
+            customerWalkBehavior.customerWait = false;
+            customerWalkBehavior.currentCheckpoint++;
+
+            transform.GetChild(0).gameObject.SetActive(false);
+
+            customerWalkBehavior.rb.isKinematic = false;
+            gameObject.layer = LayerMask.NameToLayer("Customer");
+
+            print("Pizza given");
+
+            objectiveManager.PizzaCompleet = false;
+        }
+    }
+
+    public bool PizzaRecieved
+    {
+        get { return pizzaRecieved;}
+    }
 }

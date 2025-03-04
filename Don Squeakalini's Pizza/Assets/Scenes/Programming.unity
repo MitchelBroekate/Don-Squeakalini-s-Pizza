@@ -122,6 +122,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &358725098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358725099}
+  m_Layer: 0
+  m_Name: Checkpoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358725099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358725098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.46, y: -3.17, z: -19.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1952884656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,6 +1046,7 @@ MonoBehaviour:
   - {fileID: 6541766390807250246, guid: 627ba1cc9576e39439ed1282f046fccd, type: 3}
   spawnpoints: {fileID: 521730984}
   customerParent: {fileID: 637386197}
+  ingredientsToAdd: []
 --- !u!4 &1399095745
 Transform:
   m_ObjectHideFlags: 0
@@ -1042,13 +1074,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483764fd52faddc46b86ae6f9324f102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerManager: {fileID: 1399095744}
   introCompleet: 0
   ingredients:
   - {fileID: 11400000, guid: 1df81ced8e39a1047a1a05a8f95cb931, type: 2}
   - {fileID: 11400000, guid: d806c7c47124cfe4289ed351421c5638, type: 2}
   - {fileID: 11400000, guid: 9b2f12e081952b6448a293135aaf1e39, type: 2}
   - {fileID: 11400000, guid: a93d76581b1cb2d4cb6d1b68950cbf72, type: 2}
+  customerManager: {fileID: 1399095744}
 --- !u!1 &1403187629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1431,7 @@ Transform:
   m_Children:
   - {fileID: 1403187630}
   - {fileID: 1804437978}
+  - {fileID: 358725099}
   - {fileID: 1684552394}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
