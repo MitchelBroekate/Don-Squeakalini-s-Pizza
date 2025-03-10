@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TomatoSaus
   m_EditorClassIdentifier: 
   ingredientName: TomatoSaus
-  ingredientSprite: {fileID: 21300000, guid: 6a6d963d266b69f43a0abf93d1157817, type: 3}
+  ingredientSprite: {fileID: 21300000, guid: 31db8b12114a9ca45969ed7c2e18ef00, type: 3}

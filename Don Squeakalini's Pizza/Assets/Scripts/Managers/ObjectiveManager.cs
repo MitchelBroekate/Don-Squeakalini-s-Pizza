@@ -4,25 +4,17 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     //spawn customer when intro is done
+    
     public bool introCompleet = false;
     bool pizzaCompleet = false;
     public List<IngredientSO> ingredients = new();
+    public List<IngredientSO> currentObjectiveIngredients = new();
 
     [SerializeField] CustomerManager customerManager;
 
     void Start()
     {
         IntroObjectives();  
-    }
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            pizzaCompleet = true;
-
-            print("button pressed");
-        }
     }
 
     void IntroObjectives()

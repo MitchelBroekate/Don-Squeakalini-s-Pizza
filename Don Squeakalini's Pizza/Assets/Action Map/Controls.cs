@@ -35,6 +35,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Tablet"",
+                    ""type"": ""Button"",
+                    ""id"": ""356724b1-d96a-40dd-97da-be9bc62359ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,32 +101,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""Scooter Controller"",
-            ""id"": ""9c770330-1774-4873-858c-3c7e35eebc98"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""2bda420f-1d96-42f2-ad64-6345b3f77e12"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""457219eb-fadd-4072-8a9e-1d6fd9afb306"",
-                    ""path"": """",
+                    ""id"": ""3298c7e6-fd80-49ec-8fac-a612fb7057c7"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Tablet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -129,9 +121,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // Pizzaria Controller
         m_PizzariaController = asset.FindActionMap("Pizzaria Controller", throwIfNotFound: true);
         m_PizzariaController_Movement = m_PizzariaController.FindAction("Movement", throwIfNotFound: true);
-        // Scooter Controller
-        m_ScooterController = asset.FindActionMap("Scooter Controller", throwIfNotFound: true);
-        m_ScooterController_Newaction = m_ScooterController.FindAction("New action", throwIfNotFound: true);
+        m_PizzariaController_Tablet = m_PizzariaController.FindAction("Tablet", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -194,11 +184,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PizzariaController;
     private List<IPizzariaControllerActions> m_PizzariaControllerActionsCallbackInterfaces = new List<IPizzariaControllerActions>();
     private readonly InputAction m_PizzariaController_Movement;
+    private readonly InputAction m_PizzariaController_Tablet;
     public struct PizzariaControllerActions
     {
         private @Controls m_Wrapper;
         public PizzariaControllerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PizzariaController_Movement;
+        public InputAction @Tablet => m_Wrapper.m_PizzariaController_Tablet;
         public InputActionMap Get() { return m_Wrapper.m_PizzariaController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -211,6 +203,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Tablet.started += instance.OnTablet;
+            @Tablet.performed += instance.OnTablet;
+            @Tablet.canceled += instance.OnTablet;
         }
 
         private void UnregisterCallbacks(IPizzariaControllerActions instance)
@@ -218,6 +213,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Tablet.started -= instance.OnTablet;
+            @Tablet.performed -= instance.OnTablet;
+            @Tablet.canceled -= instance.OnTablet;
         }
 
         public void RemoveCallbacks(IPizzariaControllerActions instance)
@@ -235,58 +233,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public PizzariaControllerActions @PizzariaController => new PizzariaControllerActions(this);
-
-    // Scooter Controller
-    private readonly InputActionMap m_ScooterController;
-    private List<IScooterControllerActions> m_ScooterControllerActionsCallbackInterfaces = new List<IScooterControllerActions>();
-    private readonly InputAction m_ScooterController_Newaction;
-    public struct ScooterControllerActions
-    {
-        private @Controls m_Wrapper;
-        public ScooterControllerActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_ScooterController_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_ScooterController; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ScooterControllerActions set) { return set.Get(); }
-        public void AddCallbacks(IScooterControllerActions instance)
-        {
-            if (instance == null || m_Wrapper.m_ScooterControllerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ScooterControllerActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
-        }
-
-        private void UnregisterCallbacks(IScooterControllerActions instance)
-        {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
-        }
-
-        public void RemoveCallbacks(IScooterControllerActions instance)
-        {
-            if (m_Wrapper.m_ScooterControllerActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IScooterControllerActions instance)
-        {
-            foreach (var item in m_Wrapper.m_ScooterControllerActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_ScooterControllerActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public ScooterControllerActions @ScooterController => new ScooterControllerActions(this);
     public interface IPizzariaControllerActions
     {
         void OnMovement(InputAction.CallbackContext context);
-    }
-    public interface IScooterControllerActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnTablet(InputAction.CallbackContext context);
     }
 }

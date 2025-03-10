@@ -6,13 +6,13 @@ public class CustomerInteraction : MonoBehaviour
 {
     //customer talks (pop-up)
     Transform canvas;
-    List<GameObject> foodIcons = new();
-
     CanvasGroup canvasAlpha;
-
     bool alphaIncrease = false;
 
     [SerializeField] List<IngredientSO> ingredients = new();
+
+    Transform pictureParent;
+    Transform pictureBackground;
 
     CustomerManager customerManager;
     ObjectiveManager objectiveManager;
@@ -21,7 +21,6 @@ public class CustomerInteraction : MonoBehaviour
     [SerializeField] int imageCount;
 
     bool canFade = true;
-
     bool pizzaRecieved = false;
 
     void Start()
@@ -30,11 +29,8 @@ public class CustomerInteraction : MonoBehaviour
         customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
         objectiveManager = GameObject.Find("Script Managers").GetComponent<ObjectiveManager>();
         customerWalkBehavior = GetComponent<CustomerWalkBehavior>();
-
-        for(int i = 0; i < canvas.childCount; i++)
-        {
-            foodIcons.Add(canvas.GetChild(i).gameObject);
-        }
+        pictureParent = canvas.GetChild(0);
+        pictureBackground = canvas.GetChild(1);
 
         for(int i = 0; i < customerManager.ingredientsToAdd.Count; i++)
         {
@@ -48,7 +44,7 @@ public class CustomerInteraction : MonoBehaviour
         {
             if(canvasAlpha.alpha < 1)
             {
-                canvasAlpha.alpha += 0.3f * Time.deltaTime;
+                canvasAlpha.alpha += 0.03f * Time.deltaTime;
             }
         }
     }
@@ -64,18 +60,21 @@ public class CustomerInteraction : MonoBehaviour
 
     IEnumerator ImageFade()
     {
-        imageCount = 0;
 
-        foreach(var objects in foodIcons)
+        pictureBackground.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.9f);
+
+        for(int i = 0; i < pictureParent.childCount; i++) 
         {
             alphaIncrease = true;
 
-            SpriteRenderer currentSprite = foodIcons[imageCount].GetComponent<SpriteRenderer>();
-            canvasAlpha = foodIcons[imageCount].GetComponent<CanvasGroup>();
+            SpriteRenderer currentSprite = pictureParent.GetChild(i).GetComponent<SpriteRenderer>();
+            canvasAlpha = pictureParent.GetChild(i).GetComponent<CanvasGroup>();
 
             if(imageCount < ingredients.Count)
             {
-                currentSprite.sprite = ingredients[imageCount].ingredientSprite;
+                currentSprite.sprite = ingredients[i].ingredientSprite;
             }
 
             currentSprite.enabled = true;

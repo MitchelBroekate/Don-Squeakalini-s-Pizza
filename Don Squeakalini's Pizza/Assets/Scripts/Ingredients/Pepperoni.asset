@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pepperoni
   m_EditorClassIdentifier: 
   ingredientName: Pepperoni
-  ingredientSprite: {fileID: 21300000, guid: 266c628e108e7434f8f523dd77bf8b7f, type: 3}
+  ingredientSprite: {fileID: 21300000, guid: 7703e6154aa052a419fca3362a0fd89d, type: 3}

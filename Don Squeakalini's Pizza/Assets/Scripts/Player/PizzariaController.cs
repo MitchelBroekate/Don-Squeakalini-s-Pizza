@@ -13,12 +13,19 @@ public class PizzariaController : MonoBehaviour
 
     [Header("Linked Camera Variables")]
     [SerializeField] Transform cam;
+
+    [Header("Linked PlayerUI GameObject")]
+    [SerializeField] GameObject playerUI;
+    [SerializeField] GameObject tablet;
+
+    public bool tabletMoveToLeft = false;
+    public bool tabletMoveToRight = false;
  
     //Used inside script
     float xRotation = 0f;
     Vector2 _moveDirection;
     Rigidbody _rb;
-    bool _playerLock;
+    [SerializeField] bool _playerLock;
     #endregion 
     
 
@@ -47,6 +54,8 @@ public class PizzariaController : MonoBehaviour
         {
             _rb.velocity = Vector3.zero;
         }
+
+        TabletMove();
     }  
 
     /// <summary>
@@ -65,6 +74,67 @@ public class PizzariaController : MonoBehaviour
     void OnMovement(InputValue value)
     {
         _moveDirection = value.Get<Vector2>();
+    }
+
+    //This function activates the tablets UI
+    void OnTablet(InputValue value)
+    {
+        if(value.isPressed)
+        {   
+            //activate player UI
+            if(!playerUI.activeInHierarchy)
+            {
+                playerUI.SetActive(true);
+
+                tabletMoveToLeft = false;
+                tabletMoveToRight = true;
+            }
+            else
+            {
+                tabletMoveToRight = false;
+                tabletMoveToLeft = true;
+            }
+
+            //activate tablet slide
+        }
+    }
+
+    void TabletMove()
+    {
+        if(tabletMoveToLeft)
+        {
+            if(tablet.transform.position.x > 0)
+            {
+                tablet.transform.position -= new Vector3(3000, 0,0) * Time.deltaTime;
+            }
+            else
+            {
+                playerUI.SetActive(false);
+                
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
+                LockPlayer(false);
+
+                tabletMoveToLeft = false;
+            }
+        }
+        if(tabletMoveToRight)
+        {
+            if(tablet.transform.position.x < 1000)
+            {
+                tablet.transform.position += new Vector3(3000, 0,0) * Time.deltaTime;
+            }
+            else 
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
+                LockPlayer(true);
+
+                tabletMoveToRight = false;
+            }
+        }
     }
 
     /// <summary>

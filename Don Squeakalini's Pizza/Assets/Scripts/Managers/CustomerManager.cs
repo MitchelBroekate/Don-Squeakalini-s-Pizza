@@ -61,6 +61,8 @@ public class CustomerManager : MonoBehaviour
                 }
 
                 ingredientsToAdd.Add(scriptableObject);
+                
+                objectiveManager.currentObjectiveIngredients.Add(scriptableObject);
             }
         }
         else
@@ -71,6 +73,9 @@ public class CustomerManager : MonoBehaviour
 
             ingredientsToAdd.Add(objectiveManager.ingredients[0]);
             ingredientsToAdd.Add(objectiveManager.ingredients[1]);
+
+            objectiveManager.currentObjectiveIngredients.Add(objectiveManager.ingredients[0]);
+            objectiveManager.currentObjectiveIngredients.Add(objectiveManager.ingredients[1]);
 
         }
     }
