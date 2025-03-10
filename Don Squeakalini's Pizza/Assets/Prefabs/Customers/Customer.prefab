@@ -133,7 +133,7 @@ RectTransform:
   m_GameObject: {fileID: 1234006322092288599}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2812964591841822964}
@@ -243,7 +243,7 @@ RectTransform:
   m_GameObject: {fileID: 1586887496100273416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2812964591841822964}
@@ -353,7 +353,7 @@ RectTransform:
   m_GameObject: {fileID: 6094011361230726377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2812964591841822964}
@@ -642,8 +642,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCheckpoint: 0
   checkpoints: []
+  customerWait: 0
+  rb: {fileID: 0}
   rotateSpeed: 4
-  movementSpeed: 200
 --- !u!114 &1955950054752482055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,7 +685,7 @@ RectTransform:
   m_GameObject: {fileID: 8530246513598151213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2812964591841822964}

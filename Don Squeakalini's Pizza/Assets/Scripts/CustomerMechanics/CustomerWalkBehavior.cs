@@ -12,7 +12,7 @@ public class CustomerWalkBehavior : MonoBehaviour
 
     Quaternion targetRotation;
     [SerializeField] float rotateSpeed;
-    [SerializeField] float movementSpeed;
+    float movementSpeed = 100;
 
     CustomerWaitTime customerWaitTime;
     CustomerManager customerManager;
@@ -25,16 +25,18 @@ public class CustomerWalkBehavior : MonoBehaviour
         customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(!customerWait)
-        {
-            GoToCheckpoint();
-        }
-
         if(!reachedGround)
         {
             rb.velocity = -transform.up * movementSpeed * Time.deltaTime; 
+        }
+        else
+        {
+            if(!customerWait)
+            {
+                GoToCheckpoint();
+            }
         }
     }
 
@@ -94,10 +96,6 @@ public class CustomerWalkBehavior : MonoBehaviour
             } 
         }
 
-        if(reachedGround)
-        {
-            rb.velocity = transform.forward * movementSpeed * Time.deltaTime;   
-        }
-
+        rb.velocity = transform.forward * movementSpeed * Time.deltaTime;   
     }
 }

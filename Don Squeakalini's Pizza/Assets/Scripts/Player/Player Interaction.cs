@@ -16,7 +16,7 @@ public class PlayerInteraction : MonoBehaviour
         textPopUp.SetActive(false);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Interaction();
     }

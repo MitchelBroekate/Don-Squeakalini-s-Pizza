@@ -24,6 +24,8 @@ public class CustomerManager : MonoBehaviour
 
     public void CustomerSpawner()
     {
+        ingredientsToAdd.Clear();
+
         IngredientPicker();
 
         int customerToSpawn = Random.Range(0, mousePrefabs.Length);
