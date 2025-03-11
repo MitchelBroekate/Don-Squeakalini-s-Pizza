@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CustomerOrderObjective : MonoBehaviour
 {
-    [SerializeField] List<IngredientSO> chosenIngredients = new();
-
     ObjectiveManager objectiveManager;
 
-    int correctOrder;
+    int correctOrder = 0;
+    float moneyMultiplier = 1;
+
+    bool addedCheese = false, addedSaus = false, addedPaprika = false, addedPepperoni = false;
 
     void Start()
     {
@@ -17,98 +20,95 @@ public class CustomerOrderObjective : MonoBehaviour
 
     public void Saus()
     {
-        chosenIngredients.Add(objectiveManager.ingredients[0]);
+        if(!addedSaus)
+        {
+            addedSaus = true;
+            if(objectiveManager.currentObjectiveIngredients.Contains(objectiveManager.ingredients[0]))
+            {
+                correctOrder++;
+            }
+            else
+            {
+                correctOrder--;
+            }
+        }
     }
     public void Cheese()
     {
-        chosenIngredients.Add(objectiveManager.ingredients[1]);
+        if(!addedCheese)
+        {
+            addedCheese = true;
+            if(objectiveManager.currentObjectiveIngredients.Contains(objectiveManager.ingredients[1]))
+            {
+                correctOrder++;
+            }
+            else
+            {
+                correctOrder--;
+            }
+        }
     }
 
 
     public void Pepperoni()
     {
-        chosenIngredients.Add(objectiveManager.ingredients[2]);
+        if(!addedPepperoni)
+        {
+            addedPepperoni = true;
+            if(objectiveManager.currentObjectiveIngredients.Contains(objectiveManager.ingredients[2]))
+            {
+                correctOrder++;
+            }
+            else
+            {
+                correctOrder--;
+            }
+        }
     }
 
     public void Paprika()
     {
-        chosenIngredients.Add(objectiveManager.ingredients[3]);
+        if(!addedPaprika)
+        {
+            addedPaprika = true;
+            if(objectiveManager.currentObjectiveIngredients.Contains(objectiveManager.ingredients[3]))
+            {
+                correctOrder++;
+            }
+            else
+            {
+                correctOrder--;
+            }
+        }
     }
 
     public void SendOrder()
     {
-        if(objectiveManager.currentObjectiveIngredients.Count == chosenIngredients.Count)
+
+        if(correctOrder == objectiveManager.currentObjectiveIngredients.Count)
         {
-            int ingredientCheck = 0;
+            objectiveManager.OrderCompletion();
 
-            foreach(IngredientSO ingredient in chosenIngredients)
-            {
-                if(objectiveManager.currentObjectiveIngredients[ingredientCheck] != ingredient)
-                {
-                    correctOrder--;
-                }
-                else
-                {
-                    correctOrder++;
-                }
+            print("Order Compleet");
 
-                ingredientCheck++;
-            }
+            //correct order sfx
         }
         else
         {
-            int objectiveIngredientAmount = objectiveManager.currentObjectiveIngredients.Count;
-            int chosenIngredientsAmount = chosenIngredients.Count;
+            addedCheese = false;
+            addedPaprika = false;
+            addedPepperoni = false;
+            addedSaus = false;
 
-            if(objectiveIngredientAmount - chosenIngredientsAmount > 0)
-            {
-                correctOrder -= objectiveIngredientAmount - chosenIngredientsAmount;
+            correctOrder = 0;
 
-                int ingredientCheck = 0;
+            moneyMultiplier *= 0.75f;
+            moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
 
-                foreach(IngredientSO ingredient in chosenIngredients)
-                {
-                    if(objectiveManager.currentObjectiveIngredients[ingredientCheck] != ingredient)
-                    {
-                        correctOrder--;
-                    }
-                    else
-                    {
-                        correctOrder++;
-                    }
-                        
-                    ingredientCheck++;
-                }
-            }
-            else if(objectiveIngredientAmount - chosenIngredientsAmount < 0)
-            {
-                correctOrder -= chosenIngredientsAmount - objectiveIngredientAmount;
+            print("Wrong order");
+            print(moneyMultiplier);
 
-                int ingredientCheck = 0;
-
-                foreach(var ingredient in objectiveManager.currentObjectiveIngredients)
-                {
-                    if(objectiveManager.currentObjectiveIngredients[ingredientCheck] != chosenIngredients[ingredientCheck])
-                    {
-                        correctOrder--;
-                    }
-                    else
-                    {
-                        correctOrder++;
-                    }
-                        
-                    ingredientCheck++;
-                }
-            }
-
-
+            //failed order sfx
         }
-
-        if(correctOrder < 0)
-        {
-            //angry customer
-        }
-
-        print(correctOrder);
     }
 }

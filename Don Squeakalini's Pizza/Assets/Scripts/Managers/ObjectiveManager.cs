@@ -7,6 +7,7 @@ public class ObjectiveManager : MonoBehaviour
     
     public bool introCompleet = false;
     bool pizzaCompleet = false;
+    public bool itemGrabbed = false; 
     public List<IngredientSO> ingredients = new();
     public List<IngredientSO> currentObjectiveIngredients = new();
 
@@ -22,6 +23,11 @@ public class ObjectiveManager : MonoBehaviour
         //Objectives for the intro
         customerManager.CustomerSpawner();
         introCompleet = true;
+    }
+
+    public void OrderCompletion()
+    {
+        //Start making pizza
     }
 
     void CustomerCompletion()
