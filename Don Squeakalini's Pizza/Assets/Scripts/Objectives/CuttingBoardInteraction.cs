@@ -7,14 +7,11 @@ public class CuttingBoardInteraction : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject cuttingCam;
 
-    int skillcheckAmount;
-
     public void StartMinigame()
     {
         //if ingredient is in inventory
         // if()
         // {   
-            skillcheckAmount = Random.Range(5, 9);
             //camera switch
             cuttingCam.SetActive(true);
             player.SetActive(false);

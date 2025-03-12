@@ -95,7 +95,9 @@ public class CustomerWalkBehavior : MonoBehaviour
                     break;
             } 
         }
-
-        rb.velocity = transform.forward * movementSpeed * Time.deltaTime;   
+        if(!rb.isKinematic)
+        {
+            rb.velocity = transform.forward * movementSpeed * Time.deltaTime;   
+        }
     }
 }

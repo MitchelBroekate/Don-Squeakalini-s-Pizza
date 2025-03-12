@@ -8,6 +8,7 @@ public class ObjectiveManager : MonoBehaviour
     public bool introCompleet = false;
     bool pizzaCompleet = false;
     public bool itemGrabbed = false; 
+    bool orderCompleted = false;
     public List<IngredientSO> ingredients = new();
     public List<IngredientSO> currentObjectiveIngredients = new();
 
@@ -28,21 +29,18 @@ public class ObjectiveManager : MonoBehaviour
     public void OrderCompletion()
     {
         //Start making pizza
-    }
-
-    void CustomerCompletion()
-    {
-            //Objectives for making the pizza
-            
-            //Wait for customer to leave
-            //Kill 'em
-
-            //Spawn new customer
+        orderCompleted = true;
     }
 
     public bool PizzaCompleet
     {
         get { return pizzaCompleet;}
         set { pizzaCompleet = value;}
+    }
+
+    public bool OrderCompleted
+    {
+        get { return orderCompleted;}
+        set { orderCompleted = value;}
     }
 }

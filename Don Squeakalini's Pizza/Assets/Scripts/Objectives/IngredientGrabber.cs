@@ -4,16 +4,35 @@ using UnityEngine;
 
 public class IngredientGrabber : MonoBehaviour
 {
+    [SerializeField] Transform itemHolder;
     [SerializeField] IngredientSO ingredientToSpawn;
     [SerializeField] ObjectiveManager objectiveManager;
 
     public void SpawnIngredient()
     {
-        if (!objectiveManager.itemGrabbed)
+        if(objectiveManager.OrderCompleted)
         {
-            //spawn ingredient, spawn as player child and positioning
+            if (!objectiveManager.itemGrabbed)
+            {
+                //instantiate, and set itemGrabbed to true to fill 'inventory'
+                objectiveManager.itemGrabbed = true;
 
-            objectiveManager.itemGrabbed = true;
+                GameObject currentIngredient = Instantiate(ingredientToSpawn.ingredientObject, itemHolder.position, Quaternion.identity);
+                currentIngredient.transform.parent = itemHolder;
+
+                print("Ingredient Grabbed");
+            }
+            else
+            {
+                print("Already carrying an item");
+                //UI pop-up
+            }
         }
+        else
+        {
+            print("Order not completed");
+            //UI pop-up
+        }
+
     }
 }
