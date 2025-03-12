@@ -5,4 +5,5 @@ public class IngredientSO : ScriptableObject
 {
     public string ingredientName;
     public Sprite ingredientSprite;
+    public GameObject ingredientObject;
 }
