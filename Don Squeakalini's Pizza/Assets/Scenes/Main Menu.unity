@@ -366,7 +366,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1111
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1164,19 +1164,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 283385587538815027, guid: 800b9df4442377d4db0003def614253f,
         type: 3}
-      propertyPath: m_Value
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 283385587538815027, guid: 800b9df4442377d4db0003def614253f,
-        type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 455141929}
-    - target: {fileID: 341000385132352243, guid: 800b9df4442377d4db0003def614253f,
-        type: 3}
-      propertyPath: m_Value
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 341000385132352243, guid: 800b9df4442377d4db0003def614253f,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1184,34 +1174,14 @@ PrefabInstance:
       objectReference: {fileID: 455141929}
     - target: {fileID: 741517106005591975, guid: 800b9df4442377d4db0003def614253f,
         type: 3}
-      propertyPath: m_Value
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 741517106005591975, guid: 800b9df4442377d4db0003def614253f,
-        type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 455141929}
-    - target: {fileID: 781015713822557037, guid: 800b9df4442377d4db0003def614253f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 781015713822557037, guid: 800b9df4442377d4db0003def614253f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 143286026}
-    - target: {fileID: 781015713822557037, guid: 800b9df4442377d4db0003def614253f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 781015713822557037, guid: 800b9df4442377d4db0003def614253f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1380704545870186550, guid: 800b9df4442377d4db0003def614253f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
