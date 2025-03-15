@@ -7,31 +7,44 @@ public class IngredientGrabber : MonoBehaviour
     [SerializeField] Transform itemHolder;
     [SerializeField] IngredientSO ingredientToSpawn;
     [SerializeField] ObjectiveManager objectiveManager;
+    [SerializeField] PlayerInteraction playerInteraction;
 
     public void SpawnIngredient()
     {
         if(objectiveManager.OrderCompleted)
         {
-            if (!objectiveManager.itemGrabbed)
+            if (!objectiveManager.ingredientGrabbed)
             {
                 //instantiate, and set itemGrabbed to true to fill 'inventory'
-                objectiveManager.itemGrabbed = true;
+                objectiveManager.ingredientGrabbed = true;
 
                 GameObject currentIngredient = Instantiate(ingredientToSpawn.ingredientObject, itemHolder.position, Quaternion.identity);
                 currentIngredient.transform.parent = itemHolder;
+
+                objectiveManager.currentGrabbedIngredient = ingredientToSpawn;
 
                 print("Ingredient Grabbed");
             }
             else
             {
-                print("Already carrying an item");
-                //UI pop-up
+                if(objectiveManager.currentGrabbedIngredient == ingredientToSpawn)
+                {
+                    objectiveManager.currentGrabbedIngredient = null;
+                    objectiveManager.ingredientGrabbed = false;
+
+                    Destroy(itemHolder.GetChild(0).gameObject);
+                }
+                else
+                {
+                    //UI pop-up
+                    StartCoroutine(playerInteraction.PopUpText(2, "Got to put this back first"));
+                }
             }
         }
         else
         {
-            print("Order not completed");
             //UI pop-up
+            StartCoroutine(playerInteraction.PopUpText(2, "I haven't fulled in the order yet"));
         }
 
     }

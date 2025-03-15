@@ -6,9 +6,12 @@ public class ObjectiveManager : MonoBehaviour
     //spawn customer when intro is done
     
     public bool introCompleet = false;
+    public bool ingredientGrabbed = false; 
     bool pizzaCompleet = false;
-    public bool itemGrabbed = false; 
     bool orderCompleted = false;
+
+    public IngredientSO currentGrabbedIngredient;
+
     public List<IngredientSO> ingredients = new();
     public List<IngredientSO> currentObjectiveIngredients = new();
 

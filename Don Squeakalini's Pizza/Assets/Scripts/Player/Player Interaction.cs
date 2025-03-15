@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -6,14 +7,16 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     [SerializeField] int rayDistance;
 
-    [SerializeField] GameObject textPopUp;
+    [SerializeField] GameObject textPopUpInteraction;
+    [SerializeField] GameObject textObjectivePopUpObject;
+    [SerializeField] TMP_Text textObjectivePopUpTxt;
     
     RaycastHit hit;
 
     void Start()
     {
         //deactivate txt incase active
-        textPopUp.SetActive(false);
+        textPopUpInteraction.SetActive(false);
     }
 
     void Update()
@@ -26,7 +29,7 @@ public class PlayerInteraction : MonoBehaviour
         if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, layerMask))
         {
             //activate txt
-            textPopUp.SetActive(true);
+            textPopUpInteraction.SetActive(true);
 
             if(Input.GetButtonDown("Fire1"))
             {
@@ -36,7 +39,19 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             //deactivate txt
-            textPopUp.SetActive(false);
+            textPopUpInteraction.SetActive(false);
         }
+    }
+
+    public IEnumerator PopUpText(float waitTime, string popUpText)
+    {
+        //enable pop up and change text
+        textObjectivePopUpTxt.text = popUpText;
+        textObjectivePopUpObject.SetActive(true);
+
+        yield return new WaitForSeconds(waitTime);
+
+        //disable pop up
+        textObjectivePopUpObject.SetActive(false);
     }
 }
