@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CuttingBoardInteraction : MonoBehaviour
 {
@@ -41,7 +42,65 @@ public class CuttingBoardInteraction : MonoBehaviour
         ingredientsNeeded.Add(IngrdientDough);
     }
 
-    
+    void OnW(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            if(currentKeybind == 0)
+            {
+                //plus points
+            } 
+            else if(currentKeybind < 4 && currentKeybind != 0)
+            {
+                //minus points
+            } 
+        }
+    }
+
+    void OnA(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            if(currentKeybind == 1)
+            {
+
+            } 
+            else if(currentKeybind < 4 && currentKeybind != 1)
+            {
+
+            } 
+        }
+    }
+
+    void OnS(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            if(currentKeybind == 2)
+            {
+
+            } 
+            else if(currentKeybind < 4 && currentKeybind != 2)
+            {
+
+            } 
+        }
+    }
+
+    void OnD(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            if(currentKeybind == 3)
+            {
+
+            }
+            else if(currentKeybind < 4 && currentKeybind != 3)
+            {
+
+            } 
+        }
+    }
 
     public void StartMinigame()
     {
@@ -73,7 +132,7 @@ public class CuttingBoardInteraction : MonoBehaviour
                 //Skillcheck button randomizer
                 //Skillcheck button pop-up
 
-                RandomSkillcheckPopUp();
+                StartCoroutine(RandomSkillcheckPopUp(1));
             }
             else
             {
@@ -85,12 +144,17 @@ public class CuttingBoardInteraction : MonoBehaviour
          else
          {
              //pop up (no ingredient grabbed)
-             StartCoroutine(playerInteraction.PopUpText(2, "I forgot the ingredient"));
+             StartCoroutine(playerInteraction.PopUpText(2, "I forgot to grab an ingredient"));
          }
     }
 
-    void RandomSkillcheckPopUp()
+
+    IEnumerator RandomSkillcheckPopUp(float waitTime)
     {
+        currentKeybind = 4;
+
+        yield return new WaitForSeconds(waitTime);
+
         currentKeybind = Random.Range(0, skillcheckTxt.Count);
 
         RectTransform parentRect = emptyParent.GetComponent<RectTransform>();
@@ -101,10 +165,5 @@ public class CuttingBoardInteraction : MonoBehaviour
         TextMeshProUGUI newText = Instantiate(skillcheckTxt[currentKeybind], emptyParent.transform);
 
         newText.rectTransform.localPosition = new Vector3(randomX, randomY, 0);
-    }
-
-    IEnumerator skillcheckWaitTime()
-    {
-        yield return new WaitForSeconds(0);
     }
 }
