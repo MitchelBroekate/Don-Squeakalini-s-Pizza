@@ -12,7 +12,7 @@ public class CustomerWalkBehavior : MonoBehaviour
 
     Quaternion targetRotation;
     [SerializeField] float rotateSpeed;
-    float movementSpeed = 100;
+    float movementSpeed = 150;
 
     CustomerWaitTime customerWaitTime;
     CustomerManager customerManager;

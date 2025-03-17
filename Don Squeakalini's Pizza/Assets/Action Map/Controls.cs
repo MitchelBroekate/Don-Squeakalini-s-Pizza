@@ -114,6 +114,94 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""IngredientMinigame"",
+            ""id"": ""116f2b8f-467c-4518-8b48-d9e27c9f8213"",
+            ""actions"": [
+                {
+                    ""name"": ""W"",
+                    ""type"": ""Button"",
+                    ""id"": ""a92498f3-5600-47ed-863c-0cb84142b4ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""64af022e-944d-4b77-9160-c8317fb1dba7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""S"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5850958-530b-4d07-83e2-388a55a535d2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""D"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d420a7b-72c4-48fe-91a5-54f2c1830fb4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""be24cb3c-15b7-4e3a-add0-99614de3f6d3"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""W"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30b0f519-34b7-45a1-b4e4-8003da04a395"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03308965-d3c8-4c2b-add3-75903fc64bcb"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""S"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08e2ce43-e894-4868-9d02-f407dddf7536"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -122,6 +210,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_PizzariaController = asset.FindActionMap("Pizzaria Controller", throwIfNotFound: true);
         m_PizzariaController_Movement = m_PizzariaController.FindAction("Movement", throwIfNotFound: true);
         m_PizzariaController_Tablet = m_PizzariaController.FindAction("Tablet", throwIfNotFound: true);
+        // IngredientMinigame
+        m_IngredientMinigame = asset.FindActionMap("IngredientMinigame", throwIfNotFound: true);
+        m_IngredientMinigame_W = m_IngredientMinigame.FindAction("W", throwIfNotFound: true);
+        m_IngredientMinigame_A = m_IngredientMinigame.FindAction("A", throwIfNotFound: true);
+        m_IngredientMinigame_S = m_IngredientMinigame.FindAction("S", throwIfNotFound: true);
+        m_IngredientMinigame_D = m_IngredientMinigame.FindAction("D", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -233,9 +327,86 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public PizzariaControllerActions @PizzariaController => new PizzariaControllerActions(this);
+
+    // IngredientMinigame
+    private readonly InputActionMap m_IngredientMinigame;
+    private List<IIngredientMinigameActions> m_IngredientMinigameActionsCallbackInterfaces = new List<IIngredientMinigameActions>();
+    private readonly InputAction m_IngredientMinigame_W;
+    private readonly InputAction m_IngredientMinigame_A;
+    private readonly InputAction m_IngredientMinigame_S;
+    private readonly InputAction m_IngredientMinigame_D;
+    public struct IngredientMinigameActions
+    {
+        private @Controls m_Wrapper;
+        public IngredientMinigameActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @W => m_Wrapper.m_IngredientMinigame_W;
+        public InputAction @A => m_Wrapper.m_IngredientMinigame_A;
+        public InputAction @S => m_Wrapper.m_IngredientMinigame_S;
+        public InputAction @D => m_Wrapper.m_IngredientMinigame_D;
+        public InputActionMap Get() { return m_Wrapper.m_IngredientMinigame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(IngredientMinigameActions set) { return set.Get(); }
+        public void AddCallbacks(IIngredientMinigameActions instance)
+        {
+            if (instance == null || m_Wrapper.m_IngredientMinigameActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_IngredientMinigameActionsCallbackInterfaces.Add(instance);
+            @W.started += instance.OnW;
+            @W.performed += instance.OnW;
+            @W.canceled += instance.OnW;
+            @A.started += instance.OnA;
+            @A.performed += instance.OnA;
+            @A.canceled += instance.OnA;
+            @S.started += instance.OnS;
+            @S.performed += instance.OnS;
+            @S.canceled += instance.OnS;
+            @D.started += instance.OnD;
+            @D.performed += instance.OnD;
+            @D.canceled += instance.OnD;
+        }
+
+        private void UnregisterCallbacks(IIngredientMinigameActions instance)
+        {
+            @W.started -= instance.OnW;
+            @W.performed -= instance.OnW;
+            @W.canceled -= instance.OnW;
+            @A.started -= instance.OnA;
+            @A.performed -= instance.OnA;
+            @A.canceled -= instance.OnA;
+            @S.started -= instance.OnS;
+            @S.performed -= instance.OnS;
+            @S.canceled -= instance.OnS;
+            @D.started -= instance.OnD;
+            @D.performed -= instance.OnD;
+            @D.canceled -= instance.OnD;
+        }
+
+        public void RemoveCallbacks(IIngredientMinigameActions instance)
+        {
+            if (m_Wrapper.m_IngredientMinigameActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IIngredientMinigameActions instance)
+        {
+            foreach (var item in m_Wrapper.m_IngredientMinigameActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_IngredientMinigameActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public IngredientMinigameActions @IngredientMinigame => new IngredientMinigameActions(this);
     public interface IPizzariaControllerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnTablet(InputAction.CallbackContext context);
+    }
+    public interface IIngredientMinigameActions
+    {
+        void OnW(InputAction.CallbackContext context);
+        void OnA(InputAction.CallbackContext context);
+        void OnS(InputAction.CallbackContext context);
+        void OnD(InputAction.CallbackContext context);
     }
 }
