@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
@@ -25,12 +26,18 @@ public class CuttingBoardInteraction : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject emptyParent;
     [SerializeField] List<TextMeshProUGUI>  skillcheckTxt = new();
-
-    int currentKeybind = 5;
-    int currentMinigameScore = 0;
+    
+    RectTransform parentRect;
+    
+    int currentKeybind = 4;
+    int currentMinigameCompletion = 0;
+    bool minigameCompleted = false;
+    float minigameScore = 1;
 
     void Start()
     {
+        parentRect = emptyParent.GetComponent<RectTransform>();
+
         foreach (IngredientSO ingredient in objectiveManager.currentObjectiveIngredients)
         {
             if(!ingredientsNeeded.Contains(ingredient))
@@ -42,62 +49,138 @@ public class CuttingBoardInteraction : MonoBehaviour
         ingredientsNeeded.Add(IngrdientDough);
     }
 
-    void OnW(InputValue value)
+    void Update()
     {
-        if(value.isPressed)
+        if(currentMinigameCompletion > 4)
         {
+            minigameCompleted = true;
+        }
+    }
+
+    public void OnW(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {   
+            if(minigameCompleted) return;
+
             if(currentKeybind == 0)
             {
-                //plus points
+
+                currentMinigameCompletion++;
+                StartCoroutine(RandomSkillcheckPopUp(1));
+                print("Checked The Skill :P");
+
+                Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
             else if(currentKeybind < 4 && currentKeybind != 0)
             {
                 //minus points
+                minigameScore *= 0.75f;
+                minigameScore = (float)Math.Round(minigameScore, 2);
+
+                print("Wrong order");
+                print(minigameScore);
+
+                currentMinigameCompletion++;
+                StartCoroutine(RandomSkillcheckPopUp(1));
+
+                Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
         }
     }
 
-    void OnA(InputValue value)
+    public void OnA(InputAction.CallbackContext context)
     {
-        if(value.isPressed)
+        if(context.performed)
         {
+            if(minigameCompleted) return;
+
             if(currentKeybind == 1)
             {
+                minigameScore++;
+                currentMinigameCompletion++;
+                StartCoroutine(RandomSkillcheckPopUp(1));
 
+                print("Checked The Skill :P");
+
+                Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
             else if(currentKeybind < 4 && currentKeybind != 1)
             {
+                minigameScore *= 0.75f;
+                minigameScore = (float)Math.Round(minigameScore, 2);
 
+                print("Wrong order");
+                print(minigameScore);
+
+                currentMinigameCompletion++;
+                StartCoroutine(RandomSkillcheckPopUp(1));
+
+                Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
         }
     }
 
-    void OnS(InputValue value)
+    public void OnS(InputAction.CallbackContext context)
     {
-        if(value.isPressed)
+        if(context.performed)
         {
+            if(minigameCompleted) return;
+
             if(currentKeybind == 2)
             {
+                minigameScore++;
+                currentMinigameCompletion++;
+                StartCoroutine(RandomSkillcheckPopUp(1));
 
+                print("Checked The Skill :P");
+
+                Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
             else if(currentKeybind < 4 && currentKeybind != 2)
             {
+                minigameScore *= 0.75f;
+                minigameScore = (float)Math.Round(minigameScore, 2);
 
+                print("Wrong order");
+                print(minigameScore);
+
+                currentMinigameCompletion++;
+                StartCoroutine(RandomSkillcheckPopUp(1));
+
+                Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
         }
     }
 
-    void OnD(InputValue value)
+    public void OnD(InputAction.CallbackContext context)
     {
-        if(value.isPressed)
+        if(context.performed)
         {
+            if(minigameCompleted) return;
+
             if(currentKeybind == 3)
             {
+                minigameScore++;
+                currentMinigameCompletion++;
+                StartCoroutine(RandomSkillcheckPopUp(1));
 
+                print("Checked The Skill :P");
+
+                Destroy(emptyParent.transform.GetChild(0).gameObject);
             }
             else if(currentKeybind < 4 && currentKeybind != 3)
             {
+                minigameScore *= 0.75f;
+                minigameScore = (float)Math.Round(minigameScore, 2);
 
+                print("Wrong order");
+                print(minigameScore);
+
+                currentMinigameCompletion++;
+                StartCoroutine(RandomSkillcheckPopUp(1));
+
+                Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
         }
     }
@@ -128,10 +211,7 @@ public class CuttingBoardInteraction : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
-                //Skillcheck spawn location
-                //Skillcheck button randomizer
-                //Skillcheck button pop-up
-
+                //Skillcheck function
                 StartCoroutine(RandomSkillcheckPopUp(1));
             }
             else
@@ -155,15 +235,13 @@ public class CuttingBoardInteraction : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
 
-        currentKeybind = Random.Range(0, skillcheckTxt.Count);
+        currentKeybind = UnityEngine.Random.Range(0, skillcheckTxt.Count);
 
-        RectTransform parentRect = emptyParent.GetComponent<RectTransform>();
+        float randomX = UnityEngine.Random.Range(-parentRect.rect.width / 2, parentRect.rect.width / 2);
+        float randomY = UnityEngine.Random.Range(-parentRect.rect.height / 2, parentRect.rect.height / 2);
 
-        float randomX = Random.Range(-parentRect.rect.width / 2, parentRect.rect.width / 2);
-        float randomY = Random.Range(-parentRect.rect.height / 2, parentRect.rect.height / 2);
+        TextMeshProUGUI currentText = Instantiate(skillcheckTxt[currentKeybind], emptyParent.transform);
 
-        TextMeshProUGUI newText = Instantiate(skillcheckTxt[currentKeybind], emptyParent.transform);
-
-        newText.rectTransform.localPosition = new Vector3(randomX, randomY, 0);
+        currentText.rectTransform.localPosition = new Vector3(randomX, randomY, 0);
     }
 }
