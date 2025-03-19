@@ -13,10 +13,13 @@ public class PlayerInteraction : MonoBehaviour
     
     RaycastHit hit;
 
+    bool interactable;
+
     void Start()
     {
         //deactivate txt incase active
         textPopUpInteraction.SetActive(false);
+        textObjectivePopUpObject.SetActive(false);
     }
 
     void Update()
@@ -29,7 +32,10 @@ public class PlayerInteraction : MonoBehaviour
         if(Physics.Raycast(transform.position, transform.forward, out hit, rayDistance, layerMask))
         {
             //activate txt
-            textPopUpInteraction.SetActive(true);
+            if(!textPopUpInteraction.activeInHierarchy)
+            {
+                textPopUpInteraction.SetActive(true);
+            }
 
             if(Input.GetButtonDown("Fire1"))
             {
@@ -39,7 +45,10 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             //deactivate txt
-            textPopUpInteraction.SetActive(false);
+            if(textPopUpInteraction.activeInHierarchy)
+            {
+                textPopUpInteraction.SetActive(false);
+            }
         }
     }
 

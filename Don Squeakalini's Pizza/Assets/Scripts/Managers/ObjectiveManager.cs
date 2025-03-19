@@ -9,6 +9,10 @@ public class ObjectiveManager : MonoBehaviour
     public bool ingredientGrabbed = false; 
     bool pizzaCompleet = false;
     bool orderCompleted = false;
+    bool ingredientToppingsCompleted = false;
+
+    [SerializeField] float moneyToGive; 
+    [SerializeField] float moneyToAdd;
 
     public IngredientSO currentGrabbedIngredient;
 
@@ -45,5 +49,17 @@ public class ObjectiveManager : MonoBehaviour
     {
         get { return orderCompleted;}
         set { orderCompleted = value;}
+    }
+
+    public bool IngredientToppingsCompleted
+    {
+        get { return ingredientToppingsCompleted;}
+        set { ingredientToppingsCompleted = value;}
+    }
+
+    public float MoneyToAdd(float value)
+    {
+            moneyToAdd += value;
+            return moneyToAdd;
     }
 }

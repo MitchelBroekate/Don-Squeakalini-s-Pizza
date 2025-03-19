@@ -1,14 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CuttingBoardInteraction : MonoBehaviour
 {
-    List<IngredientSO> ingredientsNeeded = new();
+    [SerializeField] List<IngredientSO> ingredientsNeeded = new();
 
     [SerializeField] ObjectiveManager objectiveManager;
     [SerializeField] PlayerInteraction playerInteraction;
@@ -22,31 +20,28 @@ public class CuttingBoardInteraction : MonoBehaviour
     IngredientSO currentIngredient;
 
     bool doughRollingCompleted = false;
+    bool ingredientsAdded = false;
 
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject emptyParent;
-    [SerializeField] List<TextMeshProUGUI>  skillcheckTxt = new();
+    [SerializeField] List<GameObject> skillcheckObjects = new();
+    [SerializeField] GameObject ingredientTxt;
     
     RectTransform parentRect;
     
     int currentKeybind = 4;
     int currentMinigameCompletion = 0;
     bool minigameCompleted = false;
-    float minigameScore = 1;
+    float minigameScore = 5;
+    
 
     void Start()
     {
         parentRect = emptyParent.GetComponent<RectTransform>();
 
-        foreach (IngredientSO ingredient in objectiveManager.currentObjectiveIngredients)
-        {
-            if(!ingredientsNeeded.Contains(ingredient))
-            {
-                ingredientsNeeded.Add(ingredient);
-            }
-        }
-
         ingredientsNeeded.Add(IngrdientDough);
+
+        ingredientTxt.SetActive(false);
     }
 
     void Update()
@@ -54,6 +49,8 @@ public class CuttingBoardInteraction : MonoBehaviour
         if(currentMinigameCompletion > 4)
         {
             minigameCompleted = true;
+
+            StartCoroutine(CompleteMinigame());
         }
     }
 
@@ -65,24 +62,26 @@ public class CuttingBoardInteraction : MonoBehaviour
 
             if(currentKeybind == 0)
             {
-
                 currentMinigameCompletion++;
-                StartCoroutine(RandomSkillcheckPopUp(1));
-                print("Checked The Skill :P");
+
+                if(currentMinigameCompletion <5)
+                {
+                    StartCoroutine(RandomSkillcheckPopUp(1));
+                }
 
                 Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
             else if(currentKeybind < 4 && currentKeybind != 0)
             {
-                //minus points
                 minigameScore *= 0.75f;
                 minigameScore = (float)Math.Round(minigameScore, 2);
 
-                print("Wrong order");
-                print(minigameScore);
-
                 currentMinigameCompletion++;
-                StartCoroutine(RandomSkillcheckPopUp(1));
+
+                if(currentMinigameCompletion <5)
+                {
+                    StartCoroutine(RandomSkillcheckPopUp(1));
+                }
 
                 Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
@@ -99,9 +98,11 @@ public class CuttingBoardInteraction : MonoBehaviour
             {
                 minigameScore++;
                 currentMinigameCompletion++;
-                StartCoroutine(RandomSkillcheckPopUp(1));
 
-                print("Checked The Skill :P");
+                if(currentMinigameCompletion <5)
+                {
+                    StartCoroutine(RandomSkillcheckPopUp(1));
+                }
 
                 Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
@@ -110,11 +111,12 @@ public class CuttingBoardInteraction : MonoBehaviour
                 minigameScore *= 0.75f;
                 minigameScore = (float)Math.Round(minigameScore, 2);
 
-                print("Wrong order");
-                print(minigameScore);
-
                 currentMinigameCompletion++;
-                StartCoroutine(RandomSkillcheckPopUp(1));
+
+                if(currentMinigameCompletion <5)
+                {
+                    StartCoroutine(RandomSkillcheckPopUp(1));
+                }
 
                 Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
@@ -131,9 +133,11 @@ public class CuttingBoardInteraction : MonoBehaviour
             {
                 minigameScore++;
                 currentMinigameCompletion++;
-                StartCoroutine(RandomSkillcheckPopUp(1));
 
-                print("Checked The Skill :P");
+                if(currentMinigameCompletion <5)
+                {
+                    StartCoroutine(RandomSkillcheckPopUp(1));
+                }
 
                 Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
@@ -142,11 +146,12 @@ public class CuttingBoardInteraction : MonoBehaviour
                 minigameScore *= 0.75f;
                 minigameScore = (float)Math.Round(minigameScore, 2);
 
-                print("Wrong order");
-                print(minigameScore);
-
                 currentMinigameCompletion++;
-                StartCoroutine(RandomSkillcheckPopUp(1));
+
+                if(currentMinigameCompletion <5)
+                {
+                    StartCoroutine(RandomSkillcheckPopUp(1));
+                }
 
                 Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
@@ -163,9 +168,11 @@ public class CuttingBoardInteraction : MonoBehaviour
             {
                 minigameScore++;
                 currentMinigameCompletion++;
-                StartCoroutine(RandomSkillcheckPopUp(1));
 
-                print("Checked The Skill :P");
+                if(currentMinigameCompletion <5)
+                {
+                    StartCoroutine(RandomSkillcheckPopUp(1));
+                }
 
                 Destroy(emptyParent.transform.GetChild(0).gameObject);
             }
@@ -174,11 +181,12 @@ public class CuttingBoardInteraction : MonoBehaviour
                 minigameScore *= 0.75f;
                 minigameScore = (float)Math.Round(minigameScore, 2);
 
-                print("Wrong order");
-                print(minigameScore);
-
                 currentMinigameCompletion++;
-                StartCoroutine(RandomSkillcheckPopUp(1));
+
+                if(currentMinigameCompletion <5)
+                {
+                    StartCoroutine(RandomSkillcheckPopUp(1));
+                }
 
                 Destroy(emptyParent.transform.GetChild(0).gameObject);
             } 
@@ -187,14 +195,31 @@ public class CuttingBoardInteraction : MonoBehaviour
 
     public void StartMinigame()
     {
+        if(objectiveManager.IngredientToppingsCompleted == true) return;
+
         //if ingredient is in inventory
          if(objectiveManager.ingredientGrabbed)
          { 
+            if(!ingredientsAdded)
+            {
+                foreach(IngredientSO ingredient in objectiveManager.currentObjectiveIngredients)
+                {
+                    if(!ingredientsNeeded.Contains(ingredient))
+                    {
+                        ingredientsNeeded.Add(ingredient);
+                    }
+                }
+
+                ingredientsAdded = true;
+            }
+
+
             currentIngredient = objectiveManager.currentGrabbedIngredient;
             
             if(!doughRollingCompleted && currentIngredient != IngrdientDough)
             {
                 //pop up (Dough Needed)
+                StopAllCoroutines();
                 StartCoroutine(playerInteraction.PopUpText(2, "First comes the dough"));
                 return;
             }
@@ -208,8 +233,12 @@ public class CuttingBoardInteraction : MonoBehaviour
                 cuttingCam.SetActive(true);
                 player.SetActive(false);
 
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                if(currentIngredient == IngrdientDough)
+                {
+                    doughRollingCompleted = true;
+                }
+
+                ingredientsNeeded.Remove(currentIngredient);
 
                 //Skillcheck function
                 StartCoroutine(RandomSkillcheckPopUp(1));
@@ -217,6 +246,7 @@ public class CuttingBoardInteraction : MonoBehaviour
             else
             {
                 //pop up (wrong ingredient grabbed)
+                StopAllCoroutines();
                 StartCoroutine(playerInteraction.PopUpText(2, "The customer didn't want this on his pizza"));
                 return;
             }
@@ -224,10 +254,15 @@ public class CuttingBoardInteraction : MonoBehaviour
          else
          {
              //pop up (no ingredient grabbed)
+             StopAllCoroutines();
              StartCoroutine(playerInteraction.PopUpText(2, "I forgot to grab an ingredient"));
          }
     }
 
+    void WaveMoneyMultiplier()
+    {
+        //will multiply the money depending on how far you are in the game
+    }
 
     IEnumerator RandomSkillcheckPopUp(float waitTime)
     {
@@ -235,13 +270,39 @@ public class CuttingBoardInteraction : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
 
-        currentKeybind = UnityEngine.Random.Range(0, skillcheckTxt.Count);
+        currentKeybind = UnityEngine.Random.Range(0, skillcheckObjects.Count);
 
         float randomX = UnityEngine.Random.Range(-parentRect.rect.width / 2, parentRect.rect.width / 2);
         float randomY = UnityEngine.Random.Range(-parentRect.rect.height / 2, parentRect.rect.height / 2);
 
-        TextMeshProUGUI currentText = Instantiate(skillcheckTxt[currentKeybind], emptyParent.transform);
+        GameObject currentskillcheck = Instantiate(skillcheckObjects[currentKeybind], emptyParent.transform);
 
-        currentText.rectTransform.localPosition = new Vector3(randomX, randomY, 0);
+        currentskillcheck.transform.localPosition = new Vector3(randomX, randomY, 0);
+    }
+
+    IEnumerator CompleteMinigame()
+    {
+        ingredientTxt.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        ingredientTxt.SetActive(false);
+
+        player.SetActive(true);
+        cuttingCam.SetActive(false);
+
+        //remember score 
+        WaveMoneyMultiplier();
+        objectiveManager.MoneyToAdd(minigameScore);
+
+        if(ingredientsNeeded.Count <= 0)
+        {
+            objectiveManager.IngredientToppingsCompleted = true;
+        }
+
+        minigameScore = 5;
+        currentMinigameCompletion = 0;
+        ingredientsAdded = false;
+        minigameCompleted = false;
     }
 }
