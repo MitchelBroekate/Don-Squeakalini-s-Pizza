@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IngredientGrabber : MonoBehaviour
@@ -22,8 +20,6 @@ public class IngredientGrabber : MonoBehaviour
                 currentIngredient.transform.parent = itemHolder;
 
                 objectiveManager.currentGrabbedIngredient = ingredientToSpawn;
-
-                print("Ingredient Grabbed");
             }
             else
             {
@@ -37,6 +33,7 @@ public class IngredientGrabber : MonoBehaviour
                 else
                 {
                     //UI pop-up
+                    StopAllCoroutines();
                     StartCoroutine(playerInteraction.PopUpText(2, "Got to put this back first"));
                 }
             }
@@ -44,6 +41,7 @@ public class IngredientGrabber : MonoBehaviour
         else
         {
             //UI pop-up
+            StopAllCoroutines();
             StartCoroutine(playerInteraction.PopUpText(2, "I haven't fulled in the order yet"));
         }
 
