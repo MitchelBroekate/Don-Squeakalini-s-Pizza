@@ -11,277 +11,269 @@ AvatarMask:
   m_Elements:
   - m_Path: 
     m_Weight: 1
-  - m_Path: Hat.1
+  - m_Path: Bowlerhat
     m_Weight: 0
-  - m_Path: Hat.2
+  - m_Path: HeadPhones
     m_Weight: 0
-  - m_Path: Muis
+  - m_Path: Rat
     m_Weight: 0
-  - m_Path: Muis/Spine
+  - m_Path: Rat/Spine
     m_Weight: 0
-  - m_Path: Muis/Spine/Back.L
+  - m_Path: Rat/Spine/Back.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Back.L/Back.L_end
+  - m_Path: Rat/Spine/Back.L/Back.L_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Back.R
+  - m_Path: Rat/Spine/Back.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Back.R/Back.R_end
+  - m_Path: Rat/Spine/Back.R/Back.R_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Belly
+  - m_Path: Rat/Spine/Belly
     m_Weight: 0
-  - m_Path: Muis/Spine/Belly/Belly_end
+  - m_Path: Rat/Spine/Belly/Belly_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Knee.L
+  - m_Path: Rat/Spine/Knee.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Knee.L/Knee.L_end
+  - m_Path: Rat/Spine/Knee.L/Knee.L_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Knee.R
+  - m_Path: Rat/Spine/Knee.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Knee.R/Knee.R_end
+  - m_Path: Rat/Spine/Knee.R/Knee.R_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L
+  - m_Path: Rat/Spine/Leg.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/Toe.L
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/Toe.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/Toe.L/Toe.L.001
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/Toe.L/Toe.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/Toe.L/Toe.L.001/Toe.L.002
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/Toe.L/Toe.L.001/Toe.L.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/Toe.L/Toe.L.001/Toe.L.002/Toe.L.003
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/Toe.L/Toe.L.001/Toe.L.002/Toe.L.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/Toe.L/Toe.L.001/Toe.L.002/Toe.L.003/Toe.L.003_end
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/Toe.L/Toe.L.001/Toe.L.002/Toe.L.003/Toe.L.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeL.L
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeL.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeL.L/ToeL.L.001
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeL.L/ToeL.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeL.L/ToeL.L.001/ToeL.L.002
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeL.L/ToeL.L.001/ToeL.L.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeL.L/ToeL.L.001/ToeL.L.002/ToeL.L.003
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeL.L/ToeL.L.001/ToeL.L.002/ToeL.L.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeL.L/ToeL.L.001/ToeL.L.002/ToeL.L.003/ToeL.L.003_end
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeL.L/ToeL.L.001/ToeL.L.002/ToeL.L.003/ToeL.L.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeR.L
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeR.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeR.L/ToeR.L.001
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeR.L/ToeR.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeR.L/ToeR.L.001/ToeR.L.002
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeR.L/ToeR.L.001/ToeR.L.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeR.L/ToeR.L.001/ToeR.L.002/ToeR.L.003
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeR.L/ToeR.L.001/ToeR.L.002/ToeR.L.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/ToeR.L/ToeR.L.001/ToeR.L.002/ToeR.L.003/ToeR.L.003_end
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/ToeR.L/ToeR.L.001/ToeR.L.002/ToeR.L.003/ToeR.L.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/WToe.L
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/WToe.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.L/Leg.L.001/WToe.L/WToe.L_end
+  - m_Path: Rat/Spine/Leg.L/Leg.L.001/WToe.L/WToe.L_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R
+  - m_Path: Rat/Spine/Leg.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/Toe.R
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/Toe.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/Toe.R/Toe.R.001
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/Toe.R/Toe.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/Toe.R/Toe.R.001/Toe.R.002
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/Toe.R/Toe.R.001/Toe.R.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/Toe.R/Toe.R.001/Toe.R.002/Toe.R.003
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/Toe.R/Toe.R.001/Toe.R.002/Toe.R.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/Toe.R/Toe.R.001/Toe.R.002/Toe.R.003/Toe.R.003_end
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/Toe.R/Toe.R.001/Toe.R.002/Toe.R.003/Toe.R.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeL.R
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeL.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeL.R/ToeL.R.001
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeL.R/ToeL.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeL.R/ToeL.R.001/ToeL.R.002
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeL.R/ToeL.R.001/ToeL.R.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeL.R/ToeL.R.001/ToeL.R.002/ToeL.R.003
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeL.R/ToeL.R.001/ToeL.R.002/ToeL.R.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeL.R/ToeL.R.001/ToeL.R.002/ToeL.R.003/ToeL.R.003_end
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeL.R/ToeL.R.001/ToeL.R.002/ToeL.R.003/ToeL.R.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeR.R
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeR.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeR.R/ToeR.R.001
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeR.R/ToeR.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeR.R/ToeR.R.001/ToeR.R.002
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeR.R/ToeR.R.001/ToeR.R.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeR.R/ToeR.R.001/ToeR.R.002/ToeR.R.003
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeR.R/ToeR.R.001/ToeR.R.002/ToeR.R.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/ToeR.R/ToeR.R.001/ToeR.R.002/ToeR.R.003/ToeR.R.003_end
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/ToeR.R/ToeR.R.001/ToeR.R.002/ToeR.R.003/ToeR.R.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/WToe.R
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/WToe.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Leg.R/Leg.R.001/WToe.R/WToe.R_end
+  - m_Path: Rat/Spine/Leg.R/Leg.R.001/WToe.R/WToe.R_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001
+  - m_Path: Rat/Spine/Spine.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L/Finger.L.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L/Finger.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L/Finger.L.001/Finger.L.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L/Finger.L.001/Finger.L.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L/Finger.L.001/Finger.L.002/Finger.L.003
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L/Finger.L.001/Finger.L.002/Finger.L.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L/Finger.L.001/Finger.L.002/Finger.L.003/Finger.L.003_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Finger.L/Finger.L.001/Finger.L.002/Finger.L.003/Finger.L.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L/MFinger.L.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L/MFinger.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L/MFinger.L.001/MFinger.L.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L/MFinger.L.001/MFinger.L.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L/MFinger.L.001/MFinger.L.002/MFinger.L.003
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L/MFinger.L.001/MFinger.L.002/MFinger.L.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L/MFinger.L.001/MFinger.L.002/MFinger.L.003/MFinger.L.003_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/MFinger.L/MFinger.L.001/MFinger.L.002/MFinger.L.003/MFinger.L.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L/Pinky.L.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L/Pinky.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L/Pinky.L.001/Pinky.L.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L/Pinky.L.001/Pinky.L.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L/Pinky.L.001/Pinky.L.002/Pinky.L.003
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L/Pinky.L.001/Pinky.L.002/Pinky.L.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L/Pinky.L.001/Pinky.L.002/Pinky.L.003/Pinky.L.003_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Pinky.L/Pinky.L.001/Pinky.L.002/Pinky.L.003/Pinky.L.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Thumb.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Thumb.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Thumb.L/Thumb.L.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Thumb.L/Thumb.L.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Thumb.L/Thumb.L.001/Thumb.L.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Thumb.L/Thumb.L.001/Thumb.L.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Thumb.L/Thumb.L.001/Thumb.L.002/Thumb.L.002_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.L/Arm.L.001/Hand.L/Thumb.L/Thumb.L.001/Thumb.L.002/Thumb.L.002_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R/Finger.R.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R/Finger.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R/Finger.R.001/Finger.R.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R/Finger.R.001/Finger.R.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R/Finger.R.001/Finger.R.002/Finger.R.003
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R/Finger.R.001/Finger.R.002/Finger.R.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R/Finger.R.001/Finger.R.002/Finger.R.003/Finger.R.003_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Finger.R/Finger.R.001/Finger.R.002/Finger.R.003/Finger.R.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R/MFinger.R.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R/MFinger.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R/MFinger.R.001/MFinger.R.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R/MFinger.R.001/MFinger.R.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R/MFinger.R.001/MFinger.R.002/MFinger.R.003
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R/MFinger.R.001/MFinger.R.002/MFinger.R.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R/MFinger.R.001/MFinger.R.002/MFinger.R.003/MFinger.R.003_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/MFinger.R/MFinger.R.001/MFinger.R.002/MFinger.R.003/MFinger.R.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R/Pinky.R.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R/Pinky.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R/Pinky.R.001/Pinky.R.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R/Pinky.R.001/Pinky.R.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R/Pinky.R.001/Pinky.R.002/Pinky.R.003
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R/Pinky.R.001/Pinky.R.002/Pinky.R.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R/Pinky.R.001/Pinky.R.002/Pinky.R.003/Pinky.R.003_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Pinky.R/Pinky.R.001/Pinky.R.002/Pinky.R.003/Pinky.R.003_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Thumb.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Thumb.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Thumb.R/Thumb.R.001
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Thumb.R/Thumb.R.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Thumb.R/Thumb.R.001/Thumb.R.002
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Thumb.R/Thumb.R.001/Thumb.R.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Thumb.R/Thumb.R.001/Thumb.R.002/Thumb.R.002_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Arm.R/Arm.R.001/Hand.R/Thumb.R/Thumb.R.001/Thumb.R.002/Thumb.R.002_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Ear.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Ear.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Ear.L/Ear.L_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Ear.L/Ear.L_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Ear.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Ear.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Ear.R/Ear.R_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Ear.R/Ear.R_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.L/EyeLid.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.L/EyeLid.L
     m_Weight: 1
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.L/EyeLid.L/EyeLid.L_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.L/EyeLid.L/EyeLid.L_end
     m_Weight: 1
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.R/EyeLid.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.R/EyeLid.R
     m_Weight: 1
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.R/EyeLid.R/EyeLid.R_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Eye.R/EyeLid.R/EyeLid.R_end
     m_Weight: 1
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Hat
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Hat
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Hat/Hat_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Hat/Hat_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose/Whisker.L
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose/Whisker.L
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose/Whisker.L/Whisker.L_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose/Whisker.L/Whisker.L_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose/Whisker.R
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose/Whisker.R
     m_Weight: 0
-  - m_Path: Muis/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose/Whisker.R/Whisker.R_end
+  - m_Path: Rat/Spine/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Head/Nose/Whisker.R/Whisker.R_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail
+  - m_Path: Rat/Spine/Tail
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001
+  - m_Path: Rat/Spine/Tail/Tail.001
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002
+  - m_Path: Rat/Spine/Tail/Tail.001/Tail.002
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003
+  - m_Path: Rat/Spine/Tail/Tail.001/Tail.002/Tail.003
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004
+  - m_Path: Rat/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005
+  - m_Path: Rat/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006
+  - m_Path: Rat/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007
+  - m_Path: Rat/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008
+  - m_Path: Rat/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008/Tail.009
+  - m_Path: Rat/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008/Tail.008_end
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008/Tail.009/Tail.010
+  - m_Path: RatBody
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008/Tail.009/Tail.010/Tail.011
+  - m_Path: Suit.
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008/Tail.009/Tail.010/Tail.011/Tail.012
+  - m_Path: Tanktop
     m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008/Tail.009/Tail.010/Tail.011/Tail.012/Tail.013
-    m_Weight: 0
-  - m_Path: Muis/Spine/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008/Tail.009/Tail.010/Tail.011/Tail.012/Tail.013/Tail.013_end
-    m_Weight: 0
-  - m_Path: MuisBody
-    m_Weight: 0
-  - m_Path: Suit
-    m_Weight: 0
-  - m_Path: Whiskers
+  - m_Path: Whiskers.Rat
     m_Weight: 0
