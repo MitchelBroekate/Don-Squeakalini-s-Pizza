@@ -72,7 +72,6 @@ public class OvenInteraction : MonoBehaviour
         yield return new WaitForSeconds(2);
 
 
-
         
     }
 }
