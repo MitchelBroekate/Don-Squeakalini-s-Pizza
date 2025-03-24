@@ -10,6 +10,7 @@ public class CuttingBoardInteraction : MonoBehaviour
 
     [SerializeField] ObjectiveManager objectiveManager;
     [SerializeField] PlayerInteraction playerInteraction;
+    [SerializeField] PizzariaController pizzariaController;
 
     [SerializeField] GameObject player;
     [SerializeField] GameObject cuttingCam;
@@ -244,9 +245,13 @@ public class CuttingBoardInteraction : MonoBehaviour
                 Destroy(itemHolder.GetChild(0).gameObject);
                 
                 //camera switch
-
+                pizzariaController.LockPlayer(true);
                 cuttingCam.SetActive(true);
-                player.SetActive(false);
+
+                for(int i = 0; i < player.transform.childCount; i++)
+                {
+                    player.transform.GetChild(i).gameObject.SetActive(false);
+                }
 
                 if(currentIngredient == IngrdientDough)
                 {
@@ -347,9 +352,13 @@ public class CuttingBoardInteraction : MonoBehaviour
 
         ingredientTxt.SetActive(false);
 
-        player.SetActive(true);
+        for(int i = 0; i < player.transform.childCount; i++)
+        {
+            player.transform.GetChild(i).gameObject.SetActive(true);
+        }
         cuttingCam.SetActive(false);
-
+        pizzariaController.LockPlayer(false);
+        
         //remember score 
         objectiveManager.MoneyToAdd(minigameScore);
 

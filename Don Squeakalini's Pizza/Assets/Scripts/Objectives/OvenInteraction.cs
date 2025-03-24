@@ -1,12 +1,16 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class OvenInteraction : MonoBehaviour
 {
     [SerializeField] ObjectiveManager objectiveManager;
     [SerializeField] PlayerInteraction playerInteraction;
+    [SerializeField] PizzariaController pizzariaController;
+
     [SerializeField] Transform playerPizzaHolder;
+
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject ovenCamera;
 
     GameObject ovenPizzaHolder;
 
@@ -40,6 +44,14 @@ public class OvenInteraction : MonoBehaviour
                 case 2:
                     //close oven and start minigame
                     StartCoroutine(StartMinigame());
+
+                    //switch camera
+                    ovenCamera.SetActive(true);
+                    pizzariaController.LockPlayer(true);
+                    for(int i = 0; i < player.transform.childCount; i++)
+                    {
+                        player.transform.GetChild(i).gameObject.SetActive(false);
+                    }
                     break;
 
                 default:
