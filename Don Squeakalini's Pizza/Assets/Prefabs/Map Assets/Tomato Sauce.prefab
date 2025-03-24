@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.637
+      value: 0.102
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.936
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 56.254
+      value: 5.402
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
@@ -31,17 +31,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
@@ -58,16 +58,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5028804160360635701, guid: 81a1fc555f4aa5947acbfb16179b7443,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0105
+      objectReference: {fileID: 0}
+    - target: {fileID: -2002226328544361368, guid: 81a1fc555f4aa5947acbfb16179b7443,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_Name
       value: Tomato Sauce
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81a1fc555f4aa5947acbfb16179b7443,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1233835102664666324, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 026d433ea30c4e643b329bd06da65285, type: 2}
+    - target: {fileID: 2996988617864139917, guid: 81a1fc555f4aa5947acbfb16179b7443,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5740610782154735007, guid: 81a1fc555f4aa5947acbfb16179b7443,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
