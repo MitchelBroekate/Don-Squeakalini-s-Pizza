@@ -16,3 +16,4 @@ MonoBehaviour:
   ingredientSprite: {fileID: 21300000, guid: a3c8352823ee30e42ac95b8d977d29c4, type: 3}
   ingredientObject: {fileID: 8414761267304329338, guid: 7fcf2991b3382144992d97b083c11ae1,
     type: 3}
+  ingredientID: 2

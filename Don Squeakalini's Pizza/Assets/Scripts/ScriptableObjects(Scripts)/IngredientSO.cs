@@ -4,6 +4,8 @@ using UnityEngine;
 public class IngredientSO : ScriptableObject
 {
     public string ingredientName;
+    public int ingredientID;
     public Sprite ingredientSprite;
     public GameObject ingredientObject;
+    public GameObject finalObject;
 }
