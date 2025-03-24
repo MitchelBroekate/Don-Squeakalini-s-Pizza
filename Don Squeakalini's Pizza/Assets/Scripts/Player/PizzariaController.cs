@@ -38,6 +38,8 @@ public class PizzariaController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        playerUI.SetActive(false);
     }
 
     /// <summary>
@@ -98,14 +100,13 @@ public class PizzariaController : MonoBehaviour
             //activate tablet slide
         }
     }
-
     void TabletMove()
     {
         if(tabletMoveToLeft)
         {
-            if(tablet.transform.position.x > 0)
+            if(tablet.transform.position.x > -1000)
             {
-                tablet.transform.position -= new Vector3(3000, 0,0) * Time.deltaTime;
+                tablet.transform.position -= new Vector3(4000, 0,0) * Time.deltaTime;
             }
             else
             {
@@ -123,7 +124,7 @@ public class PizzariaController : MonoBehaviour
         {
             if(tablet.transform.position.x < 1000)
             {
-                tablet.transform.position += new Vector3(3000, 0,0) * Time.deltaTime;
+                tablet.transform.position += new Vector3(4000, 0,0) * Time.deltaTime;
             }
             else 
             {

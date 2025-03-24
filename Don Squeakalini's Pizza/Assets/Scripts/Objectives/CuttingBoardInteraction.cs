@@ -35,6 +35,7 @@ public class CuttingBoardInteraction : MonoBehaviour
     float minigameScore = 5;
     
     GameObject pizzaBuild;
+    bool instantiatePizzaOnce = true;
 
     void Start()
     {
@@ -52,6 +53,14 @@ public class CuttingBoardInteraction : MonoBehaviour
             minigameCompleted = true;
 
             StartCoroutine(CompleteMinigame());
+        }
+
+        if(pizzaBuild != null)
+        {
+            if(pizzaBuild.GetComponent<PizzaInteraction>().grabbedPizza)
+            {
+                gameObject.layer = LayerMask.NameToLayer("Interactable");
+            }
         }
     }
 
@@ -196,7 +205,12 @@ public class CuttingBoardInteraction : MonoBehaviour
 
     public void StartMinigame()
     {
-        if(objectiveManager.IngredientToppingsCompleted == true) return;
+
+        if(objectiveManager.IngredientToppingsCompleted == true)
+        {    
+            StartCoroutine(playerInteraction.PopUpText(2, "The Pizza is already completed"));
+            return;
+        }
 
         //if ingredient is in inventory
          if(objectiveManager.ingredientGrabbed)
@@ -214,7 +228,6 @@ public class CuttingBoardInteraction : MonoBehaviour
                 ingredientsAdded = true;
             }
 
-
             currentIngredient = objectiveManager.currentGrabbedIngredient;
             
             if(!doughRollingCompleted && currentIngredient != IngrdientDough)
@@ -231,6 +244,7 @@ public class CuttingBoardInteraction : MonoBehaviour
                 Destroy(itemHolder.GetChild(0).gameObject);
                 
                 //camera switch
+
                 cuttingCam.SetActive(true);
                 player.SetActive(false);
 
@@ -266,9 +280,19 @@ public class CuttingBoardInteraction : MonoBehaviour
         {
             case 0:
                 //Dough
-                pizzaBuild = Instantiate(currentIngredient.finalObject);
-                pizzaBuild.transform.parent = transform.GetChild(0);
-                pizzaBuild.transform.position = transform.GetChild(0).position;
+                if(instantiatePizzaOnce)
+                {
+                    pizzaBuild = Instantiate(currentIngredient.finalObject);
+
+                    //pizzaBuild.transform.parent = transform.GetChild(0);
+                    pizzaBuild.transform.position = transform.GetChild(0).position;
+
+                    pizzaBuild.GetComponent<PizzaInteraction>().objectiveManager = objectiveManager;
+                    pizzaBuild.GetComponent<PizzaInteraction>().itemHolder = itemHolder;
+
+                    instantiatePizzaOnce = false;
+                }
+
                 break;
 
             case 1:
@@ -332,11 +356,19 @@ public class CuttingBoardInteraction : MonoBehaviour
         if(ingredientsNeeded.Count <= 0)
         {
             objectiveManager.IngredientToppingsCompleted = true;
+
+            pizzaBuild.layer = LayerMask.NameToLayer("Interactable");
+
+            gameObject.layer = LayerMask.NameToLayer("Default");
+
+            ingredientsNeeded.Add(IngrdientDough);
+
+            ingredientsAdded = false;
         }
 
         minigameScore = 5;
         currentMinigameCompletion = 0;
-        ingredientsAdded = false;
+
         minigameCompleted = false;
 
         StopAllCoroutines();

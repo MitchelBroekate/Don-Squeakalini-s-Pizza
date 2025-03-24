@@ -7,6 +7,7 @@ public class ObjectiveManager : MonoBehaviour
     
     public bool introCompleet = false;
     public bool ingredientGrabbed = false; 
+    public bool PizzaGrabbed = false;
     bool pizzaCompleet = false;
     bool orderCompleted = false;
     bool ingredientToppingsCompleted = false;
