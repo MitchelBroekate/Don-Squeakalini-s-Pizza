@@ -34,6 +34,7 @@ public class CuttingBoardInteraction : MonoBehaviour
     bool minigameCompleted = false;
     float minigameScore = 5;
     
+    GameObject pizzaBuild;
 
     void Start()
     {
@@ -259,10 +260,42 @@ public class CuttingBoardInteraction : MonoBehaviour
          }
     }
 
-    void WaveMoneyMultiplier()
+    void PizzaBuilder()
     {
-        //will multiply the money depending on how far you are in the game
-    }
+        switch(currentIngredient.ingredientID)
+        {
+            case 0:
+                //Dough
+                pizzaBuild = Instantiate(currentIngredient.finalObject);
+                pizzaBuild.transform.parent = transform.GetChild(0);
+                pizzaBuild.transform.position = transform.GetChild(0).position;
+                break;
+
+            case 1:
+                //Cheese
+                pizzaBuild.transform.GetChild(0).gameObject.SetActive(true);
+                break;
+
+            case 2:
+                //Paprika
+                pizzaBuild.transform.GetChild(1).gameObject.SetActive(true);
+                break;
+
+            case 3:
+                //Pepperoni
+                pizzaBuild.transform.GetChild(2).gameObject.SetActive(true);
+                break;
+
+            case 4:
+                //TomatoPaste
+                pizzaBuild.transform.GetChild(3).gameObject.SetActive(true);
+                break;
+
+            default:
+                Debug.LogWarning("Int out of bounds. CuttingBouardInteraction/PizzaBuilder");
+                break;
+        }
+    }   
 
     IEnumerator RandomSkillcheckPopUp(float waitTime)
     {
@@ -284,6 +317,8 @@ public class CuttingBoardInteraction : MonoBehaviour
     {
         ingredientTxt.SetActive(true);
 
+        PizzaBuilder();
+
         yield return new WaitForSeconds(2);
 
         ingredientTxt.SetActive(false);
@@ -292,7 +327,6 @@ public class CuttingBoardInteraction : MonoBehaviour
         cuttingCam.SetActive(false);
 
         //remember score 
-        WaveMoneyMultiplier();
         objectiveManager.MoneyToAdd(minigameScore);
 
         if(ingredientsNeeded.Count <= 0)
@@ -304,5 +338,7 @@ public class CuttingBoardInteraction : MonoBehaviour
         currentMinigameCompletion = 0;
         ingredientsAdded = false;
         minigameCompleted = false;
+
+        StopAllCoroutines();
     }
 }

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Dough
   m_EditorClassIdentifier: 
   ingredientName: Dough
+  ingredientID: 0
   ingredientSprite: {fileID: 0}
   ingredientObject: {fileID: 2679333800732433366, guid: c80f7cfecde3a37479a453f3deb2aede,
+    type: 3}
+  finalObject: {fileID: 5588437586012423885, guid: 934515dcbdfe17245aa8be2141edac7d,
     type: 3}

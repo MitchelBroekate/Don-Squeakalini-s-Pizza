@@ -59,7 +59,7 @@ public class ObjectiveManager : MonoBehaviour
 
     public float MoneyToAdd(float value)
     {
-            moneyToAdd += value;
-            return moneyToAdd;
+        moneyToAdd += value;
+        return moneyToAdd;
     }
 }
