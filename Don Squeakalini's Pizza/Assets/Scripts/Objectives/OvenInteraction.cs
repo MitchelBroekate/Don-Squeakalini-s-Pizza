@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -25,21 +26,16 @@ public class OvenInteraction : MonoBehaviour
 
     [SerializeField] bool ovenHeatGain = false;
 
-
-    [Header("Minigame Zone Variables")]
-    [SerializeField] GameObject zoneVisualPrefab;
-    [SerializeField] float requiredHoldTime = 6f;
-    
-    float minZoneValue = 25f;
-    float maxZoneValue = 45f;
-    float currentHoldTime = 0f;
-    bool isInZone = false;
     bool hasWon = false;
-    RectTransform zoneVisual;
 
     void Start()
     {
         ovenPizzaHolder = transform.GetChild(0).gameObject;
+
+        heatSlider.minValue = 0;
+        heatSlider.maxValue = 100;
+
+        heatSlider.onValueChanged.AddListener(CheckheatSliderPosition);
     }
 
     void Update()
@@ -53,11 +49,9 @@ public class OvenInteraction : MonoBehaviour
             heatSlider.value -= heatLossSpeed * Time.deltaTime;
         }
 
-        SliderZoneCheck();
-
         if(Input.GetButtonDown("Fire1"))
         {
-            CreateAndSetupZoneVisual();
+            SetNewTargetZone();
         }
     }
 
@@ -117,7 +111,7 @@ public class OvenInteraction : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        CreateAndSetupZoneVisual();
+        SetNewTargetZone();
         
     }
 
@@ -126,80 +120,53 @@ public class OvenInteraction : MonoBehaviour
         ovenHeatGain = context.performed;
     }
 
-    void SliderZoneCheck()
+    public GameObject targetZonePrefab;
+    public RectTransform heatSliderParent;
+    public TMP_Text  feedbackText;
+
+    private GameObject targetZoneInstance;
+    private float targetMin;
+    private float targetMax;
+    public float zoneSize = 30f;
+
+    void SetNewTargetZone()
     {
-        if (hasWon) return;
-
-        isInZone = heatSlider.value >= minZoneValue && heatSlider.value <= maxZoneValue;
-
-        if (isInZone)
+        if (targetZoneInstance != null)
         {
-            currentHoldTime += Time.deltaTime;
-            
-            if (currentHoldTime >= requiredHoldTime)
-            {
-                OnWin();
-            }
+            Destroy(targetZoneInstance);
+        }
+
+        targetMin = Random.Range(heatSlider.minValue, heatSlider.maxValue - zoneSize);
+        targetMax = targetMin + zoneSize;
+
+        targetZoneInstance = Instantiate(targetZonePrefab, heatSliderParent);
+        RectTransform rectTransform = targetZoneInstance.GetComponent<RectTransform>();
+
+        float heatSliderHeight = heatSlider.GetComponent<RectTransform>().rect.height;
+        float normalizedMin = targetMin / heatSlider.maxValue;
+        float normalizedMax = targetMax / heatSlider.maxValue;
+
+        rectTransform.anchorMin = new Vector2(0.5f, normalizedMin);
+        rectTransform.anchorMax = new Vector2(0.5f, normalizedMax);
+        rectTransform.anchoredPosition = Vector2.zero;
+    }
+
+    void CheckheatSliderPosition(float value)
+    {
+        if (value >= targetMin && value <= targetMax)
+        {
+            feedbackText.text = "🎯 Success!";
+            feedbackText.color = Color.green;
         }
         else
         {
-            currentHoldTime = 0f;
+            feedbackText.text = "❌ Miss!";
+            feedbackText.color = Color.red;
         }
-
-        Debug.Log($"Value: {heatSlider.value:F1}, In Zone: {isInZone}, Hold Time: {currentHoldTime:F2}");
     }
 
-    private void CreateAndSetupZoneVisual()
+    public void RestartGame()
     {
-        GameObject zoneInstance = Instantiate(zoneVisualPrefab, heatSlider.transform);
-        zoneInstance.transform.parent = heatSlider.transform;
-        zoneVisual = zoneInstance.GetComponent<RectTransform>();
-
-        zoneVisual.SetAsLastSibling();
-
-        SetRandomZone();
-    }
-
-    private void SetupZoneVisual()
-    {
-        float parentWidth = zoneVisual.rect.width;
-        float parentHeight = zoneVisual.rect.height;
-
-        zoneVisual.GetComponent<RectTransform>().anchoredPosition = new Vector2(newX, 0);
-    }
-
-    private void OnWin()
-    {
-        Debug.Log("You Win!");
-        hasWon = true;
-
-        ovenInteractionState = 0;
-
-        pizzariaController.LockPlayer(false);
-        for(int i = 0; i < player.transform.childCount; i++)
-        {
-            player.transform.GetChild(i).gameObject.SetActive(true);
-        }
-        ovenCamera.SetActive(false);
-
-        //OnDestroy();
-    }
-
-    public void SetRandomZone(float minRange = 40f)
-    {
-        minZoneValue = Random.Range(0f, 100f - minRange);
-        maxZoneValue = minZoneValue + minRange;
-        currentHoldTime = 0f;
-        hasWon = false;
-        SetupZoneVisual();
-    }
-
-    // Clean up when destroyed
-    void OnDestroy()
-    {
-        if (zoneVisual != null)
-        {
-            Destroy(zoneVisual.gameObject);
-        }
+        SetNewTargetZone();
     }
 }
