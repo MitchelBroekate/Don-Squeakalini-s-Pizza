@@ -23,6 +23,8 @@ public class CustomerInteraction : MonoBehaviour
     bool canFade = true;
     bool pizzaRecieved = false;
 
+    
+
     void Start()
     {
         canvas = transform.GetChild(0).transform;
@@ -105,6 +107,8 @@ public class CustomerInteraction : MonoBehaviour
             print("Pizza given");
 
             objectiveManager.PizzaCompleet = false;
+            objectiveManager.BoxDestroyer = true;
+
         }
     }
 

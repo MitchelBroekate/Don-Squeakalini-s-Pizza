@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,12 +18,21 @@ public class CustomerWalkBehavior : MonoBehaviour
     CustomerWaitTime customerWaitTime;
     CustomerManager customerManager;
 
+    Transform counterLookAt;
+    bool counterLookState = true;
+    bool lookSwitch = false;
+
+    Animator animator;
+
     void Start()
     {
         AddCheckpoints();
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         customerWaitTime = GetComponent<CustomerWaitTime>();
         customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
+
+        counterLookAt = checkpoints[6].transform;
     }
 
     void FixedUpdate()
@@ -62,8 +72,14 @@ public class CustomerWalkBehavior : MonoBehaviour
 
     void GoToCheckpoint()
     {
-        targetRotation = Quaternion.LookRotation(new Vector3(checkpoints[currentCheckpoint].transform.position.x, transform.position.y, checkpoints[currentCheckpoint].transform.position.z) - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+        if(!lookSwitch)
+        {
+            targetRotation = Quaternion.LookRotation(new Vector3(checkpoints[currentCheckpoint].transform.position.x, transform.position.y, checkpoints[currentCheckpoint].transform.position.z) - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+            
+            animator.SetBool("Walking", true);
+        }
+
 
         if(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(checkpoints[currentCheckpoint].position.x, checkpoints[currentCheckpoint].position.z)) < 0.5f)
         {
@@ -72,21 +88,47 @@ public class CustomerWalkBehavior : MonoBehaviour
                 case 0:
                     currentCheckpoint++;
                     break;
+
                 case 1:
-                    customerWait = true;
-
-                    StartCoroutine(customerWaitTime.WaitTime());
-
-                    rb.velocity = Vector3.zero;
-                    rb.isKinematic = true;
-
-                    gameObject.layer = LayerMask.NameToLayer("Interactable");
-
-                    break;
-                case 2:
                     currentCheckpoint++;
                     break;
+
+                case 2:
+
+                    animator.SetBool("Walking", false);
+
+                    rb.velocity = Vector3.zero;
+                    
+                    if(counterLookState)
+                    {
+                        Quaternion lookAtCounter = Quaternion.LookRotation(new Vector3(counterLookAt.position.x, transform.position.y, counterLookAt.position.z) - transform.position);
+                        transform.rotation = Quaternion.Slerp(transform.rotation, lookAtCounter, rotateSpeed * Time.deltaTime);
+                        if(!lookSwitch)
+                        {
+                            StartCoroutine(LazyLookTimer());
+                        }
+                        lookSwitch = true;
+
+                    }
+                    else
+                    {
+                        customerWait = true;
+                        rb.isKinematic = true;
+                        gameObject.layer = LayerMask.NameToLayer("Interactable");
+                        StartCoroutine(customerWaitTime.WaitTime());
+                        lookSwitch = false;
+                    }
+                    break;
+
                 case 3:
+                    currentCheckpoint++;
+                    break;
+
+                case 4:
+                    currentCheckpoint++;
+                    break;
+
+                case 5:
                     customerManager.CustomerSpawner();
                     Destroy(gameObject);
                     break;
@@ -95,9 +137,19 @@ public class CustomerWalkBehavior : MonoBehaviour
                     break;
             } 
         }
-        if(!rb.isKinematic)
+        if(!rb.isKinematic && !lookSwitch)
         {
             rb.velocity = transform.forward * movementSpeed * Time.deltaTime;   
         }
+    }
+
+    IEnumerator LazyLookTimer()
+    {
+        yield return new WaitForSeconds(1);
+
+        counterLookState = false;
+
+        StopCoroutine(LazyLookTimer());
+
     }
 }

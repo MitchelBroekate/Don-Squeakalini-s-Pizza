@@ -26,6 +26,12 @@ public class PizzariaController : MonoBehaviour
     Vector2 _moveDirection;
     Rigidbody _rb;
     [SerializeField] bool _playerLock;
+
+
+    [SerializeField] GameObject pauseScreen;
+    [SerializeField] GameObject quotaScreen;
+    [SerializeField] GameObject lossScreen;
+    [SerializeField] GameObject winScreen;
     #endregion 
     
 
@@ -136,6 +142,76 @@ public class PizzariaController : MonoBehaviour
                 tabletMoveToRight = false;
             }
         }
+    }
+
+    void OnPause(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            if(!pauseScreen.activeInHierarchy)
+            {
+                pauseScreen.SetActive(true);
+                Time.timeScale = 0;
+                LockPlayer(true);
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
+    }
+    void OnQuota(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if(quotaScreen.activeInHierarchy)
+            {
+                quotaScreen.SetActive(false);
+            }
+            else
+            {
+                quotaScreen.SetActive(true);
+            }
+        }
+    }
+
+    void OnLoss(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if(lossScreen.activeInHierarchy)
+            {
+                lossScreen.SetActive(false);
+            }
+            else
+            {
+                lossScreen.SetActive(true);
+            }
+        }
+    }
+
+    void OnWin(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if(winScreen.activeInHierarchy)
+            {
+                winScreen.SetActive(false);
+            }
+            else
+            {
+                winScreen.SetActive(true);
+            }
+        }
+    }
+
+    public void ResumeGame()
+    {
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1;
+        LockPlayer(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     /// <summary>

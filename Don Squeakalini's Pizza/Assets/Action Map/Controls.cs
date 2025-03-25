@@ -44,6 +44,42 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""52909fa4-0922-4a7e-992c-ead9e1b09f00"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quota"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e00bf96-71e7-476c-bfa9-5710df3f3a5c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Loss"",
+                    ""type"": ""Button"",
+                    ""id"": ""024b924f-1516-4a6d-a092-9295d12643f3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Win"",
+                    ""type"": ""Button"",
+                    ""id"": ""714ccf85-f20c-4e8c-bbf1-f3f3e83b196f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +146,50 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Tablet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60319df8-5317-471e-ba44-63e9fd854fa3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a50d80df-9615-4979-afbe-8b3fb63a3075"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Loss"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5deed22-c827-4e9e-a830-e1f5b8602782"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Win"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a424720f-eeb6-4184-a041-1f980ce3d614"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quota"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -238,6 +318,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_PizzariaController = asset.FindActionMap("Pizzaria Controller", throwIfNotFound: true);
         m_PizzariaController_Movement = m_PizzariaController.FindAction("Movement", throwIfNotFound: true);
         m_PizzariaController_Tablet = m_PizzariaController.FindAction("Tablet", throwIfNotFound: true);
+        m_PizzariaController_Pause = m_PizzariaController.FindAction("Pause", throwIfNotFound: true);
+        m_PizzariaController_Quota = m_PizzariaController.FindAction("Quota", throwIfNotFound: true);
+        m_PizzariaController_Loss = m_PizzariaController.FindAction("Loss", throwIfNotFound: true);
+        m_PizzariaController_Win = m_PizzariaController.FindAction("Win", throwIfNotFound: true);
         // IngredientMinigame
         m_IngredientMinigame = asset.FindActionMap("IngredientMinigame", throwIfNotFound: true);
         m_IngredientMinigame_W = m_IngredientMinigame.FindAction("W", throwIfNotFound: true);
@@ -310,12 +394,20 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IPizzariaControllerActions> m_PizzariaControllerActionsCallbackInterfaces = new List<IPizzariaControllerActions>();
     private readonly InputAction m_PizzariaController_Movement;
     private readonly InputAction m_PizzariaController_Tablet;
+    private readonly InputAction m_PizzariaController_Pause;
+    private readonly InputAction m_PizzariaController_Quota;
+    private readonly InputAction m_PizzariaController_Loss;
+    private readonly InputAction m_PizzariaController_Win;
     public struct PizzariaControllerActions
     {
         private @Controls m_Wrapper;
         public PizzariaControllerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PizzariaController_Movement;
         public InputAction @Tablet => m_Wrapper.m_PizzariaController_Tablet;
+        public InputAction @Pause => m_Wrapper.m_PizzariaController_Pause;
+        public InputAction @Quota => m_Wrapper.m_PizzariaController_Quota;
+        public InputAction @Loss => m_Wrapper.m_PizzariaController_Loss;
+        public InputAction @Win => m_Wrapper.m_PizzariaController_Win;
         public InputActionMap Get() { return m_Wrapper.m_PizzariaController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -331,6 +423,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Tablet.started += instance.OnTablet;
             @Tablet.performed += instance.OnTablet;
             @Tablet.canceled += instance.OnTablet;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @Quota.started += instance.OnQuota;
+            @Quota.performed += instance.OnQuota;
+            @Quota.canceled += instance.OnQuota;
+            @Loss.started += instance.OnLoss;
+            @Loss.performed += instance.OnLoss;
+            @Loss.canceled += instance.OnLoss;
+            @Win.started += instance.OnWin;
+            @Win.performed += instance.OnWin;
+            @Win.canceled += instance.OnWin;
         }
 
         private void UnregisterCallbacks(IPizzariaControllerActions instance)
@@ -341,6 +445,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Tablet.started -= instance.OnTablet;
             @Tablet.performed -= instance.OnTablet;
             @Tablet.canceled -= instance.OnTablet;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @Quota.started -= instance.OnQuota;
+            @Quota.performed -= instance.OnQuota;
+            @Quota.canceled -= instance.OnQuota;
+            @Loss.started -= instance.OnLoss;
+            @Loss.performed -= instance.OnLoss;
+            @Loss.canceled -= instance.OnLoss;
+            @Win.started -= instance.OnWin;
+            @Win.performed -= instance.OnWin;
+            @Win.canceled -= instance.OnWin;
         }
 
         public void RemoveCallbacks(IPizzariaControllerActions instance)
@@ -478,6 +594,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnTablet(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnQuota(InputAction.CallbackContext context);
+        void OnLoss(InputAction.CallbackContext context);
+        void OnWin(InputAction.CallbackContext context);
     }
     public interface IIngredientMinigameActions
     {

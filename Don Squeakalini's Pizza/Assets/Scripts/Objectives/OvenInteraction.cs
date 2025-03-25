@@ -57,6 +57,12 @@ public class OvenInteraction : MonoBehaviour
 
     public void OvenInteract()
     {
+        if(objectiveManager.PizzaCompleet)
+        {
+            StartCoroutine(playerInteraction.PopUpText(2, "I already baked the pizza"));
+            return;
+        }
+
         if(objectiveManager.PizzaGrabbed)
         {
             switch(ovenInteractionState)
@@ -84,8 +90,11 @@ public class OvenInteraction : MonoBehaviour
         else if(hasWon)
         {
             ovenPizzaHolder.transform.GetChild(0).parent = playerPizzaHolder;
-            ovenPizzaHolder.transform.GetChild(0).transform.position = playerPizzaHolder.position;
-            ovenPizzaHolder.transform.GetChild(0).transform.rotation = playerPizzaHolder.rotation;
+            playerPizzaHolder.GetChild(0).transform.position = playerPizzaHolder.position;
+            playerPizzaHolder.GetChild(0).transform.rotation = playerPizzaHolder.rotation;
+
+            objectiveManager.OvenMinigameCompleted = true;
+            objectiveManager.PizzaGrabbed = true;
         }
         else if(ovenInteractionState == 2)
         {
@@ -157,6 +166,15 @@ public class OvenInteraction : MonoBehaviour
         {
             feedbackText.text = "🎯 Success!";
             feedbackText.color = Color.green;
+            hasWon = true;
+            ovenInteractionState = 0;
+
+            pizzariaController.LockPlayer(false);
+            for(int i = 0; i < player.transform.childCount; i++)
+            {
+                player.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            ovenCamera.SetActive(false);
         }
         else
         {

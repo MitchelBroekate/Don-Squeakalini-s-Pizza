@@ -11,15 +11,9 @@ public class CustomerManager : MonoBehaviour
 
     public List<IngredientSO> ingredientsToAdd;
 
-    ObjectiveManager objectiveManager;
+    [SerializeField] ObjectiveManager objectiveManager;
 
     int ingredientAmount;
-    
-
-    void Start()
-    {
-        objectiveManager = GetComponent<ObjectiveManager>();
-    }
 
     public void CustomerSpawner()
     {
@@ -32,7 +26,7 @@ public class CustomerManager : MonoBehaviour
 
         while (customerToSpawn == _previousCustomer)
         {
-            customerToSpawn = Random.Range(0, mousePrefabs.Length);
+            customerToSpawn = Random.Range( 0, mousePrefabs.Length);
         }
 
         _previousCustomer = customerToSpawn;    
