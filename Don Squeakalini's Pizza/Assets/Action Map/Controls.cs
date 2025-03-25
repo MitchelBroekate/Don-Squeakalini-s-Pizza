@@ -202,6 +202,34 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""OvenMinigame"",
+            ""id"": ""91d294f8-9147-40ec-baf2-f0d3e96a0640"",
+            ""actions"": [
+                {
+                    ""name"": ""OvenHeatIncrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""1960a2ad-4767-4d45-8d3a-b4eb1b00f626"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3f064d54-e646-4b1b-94b7-908e5af7b6a5"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OvenHeatIncrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -216,6 +244,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_IngredientMinigame_A = m_IngredientMinigame.FindAction("A", throwIfNotFound: true);
         m_IngredientMinigame_S = m_IngredientMinigame.FindAction("S", throwIfNotFound: true);
         m_IngredientMinigame_D = m_IngredientMinigame.FindAction("D", throwIfNotFound: true);
+        // OvenMinigame
+        m_OvenMinigame = asset.FindActionMap("OvenMinigame", throwIfNotFound: true);
+        m_OvenMinigame_OvenHeatIncrease = m_OvenMinigame.FindAction("OvenHeatIncrease", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -397,6 +428,52 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public IngredientMinigameActions @IngredientMinigame => new IngredientMinigameActions(this);
+
+    // OvenMinigame
+    private readonly InputActionMap m_OvenMinigame;
+    private List<IOvenMinigameActions> m_OvenMinigameActionsCallbackInterfaces = new List<IOvenMinigameActions>();
+    private readonly InputAction m_OvenMinigame_OvenHeatIncrease;
+    public struct OvenMinigameActions
+    {
+        private @Controls m_Wrapper;
+        public OvenMinigameActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OvenHeatIncrease => m_Wrapper.m_OvenMinigame_OvenHeatIncrease;
+        public InputActionMap Get() { return m_Wrapper.m_OvenMinigame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OvenMinigameActions set) { return set.Get(); }
+        public void AddCallbacks(IOvenMinigameActions instance)
+        {
+            if (instance == null || m_Wrapper.m_OvenMinigameActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_OvenMinigameActionsCallbackInterfaces.Add(instance);
+            @OvenHeatIncrease.started += instance.OnOvenHeatIncrease;
+            @OvenHeatIncrease.performed += instance.OnOvenHeatIncrease;
+            @OvenHeatIncrease.canceled += instance.OnOvenHeatIncrease;
+        }
+
+        private void UnregisterCallbacks(IOvenMinigameActions instance)
+        {
+            @OvenHeatIncrease.started -= instance.OnOvenHeatIncrease;
+            @OvenHeatIncrease.performed -= instance.OnOvenHeatIncrease;
+            @OvenHeatIncrease.canceled -= instance.OnOvenHeatIncrease;
+        }
+
+        public void RemoveCallbacks(IOvenMinigameActions instance)
+        {
+            if (m_Wrapper.m_OvenMinigameActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IOvenMinigameActions instance)
+        {
+            foreach (var item in m_Wrapper.m_OvenMinigameActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_OvenMinigameActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public OvenMinigameActions @OvenMinigame => new OvenMinigameActions(this);
     public interface IPizzariaControllerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -408,5 +485,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnA(InputAction.CallbackContext context);
         void OnS(InputAction.CallbackContext context);
         void OnD(InputAction.CallbackContext context);
+    }
+    public interface IOvenMinigameActions
+    {
+        void OnOvenHeatIncrease(InputAction.CallbackContext context);
     }
 }

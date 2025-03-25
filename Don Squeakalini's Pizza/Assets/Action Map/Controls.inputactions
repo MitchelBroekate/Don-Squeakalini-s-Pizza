@@ -180,6 +180,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "OvenMinigame",
+            "id": "91d294f8-9147-40ec-baf2-f0d3e96a0640",
+            "actions": [
+                {
+                    "name": "OvenHeatIncrease",
+                    "type": "Button",
+                    "id": "1960a2ad-4767-4d45-8d3a-b4eb1b00f626",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3f064d54-e646-4b1b-94b7-908e5af7b6a5",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OvenHeatIncrease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
