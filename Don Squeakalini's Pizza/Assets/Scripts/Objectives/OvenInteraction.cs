@@ -78,6 +78,7 @@ public class OvenInteraction : MonoBehaviour
                     ovenPizzaHolder.transform.GetChild(0).transform.position = transform.GetChild(0).transform.position;
                     ovenPizzaHolder.transform.GetChild(0).transform.rotation = transform.GetChild(0).transform.rotation;
                     objectiveManager.PizzaGrabbed = false;
+                    ovenPizzaHolder.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
 
                     ovenInteractionState++;
                     break;
@@ -95,6 +96,8 @@ public class OvenInteraction : MonoBehaviour
 
             objectiveManager.OvenMinigameCompleted = true;
             objectiveManager.PizzaGrabbed = true;
+
+            playerPizzaHolder.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Food");
         }
         else if(ovenInteractionState == 2)
         {
