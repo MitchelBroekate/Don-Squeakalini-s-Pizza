@@ -955,16 +955,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 46791407}
-    - target: {fileID: 656154951736563172, guid: 800b9df4442377d4db0003def614253f,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 656154951736563172, guid: 800b9df4442377d4db0003def614253f,
-        type: 3}
-      propertyPath: m_UpdateRectTransformForStandalone
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 661746322384469088, guid: 800b9df4442377d4db0003def614253f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
