@@ -575,6 +575,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 848553c2d3ca39a409e5c9a632ad7f9e, type: 3}
+--- !u!1001 &325525279
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.754
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.029
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 47.941
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ea269906c66d124c9a07acc2946ce93, type: 2}
+    - target: {fileID: 919132149155446097, guid: 920840e62d5fd174ca8827a48457eec7,
+        type: 3}
+      propertyPath: m_Name
+      value: Pizza Tomato Sauce
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 920840e62d5fd174ca8827a48457eec7, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,7 +2871,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6f082d4c936ba6245942b457a1d21938,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.176
+      value: 29.133
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f082d4c936ba6245942b457a1d21938,
         type: 3}
@@ -3270,3 +3343,4 @@ SceneRoots:
   - {fileID: 1293317947}
   - {fileID: 1079351891}
   - {fileID: 1529969560}
+  - {fileID: 325525279}
