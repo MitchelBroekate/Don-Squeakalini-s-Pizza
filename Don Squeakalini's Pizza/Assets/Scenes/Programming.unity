@@ -709,7 +709,7 @@ Transform:
   m_GameObject: {fileID: 637386196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.518263, y: 2.008791, z: -31.906908}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1313,7 +1313,7 @@ PrefabInstance:
     - target: {fileID: 3153146685431887447, guid: 5b8de92a530f8a74a99aef859c51290a,
         type: 3}
       propertyPath: m_Name
-      value: Cube
+      value: PizzaBox
       objectReference: {fileID: 0}
     - target: {fileID: 7478997222812630472, guid: 5b8de92a530f8a74a99aef859c51290a,
         type: 3}
@@ -1365,11 +1365,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8179123737132624177, guid: 5b8de92a530f8a74a99aef859c51290a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: be34be7b280dda047a2ccbcb6f435ee7, type: 2}
     - target: {fileID: 8911831513371310090, guid: 5b8de92a530f8a74a99aef859c51290a,
         type: 3}
       propertyPath: itemHolder
@@ -2332,7 +2327,7 @@ PrefabInstance:
     - target: {fileID: 791101873533456393, guid: 067cd22bc8bfd51469c60d71e9eac6bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.58
+      value: -2.56
       objectReference: {fileID: 0}
     - target: {fileID: 791101873533456393, guid: 067cd22bc8bfd51469c60d71e9eac6bf,
         type: 3}
@@ -2811,6 +2806,12 @@ PrefabInstance:
       objectReference: {fileID: 1888771106}
     - target: {fileID: 3001044882645351272, guid: 06e3a52ab45d1cc4c915fcad15aac317,
         type: 3}
+      propertyPath: sauceSpoon
+      value: 
+      objectReference: {fileID: 11400000, guid: 1df81ced8e39a1047a1a05a8f95cb931,
+        type: 2}
+    - target: {fileID: 3001044882645351272, guid: 06e3a52ab45d1cc4c915fcad15aac317,
+        type: 3}
       propertyPath: objectiveManager
       value: 
       objectReference: {fileID: 1399095746}
@@ -3082,7 +3083,7 @@ PrefabInstance:
     - target: {fileID: 2561588506215382679, guid: ef2b8bd470eb9b343940047570f1fb67,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.423
+      value: -3.426
       objectReference: {fileID: 0}
     - target: {fileID: 2561588506215382679, guid: ef2b8bd470eb9b343940047570f1fb67,
         type: 3}
@@ -3378,7 +3379,7 @@ PrefabInstance:
     - target: {fileID: 8307664377319611922, guid: 2a062153fea2d684da3932b4bd705d14,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.58
+      value: -2.564
       objectReference: {fileID: 0}
     - target: {fileID: 8307664377319611922, guid: 2a062153fea2d684da3932b4bd705d14,
         type: 3}

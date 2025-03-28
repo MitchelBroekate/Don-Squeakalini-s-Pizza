@@ -14,8 +14,9 @@ public class ObjectiveManager : MonoBehaviour
     bool ovenMinigameCompleted = false;
     bool boxDestroyer = false;
 
-    [SerializeField] float moneyToGive; 
-    [SerializeField] float moneyToAdd;
+    float moneyEarned = 0;
+
+    [SerializeField] float moneyToAdd = 0;
 
     public IngredientSO currentGrabbedIngredient;
 

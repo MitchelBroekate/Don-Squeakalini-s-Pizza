@@ -23,6 +23,8 @@ public class CustomerInteraction : MonoBehaviour
     bool canFade = true;
     bool pizzaRecieved = false;
 
+    float totalMoneyToGive = 0;
+
     
 
     void Start()
@@ -62,7 +64,6 @@ public class CustomerInteraction : MonoBehaviour
 
     IEnumerator ImageFade()
     {
-
         pictureBackground.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(0.9f);
@@ -115,5 +116,11 @@ public class CustomerInteraction : MonoBehaviour
     public bool PizzaRecieved
     {
         get { return pizzaRecieved;}
+    }
+
+    public float TotalMoneyToGive
+    {
+        get { return totalMoneyToGive;}
+        set { totalMoneyToGive = value;}
     }
 }

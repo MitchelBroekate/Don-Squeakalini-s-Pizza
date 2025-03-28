@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class IngredientGrabber : MonoBehaviour
@@ -6,6 +7,7 @@ public class IngredientGrabber : MonoBehaviour
     [SerializeField] IngredientSO ingredientToSpawn;
     [SerializeField] ObjectiveManager objectiveManager;
     [SerializeField] PlayerInteraction playerInteraction;
+    [SerializeField] IngredientSO sauceSpoon;
 
     public void SpawnIngredient()
     {
@@ -16,8 +18,18 @@ public class IngredientGrabber : MonoBehaviour
                 //instantiate, and set itemGrabbed to true to fill 'inventory'
                 objectiveManager.ingredientGrabbed = true;
 
-                GameObject currentIngredient = Instantiate(ingredientToSpawn.ingredientObject, itemHolder.position, Quaternion.identity);
-                currentIngredient.transform.parent = itemHolder;
+                if(ingredientToSpawn == sauceSpoon)
+                {
+                    GameObject currentIngredient = Instantiate(ingredientToSpawn.ingredientObject, itemHolder.position, itemHolder.rotation);
+                    currentIngredient.transform.parent = itemHolder;
+
+                    currentIngredient.transform.Rotate(0, -100, 0);
+                }
+                else
+                {
+                    GameObject currentIngredient = Instantiate(ingredientToSpawn.ingredientObject, itemHolder.position, itemHolder.rotation);
+                    currentIngredient.transform.parent = itemHolder;
+                }
 
                 objectiveManager.currentGrabbedIngredient = ingredientToSpawn;
             }
