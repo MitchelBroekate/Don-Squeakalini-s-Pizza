@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ObjectiveManager : MonoBehaviour
 {
@@ -25,9 +26,15 @@ public class ObjectiveManager : MonoBehaviour
 
     [SerializeField] CustomerManager customerManager;
 
+    float quotaMoney = 0;
+    public int quotaAmount = 1;
+
+
+
     void Start()
     {
         IntroObjectives();  
+        CreateQuota();
     }
 
     void IntroObjectives()
@@ -41,6 +48,39 @@ public class ObjectiveManager : MonoBehaviour
     {
         //Start making pizza
         orderCompleted = true;
+    }
+
+    void CreateQuota()
+    {
+        if(quotaAmount < 2)
+        {
+            //set quota value
+            quotaMoney = 100;
+        }
+        else
+        {
+            //increase quota value based on finished quota's
+            quotaMoney = 100 * quotaAmount / 1.5f;
+        }
+    }
+
+    public void QuotaCompleted()
+    {
+        quotaAmount++;
+
+        CreateQuota();
+    }
+
+    void CheckMoneyForQuota()
+    {
+        if(moneyEarned > quotaMoney)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
     public bool PizzaCompleet

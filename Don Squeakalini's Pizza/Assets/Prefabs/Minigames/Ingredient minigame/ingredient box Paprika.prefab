@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &791101873533456393
 Transform:
@@ -81,7 +81,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 213ac8c24274be84f986feb622898a7d, type: 2}
+  - {fileID: 2100000, guid: 2c34eaed45e7a424098acdd294c87876, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   ingredientToSpawn: {fileID: 11400000, guid: a93d76581b1cb2d4cb6d1b68950cbf72, type: 2}
   objectiveManager: {fileID: 0}
   playerInteraction: {fileID: 0}
+  sauceSpoon: {fileID: 0}
 --- !u!33 &5038916181652719412
 MeshFilter:
   m_ObjectHideFlags: 0

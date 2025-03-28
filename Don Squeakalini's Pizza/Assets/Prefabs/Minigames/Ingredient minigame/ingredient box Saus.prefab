@@ -156,6 +156,7 @@ MonoBehaviour:
   ingredientToSpawn: {fileID: 11400000, guid: 1df81ced8e39a1047a1a05a8f95cb931, type: 2}
   objectiveManager: {fileID: 0}
   playerInteraction: {fileID: 0}
+  sauceSpoon: {fileID: 0}
 --- !u!114 &1830741306092946051
 MonoBehaviour:
   m_ObjectHideFlags: 0
