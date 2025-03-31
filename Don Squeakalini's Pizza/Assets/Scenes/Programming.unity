@@ -2695,9 +2695,19 @@ PrefabInstance:
       objectReference: {fileID: 637386197}
     - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
         type: 3}
+      propertyPath: ovenInteraction
+      value: 
+      objectReference: {fileID: 1186907554}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
       propertyPath: objectiveManager
       value: 
       objectReference: {fileID: 1399095746}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: cuttingBoardInteraction
+      value: 
+      objectReference: {fileID: 824420340}
     - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
         type: 3}
       propertyPath: mousePrefabs.Array.data[0]

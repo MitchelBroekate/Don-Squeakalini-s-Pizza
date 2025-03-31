@@ -18,11 +18,6 @@ public class PizzaInteraction : MonoBehaviour
 
         grabbedPizza = true;
 
-        gameObject.layer = LayerMask.NameToLayer("Food");
-
-        for(int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.layer = LayerMask.NameToLayer("Food");
-        }
+        objectiveManager.ChangeLayer(gameObject, 9);
     }
 }

@@ -326,6 +326,14 @@ public class CuttingBoardInteraction : MonoBehaviour
         }
     }   
 
+    public void ResetPizzaMakingStates()
+    {
+        instantiatePizzaOnce = true;
+        doughRollingCompleted = false;
+
+        ingredientsNeeded.Add(IngrdientDough);
+    }
+
     IEnumerator RandomSkillcheckPopUp(float waitTime)
     {
         currentKeybind = 4;
@@ -369,8 +377,6 @@ public class CuttingBoardInteraction : MonoBehaviour
             pizzaBuild.layer = LayerMask.NameToLayer("Interactable");
 
             gameObject.layer = LayerMask.NameToLayer("Default");
-
-            ingredientsNeeded.Add(IngrdientDough);
 
             ingredientsAdded = false;
         }

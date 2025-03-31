@@ -105,11 +105,9 @@ public class CustomerInteraction : MonoBehaviour
             customerWalkBehavior.rb.isKinematic = false;
             gameObject.layer = LayerMask.NameToLayer("Customer");
 
-            print("Pizza given");
-
-            objectiveManager.PizzaCompleet = false;
             objectiveManager.BoxDestroyer = true;
 
+            print("Pizza given");
         }
     }
 

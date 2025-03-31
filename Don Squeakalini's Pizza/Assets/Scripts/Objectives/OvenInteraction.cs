@@ -78,7 +78,7 @@ public class OvenInteraction : MonoBehaviour
                     ovenPizzaHolder.transform.GetChild(0).transform.position = transform.GetChild(0).transform.position;
                     ovenPizzaHolder.transform.GetChild(0).transform.rotation = transform.GetChild(0).transform.rotation;
                     objectiveManager.PizzaGrabbed = false;
-                    ovenPizzaHolder.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
+                    objectiveManager.ChangeLayer(ovenPizzaHolder.transform.GetChild(0).gameObject,0);
 
                     ovenInteractionState++;
                     break;
@@ -97,7 +97,7 @@ public class OvenInteraction : MonoBehaviour
             objectiveManager.OvenMinigameCompleted = true;
             objectiveManager.PizzaGrabbed = true;
 
-            playerPizzaHolder.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Food");
+            objectiveManager.ChangeLayer(playerPizzaHolder.GetChild(0).gameObject,9);
         }
         else if(ovenInteractionState == 2)
         {
@@ -113,7 +113,7 @@ public class OvenInteraction : MonoBehaviour
         }
         else
         {
-            StartCoroutine(playerInteraction.PopUpText(2, "I need to finish the pizza first"));
+            StartCoroutine(playerInteraction.PopUpText(2, "First I need to add toppings to the pizza"));
         }
     }
 
@@ -167,8 +167,6 @@ public class OvenInteraction : MonoBehaviour
     {
         if (value >= targetMin && value <= targetMax)
         {
-            feedbackText.text = "🎯 Success!";
-            feedbackText.color = Color.green;
             hasWon = true;
             ovenInteractionState = 0;
 
@@ -177,17 +175,18 @@ public class OvenInteraction : MonoBehaviour
             {
                 player.transform.GetChild(i).gameObject.SetActive(true);
             }
+
             ovenCamera.SetActive(false);
-        }
-        else
-        {
-            feedbackText.text = "❌ Miss!";
-            feedbackText.color = Color.red;
         }
     }
 
     public void RestartGame()
     {
         SetNewTargetZone();
+    }
+
+    public void ResetOvenStates()
+    {
+        hasWon = false;
     }
 }

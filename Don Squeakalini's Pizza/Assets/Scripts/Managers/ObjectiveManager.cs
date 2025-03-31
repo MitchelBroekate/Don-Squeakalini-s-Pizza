@@ -29,8 +29,6 @@ public class ObjectiveManager : MonoBehaviour
     float quotaMoney = 0;
     public int quotaAmount = 1;
 
-
-
     void Start()
     {
         IntroObjectives();  
@@ -44,10 +42,16 @@ public class ObjectiveManager : MonoBehaviour
         introCompleet = true;
     }
 
-    public void OrderCompletion()
+    public void NewCustomerStates()
     {
-        //Start making pizza
-        orderCompleted = true;
+        currentObjectiveIngredients.Clear();
+
+        PizzaCompleet = false;
+        OrderCompleted = false;
+        IngredientToppingsCompleted = false;
+        OvenMinigameCompleted = false;
+        PizzaGrabbed = false;
+        ingredientGrabbed = false;
     }
 
     void CreateQuota()
@@ -80,6 +84,16 @@ public class ObjectiveManager : MonoBehaviour
         else
         {
 
+        }
+    }
+
+    public void ChangeLayer(GameObject obj, int newLayer)
+    {
+        obj.layer = newLayer;
+
+        foreach (Transform child in obj.transform)
+        {
+            ChangeLayer(child.gameObject, newLayer);
         }
     }
 

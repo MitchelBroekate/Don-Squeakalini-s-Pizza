@@ -17,7 +17,7 @@ public class CustomerOrderObjective : MonoBehaviour
 
     public void Saus()
     {
-        if(!addedSaus)
+        if(!addedSaus && !objectiveManager.OrderCompleted)
         {
             addedSaus = true;
             if(objectiveManager.currentObjectiveIngredients.Contains(objectiveManager.ingredients[0]))
@@ -32,7 +32,7 @@ public class CustomerOrderObjective : MonoBehaviour
     }
     public void Cheese()
     {
-        if(!addedCheese)
+        if(!addedCheese && !objectiveManager.OrderCompleted)
         {
             addedCheese = true;
             if(objectiveManager.currentObjectiveIngredients.Contains(objectiveManager.ingredients[1]))
@@ -49,7 +49,7 @@ public class CustomerOrderObjective : MonoBehaviour
 
     public void Pepperoni()
     {
-        if(!addedPepperoni)
+        if(!addedPepperoni && !objectiveManager.OrderCompleted)
         {
             addedPepperoni = true;
             if(objectiveManager.currentObjectiveIngredients.Contains(objectiveManager.ingredients[2]))
@@ -65,7 +65,7 @@ public class CustomerOrderObjective : MonoBehaviour
 
     public void Paprika()
     {
-        if(!addedPaprika)
+        if(!addedPaprika && !objectiveManager.OrderCompleted)
         {
             addedPaprika = true;
             if(objectiveManager.currentObjectiveIngredients.Contains(objectiveManager.ingredients[3]))
@@ -81,12 +81,20 @@ public class CustomerOrderObjective : MonoBehaviour
 
     public void SendOrder()
     {
+        if(objectiveManager.OrderCompleted) return;
 
         if(correctOrder == objectiveManager.currentObjectiveIngredients.Count)
         {
-            objectiveManager.OrderCompletion();
+            objectiveManager.OrderCompleted = true;
 
             print("Order Compleet");
+
+            addedCheese = false;
+            addedPaprika = false;
+            addedPepperoni = false;
+            addedSaus = false;
+
+            correctOrder = 0;
 
             //correct order sfx
         }
@@ -102,8 +110,7 @@ public class CustomerOrderObjective : MonoBehaviour
             moneyMultiplier *= 0.75f;
             moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
 
-            print("Wrong order");
-            print(moneyMultiplier);
+            print("Wrong order" + " " + moneyMultiplier);
 
             //failed order sfx
         }
