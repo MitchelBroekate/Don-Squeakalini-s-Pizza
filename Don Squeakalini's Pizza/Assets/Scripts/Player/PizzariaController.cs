@@ -29,9 +29,6 @@ public class PizzariaController : MonoBehaviour
 
 
     [SerializeField] GameObject pauseScreen;
-    [SerializeField] GameObject quotaScreen;
-    [SerializeField] GameObject lossScreen;
-    [SerializeField] GameObject winScreen;
     #endregion 
     
 
@@ -156,50 +153,6 @@ public class PizzariaController : MonoBehaviour
 
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-            }
-        }
-    }
-    void OnQuota(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            if(quotaScreen.activeInHierarchy)
-            {
-                quotaScreen.SetActive(false);
-            }
-            else
-            {
-                quotaScreen.SetActive(true);
-            }
-        }
-    }
-
-    void OnLoss(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            if(lossScreen.activeInHierarchy)
-            {
-                lossScreen.SetActive(false);
-            }
-            else
-            {
-                lossScreen.SetActive(true);
-            }
-        }
-    }
-
-    void OnWin(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            if(winScreen.activeInHierarchy)
-            {
-                winScreen.SetActive(false);
-            }
-            else
-            {
-                winScreen.SetActive(true);
             }
         }
     }
