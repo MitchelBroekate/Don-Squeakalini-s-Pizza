@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 7461797072983016902}
   - component: {fileID: 8911831513371310090}
   m_Layer: 3
-  m_Name: Cube
+  m_Name: PizzaBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7478997222812630472
 Transform:
