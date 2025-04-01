@@ -1507,6 +1507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8911831513371310090, guid: 5b8de92a530f8a74a99aef859c51290a,
         type: 3}
+      propertyPath: pizzaBox
+      value: 
+      objectReference: {fileID: 1673886556}
+    - target: {fileID: 8911831513371310090, guid: 5b8de92a530f8a74a99aef859c51290a,
+        type: 3}
       propertyPath: itemHolder
       value: 
       objectReference: {fileID: 1888771106}
@@ -1525,6 +1530,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8de92a530f8a74a99aef859c51290a, type: 3}
+--- !u!1 &1673886556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3153146685431887447, guid: 5b8de92a530f8a74a99aef859c51290a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1673886555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1720937242
 PrefabInstance:
   m_ObjectHideFlags: 0

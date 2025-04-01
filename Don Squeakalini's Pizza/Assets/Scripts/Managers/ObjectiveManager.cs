@@ -1,13 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    //spawn customer when intro is done
-    
     public bool introCompleet = false;
-    public bool ingredientGrabbed = false; 
+    public bool ingredientGrabbed = false;
     public bool PizzaGrabbed = false;
     bool pizzaCompleet = false;
     bool orderCompleted = false;
@@ -25,6 +22,7 @@ public class ObjectiveManager : MonoBehaviour
     public List<IngredientSO> currentObjectiveIngredients = new();
 
     [SerializeField] CustomerManager customerManager;
+    [SerializeField] PizzariaController pizzariaController;
 
     float quotaMoney = 0;
     public int quotasCompleted = 1;
@@ -88,6 +86,8 @@ public class ObjectiveManager : MonoBehaviour
         {
             //activate Quota screen
             quotaScreen.SetActive(true);
+
+            pizzariaController.LockPlayer(true);
         }
         else
         {
@@ -105,7 +105,8 @@ public class ObjectiveManager : MonoBehaviour
         else
         {
             //activate lose screen
-            quotaScreen.SetActive(true);
+            quotaScreen.SetActive(false);
+            loseScreen.SetActive(true);
         }
     }
 
