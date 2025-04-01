@@ -38,6 +38,16 @@ public class CuttingBoardInteraction : MonoBehaviour
     GameObject pizzaBuild;
     bool instantiatePizzaOnce = true;
 
+    public AudioSource toppingsSource;
+    public AudioSource toppingsnotification;
+
+    public AudioClip negativeNotif;
+    public AudioClip positiveNotif;
+    public AudioClip addingToppings;
+
+    public ParticleSystem workingParticle;
+
+
     void Start()
     {
         parentRect = emptyParent.GetComponent<RectTransform>();
@@ -45,6 +55,8 @@ public class CuttingBoardInteraction : MonoBehaviour
         ingredientsNeeded.Add(IngrdientDough);
 
         ingredientTxt.SetActive(false);
+
+        toppingsSource.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -73,7 +85,11 @@ public class CuttingBoardInteraction : MonoBehaviour
 
             if(currentKeybind == 0)
             {
+                minigameScore++;
                 currentMinigameCompletion++;
+
+                toppingsnotification.clip = positiveNotif;
+                toppingsnotification.Play();
 
                 if(currentMinigameCompletion <5)
                 {
@@ -86,6 +102,9 @@ public class CuttingBoardInteraction : MonoBehaviour
             {
                 minigameScore *= 0.75f;
                 minigameScore = (float)Math.Round(minigameScore, 2);
+
+                toppingsnotification.clip = negativeNotif;
+                toppingsnotification.Play();
 
                 currentMinigameCompletion++;
 
@@ -110,7 +129,10 @@ public class CuttingBoardInteraction : MonoBehaviour
                 minigameScore++;
                 currentMinigameCompletion++;
 
-                if(currentMinigameCompletion <5)
+                toppingsnotification.clip = positiveNotif;
+                toppingsnotification.Play();
+
+                if (currentMinigameCompletion <5)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -122,9 +144,12 @@ public class CuttingBoardInteraction : MonoBehaviour
                 minigameScore *= 0.75f;
                 minigameScore = (float)Math.Round(minigameScore, 2);
 
+                toppingsnotification.clip = negativeNotif;
+                toppingsnotification.Play();
+
                 currentMinigameCompletion++;
 
-                if(currentMinigameCompletion <5)
+                if (currentMinigameCompletion <5)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -145,7 +170,10 @@ public class CuttingBoardInteraction : MonoBehaviour
                 minigameScore++;
                 currentMinigameCompletion++;
 
-                if(currentMinigameCompletion <5)
+                toppingsnotification.clip = positiveNotif;
+                toppingsnotification.Play();
+
+                if (currentMinigameCompletion <5)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -156,6 +184,9 @@ public class CuttingBoardInteraction : MonoBehaviour
             {
                 minigameScore *= 0.75f;
                 minigameScore = (float)Math.Round(minigameScore, 2);
+
+                toppingsnotification.clip = negativeNotif;
+                toppingsnotification.Play();
 
                 currentMinigameCompletion++;
 
@@ -180,7 +211,10 @@ public class CuttingBoardInteraction : MonoBehaviour
                 minigameScore++;
                 currentMinigameCompletion++;
 
-                if(currentMinigameCompletion <5)
+                toppingsnotification.clip = positiveNotif;
+                toppingsnotification.Play();
+
+                if (currentMinigameCompletion <5)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -191,6 +225,9 @@ public class CuttingBoardInteraction : MonoBehaviour
             {
                 minigameScore *= 0.75f;
                 minigameScore = (float)Math.Round(minigameScore, 2);
+
+                toppingsnotification.clip = negativeNotif;
+                toppingsnotification.Play();
 
                 currentMinigameCompletion++;
 
@@ -247,6 +284,11 @@ public class CuttingBoardInteraction : MonoBehaviour
                 //camera switch
                 pizzariaController.LockPlayer(true);
                 cuttingCam.SetActive(true);
+
+                workingParticle.Play();
+
+                toppingsSource.clip = addingToppings;
+                toppingsSource.Play();
 
                 for(int i = 0; i < player.transform.childCount; i++)
                 {
@@ -366,6 +408,10 @@ public class CuttingBoardInteraction : MonoBehaviour
         }
         cuttingCam.SetActive(false);
         pizzariaController.LockPlayer(false);
+
+        workingParticle.Stop();
+
+        toppingsSource.Stop();
         
         //remember score 
         objectiveManager.MoneyToAdd(minigameScore);

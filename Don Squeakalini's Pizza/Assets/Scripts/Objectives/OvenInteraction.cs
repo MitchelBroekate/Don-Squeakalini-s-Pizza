@@ -28,6 +28,19 @@ public class OvenInteraction : MonoBehaviour
 
     bool hasWon = false;
 
+    public AudioSource ovenOpenClose;
+    public AudioSource ovenOn;
+    public AudioSource ovenFB;
+
+    public AudioClip ovenOpen;
+    public AudioClip ovenClose;
+    public AudioClip ovenHum;
+    public AudioClip ovenPing;
+    public AudioClip positiveNotif;
+    public AudioClip negativeNotif;
+
+
+
     void Start()
     {
         ovenPizzaHolder = transform.GetChild(0).gameObject;
@@ -70,8 +83,10 @@ public class OvenInteraction : MonoBehaviour
                 case 0:
                     //open oven
                     ovenInteractionState++;
+                    ovenOpenClose.clip = ovenOpen;
+                    ovenOpenClose.Play();
                     break;
-
+                  
                 case 1:
                     //place pizza
                     playerPizzaHolder.GetChild(0).transform.parent = ovenPizzaHolder.transform;
@@ -106,6 +121,9 @@ public class OvenInteraction : MonoBehaviour
             //switch camera
             ovenCamera.SetActive(true);
             pizzariaController.LockPlayer(true);
+            ovenOn.clip = ovenHum;
+            ovenOn.Play();
+
             for(int i = 0; i < player.transform.childCount; i++)
             {
                 player.transform.GetChild(i).gameObject.SetActive(false);
@@ -120,7 +138,8 @@ public class OvenInteraction : MonoBehaviour
     IEnumerator StartMinigame()
     {
         //close oven
-
+        ovenOpenClose.clip = ovenClose;
+        ovenOpenClose.Play();
         yield return new WaitForSeconds(2);
 
         SetNewTargetZone();
@@ -177,6 +196,7 @@ public class OvenInteraction : MonoBehaviour
             }
 
             ovenCamera.SetActive(false);
+            ovenOn.Stop();
         }
     }
 
