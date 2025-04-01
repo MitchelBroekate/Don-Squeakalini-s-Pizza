@@ -30,14 +30,12 @@ public class OvenInteraction : MonoBehaviour
 
     public AudioSource ovenOpenClose;
     public AudioSource ovenOn;
-    public AudioSource ovenFB;
 
     public AudioClip ovenOpen;
     public AudioClip ovenClose;
     public AudioClip ovenHum;
     public AudioClip ovenPing;
-    public AudioClip positiveNotif;
-    public AudioClip negativeNotif;
+
 
 
 
@@ -199,7 +197,8 @@ public class OvenInteraction : MonoBehaviour
 
             ovenCamera.SetActive(false);
 
-            ovenOn.Stop();
+            ovenOn.clip = ovenPing;
+            ovenOn.Play();
 
             ovenOpenClose.clip = ovenOpen;
             ovenOpenClose.Play();
