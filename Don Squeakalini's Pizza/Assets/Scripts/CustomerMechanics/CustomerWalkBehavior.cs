@@ -32,7 +32,7 @@ public class CustomerWalkBehavior : MonoBehaviour
         customerWaitTime = GetComponent<CustomerWaitTime>();
         customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
 
-        counterLookAt = checkpoints[checkpoints.Count].transform;
+        counterLookAt = checkpoints[checkpoints.Count -1].transform;
     }
 
     void FixedUpdate()

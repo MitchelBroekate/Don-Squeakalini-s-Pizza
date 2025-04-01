@@ -2412,6 +2412,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cuttingboard
       objectReference: {fileID: 0}
+    - target: {fileID: 2283958130612351325, guid: 870f680483d2c3947887b289805d9c04,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6656886680987393989, guid: 870f680483d2c3947887b289805d9c04,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3139,6 +3144,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Oven
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602315724129374090, guid: ef2b8bd470eb9b343940047570f1fb67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

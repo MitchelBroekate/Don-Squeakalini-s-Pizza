@@ -17,6 +17,7 @@ public class CustomerInteraction : MonoBehaviour
     CustomerManager customerManager;
     ObjectiveManager objectiveManager;
     CustomerWalkBehavior customerWalkBehavior;
+    Animator animator;
 
     [SerializeField] int imageCount;
 
@@ -35,6 +36,8 @@ public class CustomerInteraction : MonoBehaviour
         customerWalkBehavior = GetComponent<CustomerWalkBehavior>();
         pictureParent = canvas.GetChild(0);
         pictureBackground = canvas.GetChild(1);
+
+        animator = GetComponent<Animator>();
 
         for(int i = 0; i < customerManager.ingredientsToAdd.Count; i++)
         {
