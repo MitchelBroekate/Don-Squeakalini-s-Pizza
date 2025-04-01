@@ -140,6 +140,8 @@ public class OvenInteraction : MonoBehaviour
         //close oven
         ovenOpenClose.clip = ovenClose;
         ovenOpenClose.Play();
+        ovenOn.clip = ovenHum;
+        ovenOn.Play();
         yield return new WaitForSeconds(2);
 
         SetNewTargetZone();
@@ -196,7 +198,11 @@ public class OvenInteraction : MonoBehaviour
             }
 
             ovenCamera.SetActive(false);
+
             ovenOn.Stop();
+
+            ovenOpenClose.clip = ovenOpen;
+            ovenOpenClose.Play();
         }
     }
 
