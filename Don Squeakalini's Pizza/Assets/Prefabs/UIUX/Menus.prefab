@@ -1366,15 +1366,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hannah
+  m_text: 'Hannah - UI/UX
 
-    Julian
+    Julian - Enviromental Artist
 
-    Luuk
+    Luuk - Character
+    Artist
 
-    Mitchel
+    Mitchel - Programmer
 
-    Vanessa'
+    Vanessa - Chief Executive Allrounder'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5efe11e0b6704c947a47dfb655c2c613, type: 2}
   m_sharedMaterial: {fileID: 24163658949116018, guid: 5efe11e0b6704c947a47dfb655c2c613,
@@ -1402,7 +1403,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75.85
+  m_fontSize: 50.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
