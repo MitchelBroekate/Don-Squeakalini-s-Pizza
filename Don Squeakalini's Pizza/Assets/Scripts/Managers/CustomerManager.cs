@@ -21,13 +21,13 @@ public class CustomerManager : MonoBehaviour
 
     void CreateCustomerMoney()
     {
-        if(objectiveManager.quotaAmount < 2)
+        if(objectiveManager.quotasCompleted < 2)
         {
             customerMoney = 25;
         }
         else
         {
-            customerMoney = 25 * objectiveManager.quotaAmount / 1.5f;
+            customerMoney = 25 * objectiveManager.quotasCompleted / 1.5f;
         }
     }
 
@@ -57,7 +57,7 @@ public class CustomerManager : MonoBehaviour
         if(objectiveManager.introCompleet)
         {
             objectiveManager.NewCustomerStates();
-            
+
             foreach(CuttingBoardInteraction cuttingboard in cuttingBoardInteraction)
             {
                 cuttingboard.ResetPizzaMakingStates();

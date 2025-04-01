@@ -110,6 +110,8 @@ public class CustomerInteraction : MonoBehaviour
 
             objectiveManager.BoxDestroyer = true;
 
+            objectiveManager.CustomerCompletion();
+
             print("Pizza given");
         }
     }

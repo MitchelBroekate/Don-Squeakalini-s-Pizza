@@ -31925,6 +31925,11 @@ PrefabInstance:
       propertyPath: objectiveManager
       value: 
       objectReference: {fileID: 2112447222}
+    - target: {fileID: 8911831513371310090, guid: 5b8de92a530f8a74a99aef859c51290a,
+        type: 3}
+      propertyPath: playerInteraction
+      value: 
+      objectReference: {fileID: 1258939882}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

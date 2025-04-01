@@ -27,7 +27,12 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] CustomerManager customerManager;
 
     float quotaMoney = 0;
-    public int quotaAmount = 1;
+    public int quotasCompleted = 1;
+    int customerAmount = 0;
+    public int customersCompleted = 0;
+
+    [SerializeField] GameObject quotaScreen;
+    [SerializeField] GameObject loseScreen;
 
     void Start()
     {
@@ -56,34 +61,51 @@ public class ObjectiveManager : MonoBehaviour
 
     void CreateQuota()
     {
-        if(quotaAmount < 2)
+        if(quotasCompleted < 2)
         {
             //set quota value
             quotaMoney = 100;
+            customerAmount = 4;
         }
         else
         {
             //increase quota value based on finished quota's
-            quotaMoney = 100 * quotaAmount / 1.5f;
+            quotaMoney = 100 * quotasCompleted / 1.5f;
+            customerAmount = 4 * quotasCompleted / 2;
         }
     }
 
     public void QuotaCompleted()
     {
-        quotaAmount++;
+        quotasCompleted++;
 
         CreateQuota();
+    }
+
+    public void CustomerCompletion()
+    {
+        if(customersCompleted >= customerAmount)
+        {
+            //activate Quota screen
+            quotaScreen.SetActive(true);
+        }
+        else
+        {
+            customersCompleted++;
+        }
     }
 
     void CheckMoneyForQuota()
     {
         if(moneyEarned > quotaMoney)
         {
-
+            //disable quota screen and resume game
+            quotaScreen.SetActive(false);
         }
         else
         {
-
+            //activate lose screen
+            quotaScreen.SetActive(true);
         }
     }
 
