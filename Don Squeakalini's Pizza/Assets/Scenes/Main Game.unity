@@ -25173,6 +25173,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9d3848fb3d57c7488ee88eb7754f69f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29296,7 +29301,7 @@ PrefabInstance:
     - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
         type: 3}
       propertyPath: mousePrefabs.Array.size
-      value: 3
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
         type: 3}
@@ -29316,6 +29321,94 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6889557743922423349, guid: d6e38ffbc1663924589ca7d3ebbba24a,
         type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: mousePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3868794230911304954, guid: c40722d16430cab4ea9153d991cfc400,
+        type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: mousePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 6848132286763794747, guid: 04d9bb69ae095fb419f5039a2d257fc9,
+        type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: mousePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 6964892253155262338, guid: f93d2c1a3d7b9104fad68d807c84ea72,
+        type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: mousePrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 8401833861045799118, guid: e437855d37620e34695c6dcf3372b7c3,
+        type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: mousePrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1947091706372091833, guid: ab59505bc830644468235ebb0686b4e2,
+        type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: mousePrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 6439552778121663191, guid: 03d361e8ada50204bae8b3a090471b46,
+        type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: mousePrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 6454797497959743014, guid: c8e5747bfa52aa948beaa63c96fb7580,
+        type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: ovenInteraction.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: mousePrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 4209247456753533946, guid: 057e58dab4d2886408916c5452377491,
+        type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: ovenInteraction.Array.data[0]
+      value: 
+      objectReference: {fileID: 5628735724271947988}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: ovenInteraction.Array.data[1]
+      value: 
+      objectReference: {fileID: 919132147658973816}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: ovenInteraction.Array.data[2]
+      value: 
+      objectReference: {fileID: 919132149437295210}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: ovenInteraction.Array.data[3]
+      value: 
+      objectReference: {fileID: 919132149197070937}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: cuttingBoardInteraction.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: cuttingBoardInteraction.Array.data[0]
+      value: 
+      objectReference: {fileID: 1298176489}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: cuttingBoardInteraction.Array.data[1]
+      value: 
+      objectReference: {fileID: 219158921}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

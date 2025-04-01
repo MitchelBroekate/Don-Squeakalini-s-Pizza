@@ -12,8 +12,8 @@ public class CustomerManager : MonoBehaviour
     public List<IngredientSO> ingredientsToAdd;
 
     [SerializeField] ObjectiveManager objectiveManager;
-    [SerializeField] CuttingBoardInteraction cuttingBoardInteraction;
-    [SerializeField] OvenInteraction ovenInteraction;
+    [SerializeField] List<CuttingBoardInteraction> cuttingBoardInteraction = new();
+        [SerializeField] List<OvenInteraction> ovenInteraction = new();
 
     int ingredientAmount;
 
@@ -57,8 +57,16 @@ public class CustomerManager : MonoBehaviour
         if(objectiveManager.introCompleet)
         {
             objectiveManager.NewCustomerStates();
-            cuttingBoardInteraction.ResetPizzaMakingStates();
-            ovenInteraction.ResetOvenStates();
+            
+            foreach(CuttingBoardInteraction cuttingboard in cuttingBoardInteraction)
+            {
+                cuttingboard.ResetPizzaMakingStates();
+            }
+
+            foreach(OvenInteraction oven in ovenInteraction)
+            {
+                oven.ResetOvenStates();
+            }
 
             ingredientAmount = Random.Range(1, objectiveManager.ingredients.Count);
 

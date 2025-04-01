@@ -13,7 +13,7 @@ public class CustomerWalkBehavior : MonoBehaviour
 
     Quaternion targetRotation;
     [SerializeField] float rotateSpeed;
-    float movementSpeed = 150;
+    float movementSpeed = 75;
 
     CustomerWaitTime customerWaitTime;
     CustomerManager customerManager;
@@ -32,7 +32,7 @@ public class CustomerWalkBehavior : MonoBehaviour
         customerWaitTime = GetComponent<CustomerWaitTime>();
         customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
 
-        counterLookAt = checkpoints[6].transform;
+        counterLookAt = checkpoints[checkpoints.Count].transform;
     }
 
     void FixedUpdate()
@@ -108,7 +108,6 @@ public class CustomerWalkBehavior : MonoBehaviour
                             StartCoroutine(LazyLookTimer());
                         }
                         lookSwitch = true;
-
                     }
                     else
                     {
