@@ -189,12 +189,13 @@ MonoBehaviour:
   - {fileID: 8447045867322186909, guid: afcbf2cb8efa3e34180c0a8c353a02b7, type: 3}
   - {fileID: 934553349337738334, guid: f6abb921ee1b259459c60d0e78320ecd, type: 3}
   ingredientTxt: {fileID: 0}
+  skillcheckAmount: 5
   toppingsSource: {fileID: -5671699664423628909}
   toppingsnotification: {fileID: -3008483022403663103}
   negativeNotif: {fileID: 8300000, guid: 5b6723bac1b388b4b8bea76d349979e3, type: 3}
   positiveNotif: {fileID: 8300000, guid: 424e04535d3fdc641a28220ca5832768, type: 3}
   addingToppings: {fileID: 8300000, guid: f196a757908019941bdd546d5687bea0, type: 3}
-  workingParticle: {fileID: 0}
+  workingParticle: {fileID: 4624600232924435104}
 --- !u!33 &2661923433539035006
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -560,6 +561,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba78adf31c213a94e88e33eff0248186, type: 3}
+--- !u!198 &4624600232924435104 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 833551170559179501, guid: ba78adf31c213a94e88e33eff0248186,
+    type: 3}
+  m_PrefabInstance: {fileID: 5457447092767959117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5758642957536970739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 312560872778624958, guid: ba78adf31c213a94e88e33eff0248186,

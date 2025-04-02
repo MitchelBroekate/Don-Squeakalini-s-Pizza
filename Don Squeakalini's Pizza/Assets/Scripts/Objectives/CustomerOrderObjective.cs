@@ -12,6 +12,10 @@ public class CustomerOrderObjective : MonoBehaviour
 
     bool addedCheese = false, addedSaus = false, addedPaprika = false, addedPepperoni = false;
 
+    public AudioSource notification;
+    public AudioClip negativeNotif;
+    public AudioClip positiveNotif;
+
     void Start()
     {
         objectiveManager = GetComponent<ObjectiveManager>();
@@ -105,7 +109,9 @@ public class CustomerOrderObjective : MonoBehaviour
 
             objectiveManager.MoneyToAdd(moneyToEarn);
 
-            //correct order sfx
+            notification.clip = positiveNotif;
+            notification.Play();
+
         }
         else
         {
@@ -124,7 +130,9 @@ public class CustomerOrderObjective : MonoBehaviour
 
             print("Wrong order" + " " + moneyMultiplier);
 
-            //failed order sfx
+            notification.clip = negativeNotif;
+            notification.Play();
+
         }
     }
 }

@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PizzariaController : MonoBehaviour
 {
@@ -29,8 +30,12 @@ public class PizzariaController : MonoBehaviour
 
 
     [SerializeField] GameObject pauseScreen;
-    #endregion 
-    
+
+    [SerializeField] Button myButton;
+
+    #endregion
+
+
 
     /// <summary>
     /// This function gets the ridgedbody component and locks the Cursor for the FPS Mode
@@ -181,6 +186,12 @@ public class PizzariaController : MonoBehaviour
         cam.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.Rotate(Vector3.up * mouseX);
 
+    }
+
+    public void ResetButtonVisuals()
+    {
+        myButton.OnDeselect(null);
+        myButton.targetGraphic.CrossFadeColor(myButton.colors.normalColor, 0f, true, true);
     }
 
     /// <summary>
