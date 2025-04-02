@@ -110,6 +110,10 @@ public class CustomerInteraction : MonoBehaviour
 
             objectiveManager.BoxDestroyer = true;
 
+            //add money
+            objectiveManager.AddmoneyToQuota();
+            //execute animation
+
             objectiveManager.CustomerCompletion();
 
             print("Pizza given");

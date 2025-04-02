@@ -21,9 +21,10 @@ public class OvenInteraction : MonoBehaviour
     int ovenInteractionState = 0;
 
     [SerializeField] Slider heatSlider;
+    [SerializeField] Slider timerSlider;
 
-    float heatGainSpeed = 50;
-    float heatLossSpeed = 100;
+    [SerializeField] float heatGainSpeed;
+    [SerializeField] float heatLossSpeed;
 
     [SerializeField] bool ovenHeatGain = false;
     bool startheatDetection = false;
@@ -51,12 +52,9 @@ public class OvenInteraction : MonoBehaviour
     void Start()
     {
         ovenPizzaHolder = transform.GetChild(0).gameObject;
-
-        heatSlider.minValue = 0;
-        heatSlider.maxValue = 100;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(ovenHeatGain)
         {
@@ -159,13 +157,14 @@ public class OvenInteraction : MonoBehaviour
     {
         if(startheatDetection)
         {
-            while(heatSlider.value > 150 && heatSlider.value < 180)
+            if(heatSlider.value > 155 && heatSlider.value < 170)
             {
                 heatLock = true;
 
                 if(heatGainTime < heatGainTimeLimit)
                 {
                     heatGainTime += Time.deltaTime;
+                    timerSlider.value = heatGainTime;
                 }
                 else
                 {

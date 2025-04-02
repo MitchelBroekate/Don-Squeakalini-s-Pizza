@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,23 +69,29 @@ public class ObjectiveManager : MonoBehaviour
     {
         if(quotasCompleted < 2)
         {
-            //set quota value
+            //set value
             quotaMoney = 100;
             customerAmount = 4;
+
+            //quota amount UI update
+
         }
         else
         {
-            //increase quota value based on finished quota's
+            //increase value based on finished quota's
             quotaMoney = 100 * quotasCompleted / 1.5f;
+            quotaMoney = (float)Math.Round(quotaMoney);
+
             customerAmount = 4 * quotasCompleted / 2;
+
+            //quota amount UI update
+
         }
     }
 
     public void QuotaCompleted()
     {
-        quotasCompleted++;
-
-        CreateQuota();
+        QuotaScreenDisable();
     }
 
     public void CustomerCompletion()
@@ -91,9 +99,7 @@ public class ObjectiveManager : MonoBehaviour
         if(customersCompleted >= customerAmount)
         {
             //activate Quota screen
-            quotaScreen.SetActive(true);
-
-            pizzariaController.LockPlayer(true);
+            QuotaScreenActivate();
         }
         else
         {
@@ -106,13 +112,25 @@ public class ObjectiveManager : MonoBehaviour
         if(moneyEarned > quotaMoney)
         {
             //disable quota screen and resume game
-            quotaScreen.SetActive(false);
+            quotaScreen.SetActive(true);
+
+            pizzariaController.LockPlayer(true);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            QuotaCompleted();
         }
         else
         {
             //activate lose screen
             quotaScreen.SetActive(false);
             loseScreen.SetActive(true);
+
+            pizzariaController.LockPlayer(true);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -124,6 +142,14 @@ public class ObjectiveManager : MonoBehaviour
         {
             ChangeLayer(child.gameObject, newLayer);
         }
+    }
+
+    public void AddmoneyToQuota()
+    {
+        moneyEarned = moneyToAdd;
+
+        //UI quota update
+
     }
 
     public bool PizzaCompleet
@@ -204,5 +230,31 @@ public class ObjectiveManager : MonoBehaviour
     {
         get{return ingredientSplit;}
         set{ingredientSplit += value;}
+    }
+
+    IEnumerator QuotaScreenActivate()
+    {
+        yield return new WaitForSeconds(5);
+
+        CheckMoneyForQuota();
+    }
+
+    IEnumerator QuotaScreenDisable()
+    {
+        yield return new WaitForSeconds(5);
+        
+        quotasCompleted++;
+
+        CreateQuota();
+
+        CheckMoneyForQuota();
+
+        quotaScreen.SetActive(false);
+
+        pizzariaController.LockPlayer(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 }
