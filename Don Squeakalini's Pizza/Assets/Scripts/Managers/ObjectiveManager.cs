@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
@@ -13,6 +14,9 @@ public class ObjectiveManager : MonoBehaviour
     bool ingredientToppingsCompleted = false;
     bool ovenMinigameCompleted = false;
     bool boxDestroyer = false;
+
+    [SerializeField] TMP_Text quotaText;
+    [SerializeField] TMP_Text moneyText;
 
     float moneyEarned = 0;
     [SerializeField] float moneyToAdd = 0;
@@ -74,7 +78,7 @@ public class ObjectiveManager : MonoBehaviour
             customerAmount = 4;
 
             //quota amount UI update
-
+            quotaText.text = quotaMoney.ToString();
         }
         else
         {
@@ -85,7 +89,7 @@ public class ObjectiveManager : MonoBehaviour
             customerAmount = 4 * quotasCompleted / 2;
 
             //quota amount UI update
-
+            quotaText.text = quotaMoney.ToString();
         }
     }
 
@@ -146,10 +150,10 @@ public class ObjectiveManager : MonoBehaviour
 
     public void AddmoneyToQuota()
     {
-        moneyEarned = moneyToAdd;
+        moneyEarned += moneyToAdd;
 
         //UI quota update
-
+        moneyText.text = moneyEarned.ToString();
     }
 
     public bool PizzaCompleet
