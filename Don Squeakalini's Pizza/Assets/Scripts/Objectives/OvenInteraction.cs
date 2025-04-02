@@ -144,6 +144,7 @@ public class OvenInteraction : MonoBehaviour
         ovenOpenClose.Play();
         ovenOn.clip = ovenHum;
         ovenOn.Play();
+        
         yield return new WaitForSeconds(2);
 
         startheatDetection = true;

@@ -275,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 5822266252395837672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.019, y: 0.459, z: 0.048}
+  m_LocalPosition: {x: -0.019, y: 0.459, z: 0.266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -445,17 +445,14 @@ MonoBehaviour:
   ovenCamera: {fileID: 0}
   heatSlider: {fileID: 0}
   ovenHeatGain: 0
+  heatGainTime: 0
+  heatGainTimeLimit: 0
   ovenOpenClose: {fileID: 2255165744224470007}
   ovenOn: {fileID: 6800070930018665379}
   ovenOpen: {fileID: 8300000, guid: 8906275d1110a56459a9ed5c150d4f62, type: 3}
   ovenClose: {fileID: 8300000, guid: 0b6dca754138e324487d4d5691a80684, type: 3}
-  ovenHum: {fileID: 8300000, guid: 1ee5f5e958ce78f49a7524111b129ce8, type: 3}
+  ovenHum: {fileID: 8300000, guid: f969c7ea8edaad241ae0feaf8bfdf1d2, type: 3}
   ovenPing: {fileID: 8300000, guid: 7af27d083291b1d49bd96fa4928d5933, type: 3}
-  targetZonePrefab: {fileID: 5596260024562305709, guid: 73bcd681cfb85714a9f927614a6d170d,
-    type: 3}
-  heatSliderParent: {fileID: 0}
-  feedbackText: {fileID: 0}
-  zoneSize: 30
 --- !u!114 &5921473118703666005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +592,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
