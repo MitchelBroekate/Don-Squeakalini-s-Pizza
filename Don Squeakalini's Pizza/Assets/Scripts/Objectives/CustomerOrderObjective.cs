@@ -7,6 +7,8 @@ public class CustomerOrderObjective : MonoBehaviour
 
     int correctOrder = 0;
     float moneyMultiplier = 1;
+    float moneyToEarn = 5;
+    bool perfectExecution = true;
 
     bool addedCheese = false, addedSaus = false, addedPaprika = false, addedPepperoni = false;
 
@@ -87,14 +89,21 @@ public class CustomerOrderObjective : MonoBehaviour
         {
             objectiveManager.OrderCompleted = true;
 
-            print("Order Compleet");
-
             addedCheese = false;
             addedPaprika = false;
             addedPepperoni = false;
             addedSaus = false;
 
             correctOrder = 0;
+
+            if(perfectExecution)
+            {
+                moneyMultiplier = 1.5f;
+                moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
+                moneyToEarn *= moneyMultiplier;
+            }
+
+            objectiveManager.MoneyToAdd(moneyToEarn);
 
             //correct order sfx
         }
@@ -109,6 +118,9 @@ public class CustomerOrderObjective : MonoBehaviour
 
             moneyMultiplier *= 0.75f;
             moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
+            moneyToEarn *= moneyMultiplier;
+            
+            perfectExecution = false;
 
             print("Wrong order" + " " + moneyMultiplier);
 

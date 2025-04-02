@@ -2727,6 +2727,26 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1186907554}
+    - target: {fileID: 848037290711989865, guid: 18582f61f70814c4c9161beaf60a8696,
+        type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 848037290711989865, guid: 18582f61f70814c4c9161beaf60a8696,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 848037290711989865, guid: 18582f61f70814c4c9161beaf60a8696,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 848037290711989865, guid: 18582f61f70814c4c9161beaf60a8696,
+        type: 3}
+      propertyPath: m_WholeNumbers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2319621430012755518, guid: 18582f61f70814c4c9161beaf60a8696,
         type: 3}
       propertyPath: m_Name

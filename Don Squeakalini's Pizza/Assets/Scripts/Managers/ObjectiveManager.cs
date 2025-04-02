@@ -13,7 +13,6 @@ public class ObjectiveManager : MonoBehaviour
     bool boxDestroyer = false;
 
     float moneyEarned = 0;
-
     [SerializeField] float moneyToAdd = 0;
 
     public IngredientSO currentGrabbedIngredient;

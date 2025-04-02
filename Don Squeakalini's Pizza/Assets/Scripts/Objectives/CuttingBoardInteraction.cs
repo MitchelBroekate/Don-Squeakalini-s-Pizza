@@ -30,10 +30,14 @@ public class CuttingBoardInteraction : MonoBehaviour
     
     RectTransform parentRect;
     
+    [SerializeField] int skillcheckAmount;
     int currentKeybind = 4;
     int currentMinigameCompletion = 0;
     bool minigameCompleted = false;
-    float minigameScore = 5;
+    int successfullSkillcheck = 0;
+
+    float minigameScore = 1;
+    float moneyToEarn = 10;
     
     GameObject pizzaBuild;
     bool instantiatePizzaOnce = true;
@@ -46,7 +50,6 @@ public class CuttingBoardInteraction : MonoBehaviour
     public AudioClip addingToppings;
 
     public ParticleSystem workingParticle;
-
 
     void Start()
     {
@@ -61,7 +64,7 @@ public class CuttingBoardInteraction : MonoBehaviour
 
     void Update()
     {
-        if(currentMinigameCompletion > 4)
+        if(currentMinigameCompletion >= skillcheckAmount)
         {
             minigameCompleted = true;
 
@@ -85,13 +88,13 @@ public class CuttingBoardInteraction : MonoBehaviour
 
             if(currentKeybind == 0)
             {
-                minigameScore++;
+                successfullSkillcheck++;
                 currentMinigameCompletion++;
 
                 toppingsnotification.clip = positiveNotif;
                 toppingsnotification.Play();
 
-                if(currentMinigameCompletion <5)
+                if(currentMinigameCompletion < skillcheckAmount)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -108,7 +111,7 @@ public class CuttingBoardInteraction : MonoBehaviour
 
                 currentMinigameCompletion++;
 
-                if(currentMinigameCompletion <5)
+                if(currentMinigameCompletion < skillcheckAmount)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -126,13 +129,13 @@ public class CuttingBoardInteraction : MonoBehaviour
 
             if(currentKeybind == 1)
             {
-                minigameScore++;
+                successfullSkillcheck++;
                 currentMinigameCompletion++;
 
                 toppingsnotification.clip = positiveNotif;
                 toppingsnotification.Play();
 
-                if (currentMinigameCompletion <5)
+                if (currentMinigameCompletion < skillcheckAmount)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -149,7 +152,7 @@ public class CuttingBoardInteraction : MonoBehaviour
 
                 currentMinigameCompletion++;
 
-                if (currentMinigameCompletion <5)
+                if (currentMinigameCompletion < skillcheckAmount)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -167,13 +170,13 @@ public class CuttingBoardInteraction : MonoBehaviour
 
             if(currentKeybind == 2)
             {
-                minigameScore++;
+                successfullSkillcheck++;
                 currentMinigameCompletion++;
 
                 toppingsnotification.clip = positiveNotif;
                 toppingsnotification.Play();
 
-                if (currentMinigameCompletion <5)
+                if (currentMinigameCompletion < skillcheckAmount)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -190,7 +193,7 @@ public class CuttingBoardInteraction : MonoBehaviour
 
                 currentMinigameCompletion++;
 
-                if(currentMinigameCompletion <5)
+                if(currentMinigameCompletion < skillcheckAmount)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -208,13 +211,13 @@ public class CuttingBoardInteraction : MonoBehaviour
 
             if(currentKeybind == 3)
             {
-                minigameScore++;
+                successfullSkillcheck++;
                 currentMinigameCompletion++;
 
                 toppingsnotification.clip = positiveNotif;
                 toppingsnotification.Play();
 
-                if (currentMinigameCompletion <5)
+                if (currentMinigameCompletion < skillcheckAmount)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -231,7 +234,7 @@ public class CuttingBoardInteraction : MonoBehaviour
 
                 currentMinigameCompletion++;
 
-                if(currentMinigameCompletion <5)
+                if(currentMinigameCompletion < skillcheckAmount)
                 {
                     StartCoroutine(RandomSkillcheckPopUp(1));
                 }
@@ -331,7 +334,6 @@ public class CuttingBoardInteraction : MonoBehaviour
                 {
                     pizzaBuild = Instantiate(currentIngredient.finalObject);
 
-                    //pizzaBuild.transform.parent = transform.GetChild(0);
                     pizzaBuild.transform.position = transform.GetChild(0).position;
 
                     pizzaBuild.GetComponent<PizzaInteraction>().objectiveManager = objectiveManager;

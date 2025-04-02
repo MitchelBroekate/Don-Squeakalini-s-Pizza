@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -25,8 +26,18 @@ public class OvenInteraction : MonoBehaviour
     float heatLossSpeed = 100;
 
     [SerializeField] bool ovenHeatGain = false;
+    bool startheatDetection = false;
 
+    [SerializeField] float heatGainTime;
+    [SerializeField] float heatGainTimeLimit;
+
+    bool heatLock = false;
     bool hasWon = false;
+
+
+    float moneyToEarn = 10;
+    float moneyMultiplier = 1;
+    bool perfectExecution = true;
 
     public AudioSource ovenOpenClose;
     public AudioSource ovenOn;
@@ -37,16 +48,12 @@ public class OvenInteraction : MonoBehaviour
     public AudioClip ovenPing;
 
 
-
-
     void Start()
     {
         ovenPizzaHolder = transform.GetChild(0).gameObject;
 
         heatSlider.minValue = 0;
         heatSlider.maxValue = 100;
-
-        heatSlider.onValueChanged.AddListener(CheckheatSliderPosition);
     }
 
     void Update()
@@ -60,10 +67,7 @@ public class OvenInteraction : MonoBehaviour
             heatSlider.value -= heatLossSpeed * Time.deltaTime;
         }
 
-        if(Input.GetButtonDown("Fire1"))
-        {
-            SetNewTargetZone();
-        }
+        heatRangeDetection();
     }
 
     public void OvenInteract()
@@ -142,8 +146,7 @@ public class OvenInteraction : MonoBehaviour
         ovenOn.Play();
         yield return new WaitForSeconds(2);
 
-        SetNewTargetZone();
-        
+        startheatDetection = true;
     }
 
     public void OnOvenHeatIncrease(InputAction.CallbackContext context)
@@ -151,63 +154,57 @@ public class OvenInteraction : MonoBehaviour
         ovenHeatGain = context.performed;
     }
 
-    public GameObject targetZonePrefab;
-    public RectTransform heatSliderParent;
-    public TMP_Text  feedbackText;
-
-    private GameObject targetZoneInstance;
-    private float targetMin;
-    private float targetMax;
-    public float zoneSize = 30f;
-
-    void SetNewTargetZone()
+    void heatRangeDetection()
     {
-        if (targetZoneInstance != null)
+        if(startheatDetection)
         {
-            Destroy(targetZoneInstance);
-        }
-
-        targetMin = Random.Range(heatSlider.minValue, heatSlider.maxValue - zoneSize);
-        targetMax = targetMin + zoneSize;
-
-        targetZoneInstance = Instantiate(targetZonePrefab, heatSliderParent);
-        RectTransform rectTransform = targetZoneInstance.GetComponent<RectTransform>();
-
-        float heatSliderHeight = heatSlider.GetComponent<RectTransform>().rect.height;
-        float normalizedMin = targetMin / heatSlider.maxValue;
-        float normalizedMax = targetMax / heatSlider.maxValue;
-
-        rectTransform.anchorMin = new Vector2(0.5f, normalizedMin);
-        rectTransform.anchorMax = new Vector2(0.5f, normalizedMax);
-        rectTransform.anchoredPosition = Vector2.zero;
-    }
-
-    void CheckheatSliderPosition(float value)
-    {
-        if (value >= targetMin && value <= targetMax)
-        {
-            hasWon = true;
-            ovenInteractionState = 0;
-
-            pizzariaController.LockPlayer(false);
-            for(int i = 0; i < player.transform.childCount; i++)
+            while(heatSlider.value > 150 && heatSlider.value < 180)
             {
-                player.transform.GetChild(i).gameObject.SetActive(true);
+                heatLock = true;
+
+                if(heatGainTime < heatGainTimeLimit)
+                {
+                    heatGainTime += Time.deltaTime;
+                }
+                else
+                {
+                    if(perfectExecution)
+                    {
+                        moneyMultiplier *= 1.5f;
+                        moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
+                    }
+                    moneyToEarn *= moneyMultiplier;
+
+                    objectiveManager.MoneyToAdd(moneyToEarn);
+
+                    hasWon = true;
+                    startheatDetection = false;
+                    ovenInteractionState = 0;
+
+                    pizzariaController.LockPlayer(false);
+                    for(int i = 0; i < player.transform.childCount; i++)
+                    {
+                        player.transform.GetChild(i).gameObject.SetActive(true);
+                    }
+
+                    ovenCamera.SetActive(false);
+
+                    ovenOn.clip = ovenPing;
+                    ovenOn.Play();
+
+                    ovenOpenClose.clip = ovenOpen;
+                    ovenOpenClose.Play();
+                }
+
+                if(heatLock && heatSlider.value < 150 || heatGainTime > 180)
+                {
+                    moneyMultiplier *= 0.75f;
+                    moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
+                    
+                    perfectExecution = false;
+                }
             }
-
-            ovenCamera.SetActive(false);
-
-            ovenOn.clip = ovenPing;
-            ovenOn.Play();
-
-            ovenOpenClose.clip = ovenOpen;
-            ovenOpenClose.Play();
         }
-    }
-
-    public void RestartGame()
-    {
-        SetNewTargetZone();
     }
 
     public void ResetOvenStates()
