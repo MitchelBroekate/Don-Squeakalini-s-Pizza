@@ -36,7 +36,7 @@ public class CuttingBoardInteraction : MonoBehaviour
     bool minigameCompleted = false;
     int successfullSkillcheck = 0;
 
-    float minigameScore = 1;
+    float moneyMultiplier = 1;
     float moneyToEarn = 10;
     
     GameObject pizzaBuild;
@@ -103,8 +103,8 @@ public class CuttingBoardInteraction : MonoBehaviour
             } 
             else if(currentKeybind < 4 && currentKeybind != 0)
             {
-                minigameScore *= 0.75f;
-                minigameScore = (float)Math.Round(minigameScore, 2);
+                moneyMultiplier *= 0.75f;
+                moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
 
                 toppingsnotification.clip = negativeNotif;
                 toppingsnotification.Play();
@@ -144,8 +144,8 @@ public class CuttingBoardInteraction : MonoBehaviour
             } 
             else if(currentKeybind < 4 && currentKeybind != 1)
             {
-                minigameScore *= 0.75f;
-                minigameScore = (float)Math.Round(minigameScore, 2);
+                moneyMultiplier *= 0.75f;
+                moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
 
                 toppingsnotification.clip = negativeNotif;
                 toppingsnotification.Play();
@@ -185,8 +185,8 @@ public class CuttingBoardInteraction : MonoBehaviour
             } 
             else if(currentKeybind < 4 && currentKeybind != 2)
             {
-                minigameScore *= 0.75f;
-                minigameScore = (float)Math.Round(minigameScore, 2);
+                moneyMultiplier *= 0.75f;
+                moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
 
                 toppingsnotification.clip = negativeNotif;
                 toppingsnotification.Play();
@@ -226,8 +226,8 @@ public class CuttingBoardInteraction : MonoBehaviour
             }
             else if(currentKeybind < 4 && currentKeybind != 3)
             {
-                minigameScore *= 0.75f;
-                minigameScore = (float)Math.Round(minigameScore, 2);
+                moneyMultiplier *= 0.75f;
+                moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
 
                 toppingsnotification.clip = negativeNotif;
                 toppingsnotification.Play();
@@ -416,7 +416,50 @@ public class CuttingBoardInteraction : MonoBehaviour
         toppingsSource.Stop();
         
         //remember score 
-        objectiveManager.MoneyToAdd(minigameScore);
+        if(successfullSkillcheck >= skillcheckAmount)
+        {
+            moneyMultiplier *= 1.5f;
+            moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
+        }
+
+        moneyToEarn *= moneyMultiplier;
+        
+        switch(currentIngredient.ingredientID)
+        {
+            case 0:
+                //Dough
+                objectiveManager.DoughMoney(moneyToEarn);
+                objectiveManager.SplitValue++;
+                break;
+
+            case 1:
+                //Cheese
+                objectiveManager.CheeseMoney(moneyToEarn);
+                objectiveManager.SplitValue++;
+                break;
+
+            case 2:
+                //Paprika
+                objectiveManager.PaprikaMoney(moneyToEarn);
+                objectiveManager.SplitValue++;
+                break;
+
+            case 3:
+                //Pepperoni
+                objectiveManager.PepperoniMoney(moneyToEarn);
+                objectiveManager.SplitValue++;
+                break;
+
+            case 4:
+                //TomatoPaste
+                objectiveManager.SauceMoney(moneyToEarn);
+                objectiveManager.SplitValue++;
+                break;
+
+            default:
+                Debug.LogWarning("Int out of bounds. CuttingBouardInteraction/CompleteMinigame");
+                break;
+        }
 
         if(ingredientsNeeded.Count <= 0)
         {
@@ -429,7 +472,7 @@ public class CuttingBoardInteraction : MonoBehaviour
             ingredientsAdded = false;
         }
 
-        minigameScore = 5;
+        moneyMultiplier = 5;
         currentMinigameCompletion = 0;
 
         minigameCompleted = false;

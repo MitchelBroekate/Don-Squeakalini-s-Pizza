@@ -15,6 +15,13 @@ public class ObjectiveManager : MonoBehaviour
     float moneyEarned = 0;
     [SerializeField] float moneyToAdd = 0;
 
+    float moneyCuttingDough = 0;
+    float moneyCuttingSauce = 0;
+    float moneyCuttingPaprika = 0;
+    float moneyCuttingPepperoni = 0;
+    float moneyCuttingCheese = 0;
+    int ingredientSplit = 0;
+
     public IngredientSO currentGrabbedIngredient;
 
     public List<IngredientSO> ingredients = new();
@@ -153,5 +160,49 @@ public class ObjectiveManager : MonoBehaviour
     {
         moneyToAdd += value;
         return moneyToAdd;
+    }
+
+    public void AddIngredientMoney()
+    {
+        float ingredientMoney = moneyCuttingPepperoni + moneyCuttingSauce + moneyCuttingPaprika + moneyCuttingSauce;
+        ingredientMoney /= ingredientSplit;
+
+        MoneyToAdd(ingredientMoney);
+    }
+
+    public float DoughMoney(float value)
+    {
+        moneyCuttingDough += value;
+        return moneyCuttingDough;
+    }
+
+    public float SauceMoney(float value)
+    {
+        moneyCuttingSauce += value;
+        return moneyCuttingSauce;
+    }
+
+    public float PaprikaMoney(float value)
+    {
+        moneyCuttingPaprika += value;
+        return moneyCuttingPaprika;
+    }
+
+    public float PepperoniMoney(float value)
+    {
+        moneyCuttingPepperoni += value;
+        return moneyCuttingPepperoni;
+    }
+
+    public float CheeseMoney(float value)
+    {
+        moneyCuttingCheese += value;
+        return moneyCuttingCheese;
+    }
+
+    public int SplitValue
+    {
+        get{return ingredientSplit;}
+        set{ingredientSplit += value;}
     }
 }

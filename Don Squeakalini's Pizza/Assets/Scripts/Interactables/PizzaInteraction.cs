@@ -8,6 +8,8 @@ public class PizzaInteraction : MonoBehaviour
 
     public void GrabPizza()
     {
+        objectiveManager.AddIngredientMoney();
+
         objectiveManager.ingredientGrabbed = true;
         objectiveManager.PizzaGrabbed = true;
 

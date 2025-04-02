@@ -2701,6 +2701,11 @@ PrefabInstance:
       objectReference: {fileID: 1399095746}
     - target: {fileID: 7927847844476776167, guid: 870f680483d2c3947887b289805d9c04,
         type: 3}
+      propertyPath: skillcheckAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927847844476776167, guid: 870f680483d2c3947887b289805d9c04,
+        type: 3}
       propertyPath: playerInteraction
       value: 
       objectReference: {fileID: 1720937243}
