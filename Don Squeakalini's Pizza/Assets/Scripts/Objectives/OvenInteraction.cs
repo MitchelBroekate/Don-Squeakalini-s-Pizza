@@ -129,14 +129,7 @@ public class OvenInteraction : MonoBehaviour
         }
         else if(hasWon)
         {
-            ovenPizzaHolder.transform.GetChild(0).parent = playerPizzaHolder;
-            playerPizzaHolder.GetChild(0).transform.position = playerPizzaHolder.position;
-            playerPizzaHolder.GetChild(0).transform.rotation = playerPizzaHolder.rotation;
-
-            objectiveManager.OvenMinigameCompleted = true;
-            objectiveManager.PizzaGrabbed = true;
-
-            objectiveManager.ChangeLayer(playerPizzaHolder.GetChild(0).gameObject,9);
+            StartCoroutine(GrabPizza());
         }
         else if(ovenInteractionState == 2)
         {
@@ -173,6 +166,22 @@ public class OvenInteraction : MonoBehaviour
         }
 
         startheatDetection = true;
+    }
+
+    IEnumerator GrabPizza()
+    {
+        rotateOpenDoor = true;
+
+        yield return new WaitForSeconds(1);
+
+        ovenPizzaHolder.transform.GetChild(0).parent = playerPizzaHolder;
+        playerPizzaHolder.GetChild(0).transform.position = playerPizzaHolder.position;
+        playerPizzaHolder.GetChild(0).transform.rotation = playerPizzaHolder.rotation;
+
+        objectiveManager.OvenMinigameCompleted = true;
+        objectiveManager.PizzaGrabbed = true;
+
+        objectiveManager.ChangeLayer(playerPizzaHolder.GetChild(0).gameObject,9);
     }
 
     public void OnOvenHeatIncrease(InputAction.CallbackContext context)
