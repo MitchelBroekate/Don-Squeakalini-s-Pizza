@@ -423,37 +423,38 @@ public class CuttingBoardInteraction : MonoBehaviour
         }
 
         moneyToEarn *= moneyMultiplier;
-        
+        print(moneyToEarn + "Cutting");
+
         switch(currentIngredient.ingredientID)
         {
             case 0:
                 //Dough
                 objectiveManager.DoughMoney(moneyToEarn);
-                objectiveManager.SplitValue++;
+                objectiveManager.SplitValue();
                 break;
 
             case 1:
                 //Cheese
                 objectiveManager.CheeseMoney(moneyToEarn);
-                objectiveManager.SplitValue++;
+                objectiveManager.SplitValue();
                 break;
 
             case 2:
                 //Paprika
                 objectiveManager.PaprikaMoney(moneyToEarn);
-                objectiveManager.SplitValue++;
+                objectiveManager.SplitValue();
                 break;
 
             case 3:
                 //Pepperoni
                 objectiveManager.PepperoniMoney(moneyToEarn);
-                objectiveManager.SplitValue++;
+                objectiveManager.SplitValue();
                 break;
 
             case 4:
-                //TomatoPaste
+                //TomatoSauce
                 objectiveManager.SauceMoney(moneyToEarn);
-                objectiveManager.SplitValue++;
+                objectiveManager.SplitValue();
                 break;
 
             default:
@@ -472,8 +473,10 @@ public class CuttingBoardInteraction : MonoBehaviour
             ingredientsAdded = false;
         }
 
-        moneyMultiplier = 5;
+        moneyMultiplier = 1;
+        moneyToEarn = 10;
         currentMinigameCompletion = 0;
+
 
         minigameCompleted = false;
 

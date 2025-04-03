@@ -107,7 +107,12 @@ public class CustomerOrderObjective : MonoBehaviour
                 moneyToEarn *= moneyMultiplier;
             }
 
+            print(moneyToEarn + "Order");
+
             objectiveManager.MoneyToAdd(moneyToEarn);
+
+            moneyMultiplier = 1;
+            moneyToEarn = 5;
 
             notification.clip = positiveNotif;
             notification.Play();

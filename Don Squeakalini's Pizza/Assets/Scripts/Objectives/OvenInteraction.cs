@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -35,7 +34,6 @@ public class OvenInteraction : MonoBehaviour
     bool heatLock = false;
     bool hasWon = false;
 
-
     float moneyToEarn = 10;
     float moneyMultiplier = 1;
     bool perfectExecution = true;
@@ -47,6 +45,9 @@ public class OvenInteraction : MonoBehaviour
     public AudioClip ovenClose;
     public AudioClip ovenHum;
     public AudioClip ovenPing;
+
+    [SerializeField] Material pizzaBaked;
+    [SerializeField] Material cheeseMolten;
 
 
     void Start()
@@ -157,7 +158,7 @@ public class OvenInteraction : MonoBehaviour
     {
         if(startheatDetection)
         {
-            if(heatSlider.value > 155 && heatSlider.value < 170)
+            if(heatSlider.value > 155 && heatSlider.value < 175)
             {
                 heatLock = true;
 
@@ -173,9 +174,19 @@ public class OvenInteraction : MonoBehaviour
                         moneyMultiplier *= 1.5f;
                         moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
                     }
+                    ovenPizzaHolder.transform.GetChild(0).GetComponent<Renderer>().material = pizzaBaked;
+                    ovenPizzaHolder.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material = cheeseMolten;
+
                     moneyToEarn *= moneyMultiplier;
+                    print(moneyToEarn + "Oven");
 
                     objectiveManager.MoneyToAdd(moneyToEarn);
+
+                    moneyMultiplier = 1;
+                    moneyToEarn = 10;
+                    heatGainTime = 0;
+                    heatSlider.value = 0;
+                    timerSlider.value = 0;
 
                     hasWon = true;
                     startheatDetection = false;
@@ -195,15 +206,16 @@ public class OvenInteraction : MonoBehaviour
                     ovenOpenClose.clip = ovenOpen;
                     ovenOpenClose.Play();
                 }
-
-                if(heatLock && heatSlider.value < 150 || heatGainTime > 180)
-                {
-                    moneyMultiplier *= 0.75f;
-                    moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
-                    
-                    perfectExecution = false;
-                }
             }
+
+            if(heatLock && heatSlider.value < 155 || heatGainTime > 175)
+            {
+                moneyMultiplier *= 0.75f;
+                moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
+                
+                perfectExecution = false;
+            }
+
         }
     }
 

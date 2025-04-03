@@ -151,7 +151,7 @@ public class ObjectiveManager : MonoBehaviour
     public void AddmoneyToQuota()
     {
         moneyEarned += moneyToAdd;
-
+        moneyEarned = (float)Math.Round(moneyEarned, 2);
         //UI quota update
         moneyText.text = moneyEarned.ToString();
     }
@@ -230,10 +230,14 @@ public class ObjectiveManager : MonoBehaviour
         return moneyCuttingCheese;
     }
 
-    public int SplitValue
+    public void SplitValue()
     {
-        get{return ingredientSplit;}
-        set{ingredientSplit += value;}
+        ingredientSplit++;
+    }
+
+    public int IngredientSplit
+    {
+        get { return ingredientSplit;}
     }
 
     IEnumerator QuotaScreenActivate()

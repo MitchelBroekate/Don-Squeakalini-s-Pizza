@@ -1266,7 +1266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0055132, y: 34.849663}
+  m_AnchoredPosition: {x: -0.0000021718, y: 41.56}
   m_SizeDelta: {x: 7.2747, y: 2.0099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &777549406
@@ -3492,7 +3492,7 @@ PrefabInstance:
     - target: {fileID: 848037290711989865, guid: 18582f61f70814c4c9161beaf60a8696,
         type: 3}
       propertyPath: m_Value
-      value: 155
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 848037290711989865, guid: 18582f61f70814c4c9161beaf60a8696,
         type: 3}
@@ -3752,6 +3752,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4362166839346794658, guid: 979d88632fa3e9f4e8f46c4bd19d3721,
         type: 3}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: ovenInteraction.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: ovenInteraction.Array.data[0]
+      value: 
+      objectReference: {fileID: 1186907554}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: cuttingBoardInteraction.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558246018734914129, guid: 08464327b8943f54ea9ac2e7a06582de,
+        type: 3}
+      propertyPath: cuttingBoardInteraction.Array.data[0]
+      value: 
+      objectReference: {fileID: 824420340}
     - target: {fileID: 8546366276236169702, guid: 08464327b8943f54ea9ac2e7a06582de,
         type: 3}
       propertyPath: notification
@@ -4102,9 +4122,19 @@ PrefabInstance:
       objectReference: {fileID: 584270734}
     - target: {fileID: 1933378613067558657, guid: ef2b8bd470eb9b343940047570f1fb67,
         type: 3}
+      propertyPath: pizzaBaked
+      value: 
+      objectReference: {fileID: 2100000, guid: 78f8073ed0afaf54db31bf80ea2982fd, type: 2}
+    - target: {fileID: 1933378613067558657, guid: ef2b8bd470eb9b343940047570f1fb67,
+        type: 3}
       propertyPath: timerSlider
       value: 
       objectReference: {fileID: 591180686}
+    - target: {fileID: 1933378613067558657, guid: ef2b8bd470eb9b343940047570f1fb67,
+        type: 3}
+      propertyPath: cheeseMolten
+      value: 
+      objectReference: {fileID: 2100000, guid: d9c8cb8261cd62547914a588d0bd9887, type: 2}
     - target: {fileID: 1933378613067558657, guid: ef2b8bd470eb9b343940047570f1fb67,
         type: 3}
       propertyPath: feedbackText

@@ -17,20 +17,6 @@ public class CustomerManager : MonoBehaviour
 
     int ingredientAmount;
 
-    float customerMoney = 25;
-
-    void CreateCustomerMoney()
-    {
-        if(objectiveManager.quotasCompleted < 2)
-        {
-            customerMoney = 25;
-        }
-        else
-        {
-            customerMoney = 25 * objectiveManager.quotasCompleted / 1.5f;
-        }
-    }
-
     public void CustomerSpawner()
     {
         ingredientsToAdd.Clear();
