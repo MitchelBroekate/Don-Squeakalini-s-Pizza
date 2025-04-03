@@ -263,6 +263,11 @@ public class ObjectiveManager : MonoBehaviour
         return moneyToAdd;
     }
 
+    public float ReadMoneyAdd
+    {
+        get {return moneyToAdd;}
+    }
+
     public void AddIngredientMoney()
     {
         float ingredientMoney = moneyCuttingPepperoni + moneyCuttingSauce + moneyCuttingPaprika + moneyCuttingSauce;

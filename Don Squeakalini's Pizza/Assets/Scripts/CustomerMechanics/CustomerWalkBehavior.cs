@@ -77,7 +77,11 @@ public class CustomerWalkBehavior : MonoBehaviour
             targetRotation = Quaternion.LookRotation(new Vector3(checkpoints[currentCheckpoint].transform.position.x, transform.position.y, checkpoints[currentCheckpoint].transform.position.z) - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
             
-            animator.SetBool("Walking", true);
+
+            if(!animator.GetBool("Wrong") && !animator.GetBool("Correct"))
+            {
+                animator.SetBool("Walking", true);
+            }
         }
 
 
@@ -111,11 +115,9 @@ public class CustomerWalkBehavior : MonoBehaviour
                     else
                     {
                         rb.isKinematic = true;
-                        StartCoroutine(customerWaitTime.WaitTime());
                         lookSwitch = false;
 
                         customerWait = true;
-                        print("CustomerWaiting");
                     }
                     break;
 

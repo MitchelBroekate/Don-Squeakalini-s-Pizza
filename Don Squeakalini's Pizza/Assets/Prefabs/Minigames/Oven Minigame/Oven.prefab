@@ -458,6 +458,9 @@ MonoBehaviour:
   ovenPing: {fileID: 8300000, guid: 7af27d083291b1d49bd96fa4928d5933, type: 3}
   pizzaBaked: {fileID: 2100000, guid: 78f8073ed0afaf54db31bf80ea2982fd, type: 2}
   cheeseMolten: {fileID: 2100000, guid: d9c8cb8261cd62547914a588d0bd9887, type: 2}
+  ovenDoor: {fileID: 65318823409810030}
+  rotateOpenDoor: 0
+  rotateCloseDoor: 0
 --- !u!114 &5921473118703666005
 MonoBehaviour:
   m_ObjectHideFlags: 0
