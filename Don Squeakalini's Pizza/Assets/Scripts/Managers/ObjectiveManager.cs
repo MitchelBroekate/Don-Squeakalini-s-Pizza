@@ -56,22 +56,22 @@ public class ObjectiveManager : MonoBehaviour
         CreateQuota();
     }
 
-    // void Update()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.M))
-    //     {
-    //         moneyEarned += 1000;
-    //         customersCompleted += 100;
-    //     }
+    void Update()
+    {
+        // if(Input.GetKeyDown(KeyCode.M))
+        // {
+        //     moneyEarned += 1000;
+        //     customersCompleted += 100;
+        // }
 
-    //     if(Input.GetKeyDown(KeyCode.L))
-    //     {
-    //         moneyEarned -=1000;
-    //         customersCompleted += 100;
-    //     }
+        // if(Input.GetKeyDown(KeyCode.L))
+        // {
+        //     moneyEarned -=1000;
+        //     customersCompleted += 100;
+        // }
 
-    //     ObjectiveTextUpdater();
-    // }
+        ObjectiveTextUpdater();
+    }
 
     void IntroObjectives()
     {
