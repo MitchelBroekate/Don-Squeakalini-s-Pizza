@@ -74,27 +74,27 @@ public class OvenInteraction : MonoBehaviour
         heatRangeDetection();
     }
 
-    void Update()
-    {
-        if(rotateOpenDoor)
-        {
-            ovenDoor.rotation = Quaternion.Lerp(ovenDoor.rotation, Quaternion.Euler(90, 0, 0), Time.deltaTime * 1);
+    // void Update()
+    // {
+    //     if(rotateOpenDoor)
+    //     {
+    //         ovenDoor.rotation = Quaternion.Lerp(ovenDoor.rotation, Quaternion.Euler(90, 0, 0), Time.deltaTime * 1);
 
-            if(ovenDoor.rotation == Quaternion.Euler(90, 0, 0))
-            {
-                rotateOpenDoor = false;
-            }
-        }
-        if(rotateCloseDoor)
-        {
-            ovenDoor.rotation = Quaternion.Lerp(ovenDoor.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * 1);
+    //         if(ovenDoor.rotation == Quaternion.Euler(90, 0, 0))
+    //         {
+    //             rotateOpenDoor = false;
+    //         }
+    //     }
+    //     if(rotateCloseDoor)
+    //     {
+    //         ovenDoor.rotation = Quaternion.Lerp(ovenDoor.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * 1);
 
-            if(ovenDoor.rotation == Quaternion.Euler(0, 0, 0))
-            {
-                rotateCloseDoor = false;
-            }
-        }
-    }
+    //         if(ovenDoor.rotation == Quaternion.Euler(0, 0, 0))
+    //         {
+    //             rotateCloseDoor = false;
+    //         }
+    //     }
+    // }
 
     public void OvenInteract()
     {
@@ -113,7 +113,7 @@ public class OvenInteraction : MonoBehaviour
                     ovenInteractionState++;
                     ovenOpenClose.clip = ovenOpen;
                     ovenOpenClose.Play();
-                    rotateOpenDoor = true;
+                    //rotateOpenDoor = true;
                     break;
                   
                 case 1:
@@ -167,7 +167,7 @@ public class OvenInteraction : MonoBehaviour
     IEnumerator StartMinigame()
     {
         //close oven
-        rotateCloseDoor = true;
+        //rotateCloseDoor = true;
         ovenOpenClose.clip = ovenClose;
         ovenOpenClose.Play();
         ovenOn.clip = ovenHum;
