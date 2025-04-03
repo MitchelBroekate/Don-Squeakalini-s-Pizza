@@ -17,7 +17,7 @@ public class CustomerInteraction : MonoBehaviour
     CustomerManager customerManager;
     ObjectiveManager objectiveManager;
     CustomerWalkBehavior customerWalkBehavior;
-    Animator animator;
+    CustomerWaitTime customerWaitTime;
 
     [SerializeField] int imageCount;
 
@@ -26,17 +26,19 @@ public class CustomerInteraction : MonoBehaviour
 
     float totalMoneyToGive = 0;
 
-    
+    Animator animator;
+    [SerializeField] GameObject handBox;
+    [SerializeField] GameObject groundBox;
 
     void Start()
     {
         canvas = transform.GetChild(0).transform;
         customerManager = GameObject.Find("Script Managers").GetComponent<CustomerManager>();
         objectiveManager = GameObject.Find("Script Managers").GetComponent<ObjectiveManager>();
+        customerWaitTime = GetComponent<CustomerWaitTime>();
         customerWalkBehavior = GetComponent<CustomerWalkBehavior>();
         pictureParent = canvas.GetChild(0);
         pictureBackground = canvas.GetChild(1);
-
         animator = GetComponent<Animator>();
 
         for(int i = 0; i < customerManager.ingredientsToAdd.Count; i++)
@@ -92,33 +94,14 @@ public class CustomerInteraction : MonoBehaviour
             imageCount++;
         }
 
-        StopCoroutine(ImageFade());
+        StartCoroutine(customerWaitTime.WaitTime());
     }
 
     public void GivePizza()
     {
         if(objectiveManager.PizzaCompleet)
         {
-            pizzaRecieved = true;
-            customerWalkBehavior.currentCheckpoint++;
-            customerWalkBehavior.customerWait = false;
-            customerWalkBehavior.rb.isKinematic = false;
-            customerWalkBehavior.lookSwitch = false;
-
-
-            transform.GetChild(0).gameObject.SetActive(false);
-
-            gameObject.layer = LayerMask.NameToLayer("Customer");
-
-            objectiveManager.BoxDestroyer = true;
-
-            //add money
-            objectiveManager.AddmoneyToQuota();
-            //execute animation
-
-            objectiveManager.CustomerCompletion();
-
-            print("Pizza given");
+            StartCoroutine(pizzaRecieve());
         }
     }
 
@@ -131,5 +114,60 @@ public class CustomerInteraction : MonoBehaviour
     {
         get { return totalMoneyToGive;}
         set { totalMoneyToGive = value;}
+    }
+
+    IEnumerator pizzaRecieve()
+    {
+        //handover
+        animator.SetBool("HandOverThePizza", true);        
+        objectiveManager.BoxDestroyer = true;
+
+        //spawn box in hand
+        handBox.SetActive(true);
+
+        //handover wait
+        yield return new WaitForSeconds(2);
+
+        //handover emotion
+        if(objectiveManager.ReadMoneyAdd < 15)
+        {
+            //angery
+            animator.SetBool("Wrong", true);
+            
+            yield return new WaitForSeconds(0.10f);
+
+            handBox.SetActive(false);
+            groundBox.SetActive(true);
+
+            yield return new WaitForSeconds(5);
+
+            groundBox.SetActive(false);
+        }
+        else
+        {
+            //not angery
+            animator.SetBool("Correct", true);
+            yield return new WaitForSeconds(1.20f);
+        }
+
+
+        //walk away
+
+        pizzaRecieved = true;
+        customerWalkBehavior.currentCheckpoint++;
+        customerWalkBehavior.customerWait = false;
+        customerWalkBehavior.rb.isKinematic = false;
+        customerWalkBehavior.lookSwitch = false;
+
+
+        transform.GetChild(0).gameObject.SetActive(false);
+
+        gameObject.layer = LayerMask.NameToLayer("Customer");
+
+
+
+        objectiveManager.AddmoneyToQuota();
+
+        objectiveManager.CustomerCompletion();
     }
 }
