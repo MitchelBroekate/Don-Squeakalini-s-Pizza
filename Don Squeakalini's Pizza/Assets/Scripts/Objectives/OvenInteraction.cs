@@ -54,7 +54,6 @@ public class OvenInteraction : MonoBehaviour
     [SerializeField] bool rotateOpenDoor = false;
     [SerializeField] bool rotateCloseDoor = false;
 
-
     void Start()
     {
         ovenPizzaHolder = transform.GetChild(0).gameObject;
@@ -74,27 +73,23 @@ public class OvenInteraction : MonoBehaviour
         heatRangeDetection();
     }
 
-    // void Update()
-    // {
-    //     if(rotateOpenDoor)
-    //     {
-    //         ovenDoor.rotation = Quaternion.Lerp(ovenDoor.rotation, Quaternion.Euler(90, 0, 0), Time.deltaTime * 1);
+    void Update()
+    {
+        if(rotateOpenDoor)
+        {
+            float rotationSpeed = 180f;
+            Quaternion targetRotation = Quaternion.Euler(90, 180, 0);
 
-    //         if(ovenDoor.rotation == Quaternion.Euler(90, 0, 0))
-    //         {
-    //             rotateOpenDoor = false;
-    //         }
-    //     }
-    //     if(rotateCloseDoor)
-    //     {
-    //         ovenDoor.rotation = Quaternion.Lerp(ovenDoor.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * 1);
+            ovenDoor.rotation = Quaternion.RotateTowards(ovenDoor.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+        if(rotateCloseDoor)
+        {
+            float rotationSpeed = 180f;
+            Quaternion targetRotation = Quaternion.Euler(0, 180, 0);
 
-    //         if(ovenDoor.rotation == Quaternion.Euler(0, 0, 0))
-    //         {
-    //             rotateCloseDoor = false;
-    //         }
-    //     }
-    // }
+            ovenDoor.rotation = Quaternion.RotateTowards(ovenDoor.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
 
     public void OvenInteract()
     {
@@ -113,7 +108,7 @@ public class OvenInteraction : MonoBehaviour
                     ovenInteractionState++;
                     ovenOpenClose.clip = ovenOpen;
                     ovenOpenClose.Play();
-                    //rotateOpenDoor = true;
+                    rotateOpenDoor = true;
                     break;
                   
                 case 1:
@@ -145,18 +140,8 @@ public class OvenInteraction : MonoBehaviour
         }
         else if(ovenInteractionState == 2)
         {
+            rotateOpenDoor = false;
             StartCoroutine(StartMinigame());
-
-            //switch camera
-            ovenCamera.SetActive(true);
-            pizzariaController.LockPlayer(true);
-            ovenOn.clip = ovenHum;
-            ovenOn.Play();
-
-            for(int i = 0; i < player.transform.childCount; i++)
-            {
-                player.transform.GetChild(i).gameObject.SetActive(false);
-            }
         }
         else
         {
@@ -167,13 +152,25 @@ public class OvenInteraction : MonoBehaviour
     IEnumerator StartMinigame()
     {
         //close oven
-        //rotateCloseDoor = true;
+        rotateCloseDoor = true;
         ovenOpenClose.clip = ovenClose;
         ovenOpenClose.Play();
         ovenOn.clip = ovenHum;
         ovenOn.Play();
         
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
+
+        rotateCloseDoor = false;
+
+        ovenCamera.SetActive(true);
+        pizzariaController.LockPlayer(true);
+        ovenOn.clip = ovenHum;
+        ovenOn.Play();
+
+        for(int i = 0; i < player.transform.childCount; i++)
+        {
+            player.transform.GetChild(i).gameObject.SetActive(false);
+        }
 
         startheatDetection = true;
     }

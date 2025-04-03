@@ -29431,6 +29431,11 @@ PrefabInstance:
       propertyPath: pizzariaController
       value: 
       objectReference: {fileID: 1258939881}
+    - target: {fileID: 2293949739804404116, guid: ef2b8bd470eb9b343940047570f1fb67,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2561588506215382679, guid: ef2b8bd470eb9b343940047570f1fb67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29485,6 +29490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.266
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359388240873755442, guid: ef2b8bd470eb9b343940047570f1fb67,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8602315724129374090, guid: ef2b8bd470eb9b343940047570f1fb67,
         type: 3}
