@@ -23,6 +23,7 @@ public class CustomerWalkBehavior : MonoBehaviour
     public bool lookSwitch = false;
 
     Animator animator;
+    [SerializeField] GameObject handBox;
 
     void Start()
     {
@@ -131,6 +132,7 @@ public class CustomerWalkBehavior : MonoBehaviour
 
                 case 5:
                     customerManager.CustomerSpawner();
+                    handBox.SetActive(false);
                     Destroy(gameObject);
                     break;
                 default:

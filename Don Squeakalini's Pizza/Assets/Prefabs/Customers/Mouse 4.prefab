@@ -1790,6 +1790,7 @@ MonoBehaviour:
   rotateSpeed: 4
   counterLookState: 1
   lookSwitch: 0
+  handBox: {fileID: 4908348171585928910}
 --- !u!114 &427906081500546143
 MonoBehaviour:
   m_ObjectHideFlags: 0

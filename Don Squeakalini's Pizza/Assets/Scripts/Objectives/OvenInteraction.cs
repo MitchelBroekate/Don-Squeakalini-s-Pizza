@@ -93,7 +93,7 @@ public class OvenInteraction : MonoBehaviour
 
     public void OvenInteract()
     {
-        if(objectiveManager.PizzaCompleet)
+        if(objectiveManager.OvenMinigameCompleted)
         {
             StartCoroutine(playerInteraction.PopUpText(2, "I already baked the pizza"));
             return;
@@ -172,7 +172,7 @@ public class OvenInteraction : MonoBehaviour
     {
         rotateOpenDoor = true;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         ovenPizzaHolder.transform.GetChild(0).parent = playerPizzaHolder;
         playerPizzaHolder.GetChild(0).transform.position = playerPizzaHolder.position;
@@ -182,6 +182,15 @@ public class OvenInteraction : MonoBehaviour
         objectiveManager.PizzaGrabbed = true;
 
         objectiveManager.ChangeLayer(playerPizzaHolder.GetChild(0).gameObject,9);
+
+        rotateOpenDoor = false;
+        rotateCloseDoor = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        rotateCloseDoor = false;
+
+        StopCoroutine(GrabPizza());
     }
 
     public void OnOvenHeatIncrease(InputAction.CallbackContext context)
@@ -235,7 +244,9 @@ public class OvenInteraction : MonoBehaviour
 
                     ovenCamera.SetActive(false);
 
+                    
                     ovenOn.clip = ovenPing;
+                    ovenOn.loop = false;
                     ovenOn.Play();
 
                     ovenOpenClose.clip = ovenOpen;
