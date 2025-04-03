@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_UseRadianceAmbientProbe: 0
@@ -98,7 +98,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 9bced54928de82645b95b953dc9a6aee,
     type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 1a67e864888d630449ccaea13a467c55,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 0a7f211c46008c0498fdd3b7fed9454d,
     type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -210,13 +210,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46791405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.045639373, y: 0.9057251, z: -0.10104123, w: 0.4091085}
+  m_LocalPosition: {x: 16.93, y: 6.428, z: -87.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.731, y: 131.383, z: 0}
 --- !u!114 &46791409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 5f131daebafe75f4e8826defd6afb3c9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -572,6 +572,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1125984298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125984300}
+  - component: {fileID: 1125984299}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1125984299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125984298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+--- !u!4 &1125984300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125984298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2144887082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -636,7 +685,13 @@ PrefabInstance:
       value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2546915369571842282, guid: 661369bb58f8d0b44ae83c0e8be69ed0, type: 3}
+    - {fileID: 1843711317059271482, guid: 661369bb58f8d0b44ae83c0e8be69ed0, type: 3}
+    - {fileID: 8321312602429905299, guid: 661369bb58f8d0b44ae83c0e8be69ed0, type: 3}
+    - {fileID: 5232257692853161438, guid: 661369bb58f8d0b44ae83c0e8be69ed0, type: 3}
+    - {fileID: 3645690331071204749, guid: 661369bb58f8d0b44ae83c0e8be69ed0, type: 3}
+    - {fileID: 5700483778991779509, guid: 661369bb58f8d0b44ae83c0e8be69ed0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661369bb58f8d0b44ae83c0e8be69ed0, type: 3}
@@ -771,6 +826,11 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4247230603194935233}
+    - target: {fileID: 4064542342117882969, guid: df0b29df8f9cbb5429a740b3a7169dc9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.20007324
+      objectReference: {fileID: 0}
     - target: {fileID: 4314344911857584959, guid: df0b29df8f9cbb5429a740b3a7169dc9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -1104,3 +1164,4 @@ SceneRoots:
   - {fileID: 152747519}
   - {fileID: 1021867620}
   - {fileID: 2144887082}
+  - {fileID: 1125984300}
