@@ -21,6 +21,7 @@ public class PizzariaController : MonoBehaviour
 
     public bool tabletMoveToLeft = false;
     public bool tabletMoveToRight = false;
+    bool tabletActive = false;
  
     //Used inside script
     float xRotation = 0f;
@@ -30,8 +31,11 @@ public class PizzariaController : MonoBehaviour
 
 
     [SerializeField] GameObject pauseScreen;
+    [SerializeField] GameObject playerWalkCanvas;
 
     [SerializeField] Button myButton;
+
+    public bool canPause = true;
 
     #endregion
 
@@ -98,6 +102,7 @@ public class PizzariaController : MonoBehaviour
 
                 tabletMoveToLeft = false;
                 tabletMoveToRight = true;
+                tabletActive = true;
             }
             else
             {
@@ -126,6 +131,7 @@ public class PizzariaController : MonoBehaviour
                 LockPlayer(false);
 
                 tabletMoveToLeft = false;
+                tabletActive = false;
             }
         }
         if(tabletMoveToRight)
@@ -150,6 +156,8 @@ public class PizzariaController : MonoBehaviour
     {
         if(value.isPressed)
         {
+            if(!canPause || !playerWalkCanvas.activeInHierarchy || tabletActive) return;
+
             if(!pauseScreen.activeInHierarchy)
             {
                 pauseScreen.SetActive(true);

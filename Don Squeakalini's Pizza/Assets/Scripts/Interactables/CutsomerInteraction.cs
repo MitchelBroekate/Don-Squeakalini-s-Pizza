@@ -100,12 +100,14 @@ public class CustomerInteraction : MonoBehaviour
         if(objectiveManager.PizzaCompleet)
         {
             pizzaRecieved = true;
-            customerWalkBehavior.customerWait = false;
             customerWalkBehavior.currentCheckpoint++;
+            customerWalkBehavior.customerWait = false;
+            customerWalkBehavior.rb.isKinematic = false;
+            customerWalkBehavior.lookSwitch = false;
+
 
             transform.GetChild(0).gameObject.SetActive(false);
 
-            customerWalkBehavior.rb.isKinematic = false;
             gameObject.layer = LayerMask.NameToLayer("Customer");
 
             objectiveManager.BoxDestroyer = true;

@@ -38,16 +38,39 @@ public class ObjectiveManager : MonoBehaviour
 
     float quotaMoney = 0;
     public int quotasCompleted = 1;
-    int customerAmount = 0;
-    public int customersCompleted = 0;
+    [SerializeField] int customerAmount = 0;
+    [SerializeField] public int customersCompleted = 0;
 
     [SerializeField] GameObject quotaScreen;
     [SerializeField] GameObject loseScreen;
+    [SerializeField] GameObject playerCanvas;
+
+    [SerializeField] TMP_Text moneyQuotaText;
+    [SerializeField] TMP_Text QuotaQuotaText;
+
+    [SerializeField] TMP_Text objectiveText;
 
     void Start()
     {
         IntroObjectives();  
         CreateQuota();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            moneyEarned += 1000;
+            customersCompleted += 100;
+        }
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            moneyEarned -=1000;
+            customersCompleted += 100;
+        }
+
+        ObjectiveTextUpdater();
     }
 
     void IntroObjectives()
@@ -93,17 +116,12 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
 
-    public void QuotaCompleted()
-    {
-        QuotaScreenDisable();
-    }
-
     public void CustomerCompletion()
     {
         if(customersCompleted >= customerAmount)
         {
             //activate Quota screen
-            QuotaScreenActivate();
+            StartCoroutine(QuotaScreenActivate());
         }
         else
         {
@@ -115,20 +133,21 @@ public class ObjectiveManager : MonoBehaviour
     {
         if(moneyEarned > quotaMoney)
         {
-            //disable quota screen and resume game
+            moneyQuotaText.text = moneyEarned.ToString();
+            QuotaQuotaText.text = quotaMoney.ToString();
+
+            playerCanvas.SetActive(false);
             quotaScreen.SetActive(true);
 
             pizzariaController.LockPlayer(true);
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-
-            QuotaCompleted();
         }
         else
         {
             //activate lose screen
-            quotaScreen.SetActive(false);
+            playerCanvas.SetActive(false);
             loseScreen.SetActive(true);
 
             pizzariaController.LockPlayer(true);
@@ -136,6 +155,27 @@ public class ObjectiveManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
+
+    public void QuotaScreenDisable()
+    {   
+        quotasCompleted++;
+
+        CreateQuota();
+        moneyEarned = 0;
+        customersCompleted = 0;
+
+        moneyText.text = moneyEarned.ToString();
+
+        playerCanvas.SetActive(true);
+        quotaScreen.SetActive(false);
+
+        pizzariaController.canPause = true;
+        pizzariaController.LockPlayer(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     public void ChangeLayer(GameObject obj, int newLayer)
@@ -154,6 +194,37 @@ public class ObjectiveManager : MonoBehaviour
         moneyEarned = (float)Math.Round(moneyEarned, 2);
         //UI quota update
         moneyText.text = moneyEarned.ToString();
+    }
+
+    void ObjectiveTextUpdater()
+    {
+        if(!orderCompleted)
+        {
+            objectiveText.text = "Fill in the customer's order";
+        }
+        else
+        {
+            if(!ingredientToppingsCompleted)
+            {
+                objectiveText.text = "Make the pizza on the cutting board";
+            }
+            else
+            {
+                if(!ovenMinigameCompleted)
+                {
+                    objectiveText.text = "Bake the pizza in the oven";
+                }
+                else if(pizzaCompleet)
+                {
+                    objectiveText.text = "Give the pizza to the customer";
+                }               
+                else
+                {
+                    objectiveText.text = "Put the pizza in the pizza box";
+                }
+
+            }
+        }
     }
 
     public bool PizzaCompleet
@@ -242,27 +313,14 @@ public class ObjectiveManager : MonoBehaviour
 
     IEnumerator QuotaScreenActivate()
     {
+        print("activating quota screen");
+
         yield return new WaitForSeconds(5);
+
+        pizzariaController.canPause = false;
 
         CheckMoneyForQuota();
     }
 
-    IEnumerator QuotaScreenDisable()
-    {
-        yield return new WaitForSeconds(5);
-        
-        quotasCompleted++;
 
-        CreateQuota();
-
-        CheckMoneyForQuota();
-
-        quotaScreen.SetActive(false);
-
-        pizzariaController.LockPlayer(false);
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-    }
 }

@@ -19,8 +19,8 @@ public class CustomerWalkBehavior : MonoBehaviour
     CustomerManager customerManager;
 
     Transform counterLookAt;
-    bool counterLookState = true;
-    bool lookSwitch = false;
+    [SerializeField] bool counterLookState = true;
+    public bool lookSwitch = false;
 
     Animator animator;
 
@@ -107,15 +107,15 @@ public class CustomerWalkBehavior : MonoBehaviour
                         {
                             StartCoroutine(LazyLookTimer());
                         }
-                        lookSwitch = true;
                     }
                     else
                     {
-                        customerWait = true;
                         rb.isKinematic = true;
-                        gameObject.layer = LayerMask.NameToLayer("Interactable");
                         StartCoroutine(customerWaitTime.WaitTime());
                         lookSwitch = false;
+
+                        customerWait = true;
+                        print("CustomerWaiting");
                     }
                     break;
 
@@ -144,11 +144,12 @@ public class CustomerWalkBehavior : MonoBehaviour
 
     IEnumerator LazyLookTimer()
     {
+        lookSwitch = true;
+
         yield return new WaitForSeconds(1);
 
+        gameObject.layer = LayerMask.NameToLayer("Interactable");
+
         counterLookState = false;
-
-        StopCoroutine(LazyLookTimer());
-
     }
 }
