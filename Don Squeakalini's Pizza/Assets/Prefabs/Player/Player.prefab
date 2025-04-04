@@ -8790,7 +8790,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
@@ -8800,13 +8810,38 @@ PrefabInstance:
       objectReference: {fileID: 6682651010616852083}
     - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6682651010616852083}
+    - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeGame
       objectReference: {fileID: 0}
     - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ResetButtonVisuals
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PizzariaController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PizzariaController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473336951901884386, guid: 1cff877b11a49304aa194261de58a37b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4900403329911189806, guid: 1cff877b11a49304aa194261de58a37b,
         type: 3}

@@ -24,6 +24,7 @@ public class SceneLoader : MonoBehaviour
         {
             loadingBar.value = operation.progress;
             yield return null;
+            Time.timeScale = 1;
         }
     }
 }
