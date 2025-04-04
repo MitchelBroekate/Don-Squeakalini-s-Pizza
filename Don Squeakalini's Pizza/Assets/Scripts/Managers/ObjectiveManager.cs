@@ -256,6 +256,11 @@ public class ObjectiveManager : MonoBehaviour
         get {return moneyToAdd;}
     }
 
+    public void MoneyToAddZero()
+    {
+        moneyToAdd = 0;
+    }
+
     public void AddIngredientMoney()
     {
         float ingredientMoney = moneyCuttingPepperoni + moneyCuttingSauce + moneyCuttingPaprika + moneyCuttingSauce;
