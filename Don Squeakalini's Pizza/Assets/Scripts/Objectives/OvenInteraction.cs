@@ -256,6 +256,7 @@ public class OvenInteraction : MonoBehaviour
                 moneyMultiplier = (float)Math.Round(moneyMultiplier, 2);
                 
                 perfectExecution = false;
+                heatLock = false;
             }
 
         }

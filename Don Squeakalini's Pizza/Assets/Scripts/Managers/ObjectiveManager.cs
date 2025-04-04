@@ -178,6 +178,11 @@ public class ObjectiveManager : MonoBehaviour
 
     public void AddmoneyToQuota()
     {
+        if(quotasCompleted > 1)
+        {
+            moneyToAdd *= quotasCompleted / 1.5f;
+        }
+
         moneyEarned += moneyToAdd;
         moneyEarned = (float)Math.Round(moneyEarned, 2);
         //UI quota update
