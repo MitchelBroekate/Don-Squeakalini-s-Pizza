@@ -13764,68 +13764,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
         type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
-      value: 52909fa4-0922-4a7e-992c-ead9e1b09f00
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
-      value: 6e00bf96-71e7-476c-bfa9-5710df3f3a5c
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[9].m_ActionId
-      value: 024b924f-1516-4a6d-a092-9295d12643f3
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[10].m_ActionId
-      value: 714ccf85-f20c-4e8c-bbf1-f3f3e83b196f
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
-      value: Pizzaria Controller/Pause[/Keyboard/escape]
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
-      value: Pizzaria Controller/Quota[/Keyboard/q]
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[9].m_ActionName
-      value: Pizzaria Controller/Loss[/Keyboard/l]
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[10].m_ActionName
-      value: Pizzaria Controller/Win[/Keyboard/m]
-      objectReference: {fileID: 0}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1640799163}
-    - target: {fileID: 666153246997922574, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnOvenHeatIncrease
-      objectReference: {fileID: 0}
     - target: {fileID: 2319621430012755518, guid: 18582f61f70814c4c9161beaf60a8696,
         type: 3}
       propertyPath: m_Name
       value: OvenPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 2319621430012755518, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6025778042628131770, guid: 18582f61f70814c4c9161beaf60a8696,
         type: 3}
@@ -13876,21 +13821,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7332935125357920036, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_RenderShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8817248347337953623, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8817248347337953623, guid: 18582f61f70814c4c9161beaf60a8696,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
