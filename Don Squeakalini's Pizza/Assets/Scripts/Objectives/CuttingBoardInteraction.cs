@@ -37,7 +37,7 @@ public class CuttingBoardInteraction : MonoBehaviour
     int successfullSkillcheck = 0;
 
     float moneyMultiplier = 1;
-    float moneyToEarn = 10;
+    float moneyToEarn = 6;
     
     GameObject pizzaBuild;
     bool instantiatePizzaOnce = true;

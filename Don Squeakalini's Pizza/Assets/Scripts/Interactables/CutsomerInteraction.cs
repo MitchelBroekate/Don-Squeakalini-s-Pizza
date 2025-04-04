@@ -168,6 +168,8 @@ public class CustomerInteraction : MonoBehaviour
 
         objectiveManager.AddmoneyToQuota();
 
+        objectiveManager.MoneyToAddZero();
+
         objectiveManager.CustomerCompletion();
     }
 }
